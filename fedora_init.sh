@@ -15,4 +15,24 @@ dnf install vlc
 #java web plugins
 dnf install java-openjdk icedtea-web
 
+# GIMP
+dnf install gimp
 
+# Unzip
+dnf install unzip
+
+# Spotify
+dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+dnf install spotify-client
+
+# Pidgin IRC
+dnf install pidgin
+
+
+# tools
+
+# maven
+dnf install maven
+
+# git
+dnf install git
