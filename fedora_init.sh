@@ -40,4 +40,6 @@ dnf install git
 # tmux
 dnf install tmux-2.2-1.fc24.x86_64 
 
+# terminator
+dnf install terminator
 
