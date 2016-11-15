@@ -3,6 +3,9 @@
 #update
 dnf update
 
+#hostname setup
+hostnamectl set-hostname “Set-FI”
+
 #activate RPMFusion repository
 rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-24.noarch.rpm
 
