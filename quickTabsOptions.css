@@ -1,0 +1,16 @@
+body {
+  background-color: black;
+}
+
+div.title {
+  color: yellow;
+}
+
+div.url {
+  color: green;
+}
+
+.qs_input {
+  background-color: black;
+}
+
