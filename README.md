@@ -1,3 +1,3 @@
-# init_script
+# myScripts
 
-initial scripts to set up new installations
+a set of scripts for everyday use
