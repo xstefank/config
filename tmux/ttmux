@@ -1,0 +1,3 @@
+#!/bin/bash
+SESSIONNAME=$1
+terminator -e "tmux -q has-session && tmux -2 attach-session -t $SESSIONNAME -E || exec tmux -2 new-session -n$USER -s$SESSIONNAME"
