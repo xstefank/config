@@ -1,0 +1,22 @@
+#!/bin/bash    
+num_layouts=3
+current=1;#layout
+next=$[($current+1) % $num_layouts]
+
+sed -i "/#layout$/s/=.*#/=$next;#/" ${0}
+
+case "$current" in
+	0)
+		setxkbmap -layout us
+		;;
+	1)
+		setxkbmap -layout sk -variant qwerty
+		;;
+	2)
+		setxkbmap -layout cz -variant qwerty
+		;;
+	*)
+		echo "Invalid keyboard layout number: $current"
+		exit 1
+esac
+
