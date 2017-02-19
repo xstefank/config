@@ -69,8 +69,8 @@ mode "$mode_system" {
 }
 bindsym $mod+grave mode "$mode_system"
 
-# keyboard layouts
-bindsym $mod+space exec --no-startup-id changekeyboard
+# keyboard layouts - bind $mod+space to change layout
+bindsym $mod+space exec changekeyboard 
 
 # change focus
 bindsym $mod+j focus left
@@ -177,6 +177,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# resizing
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls

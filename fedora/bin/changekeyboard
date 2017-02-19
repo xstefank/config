@@ -1,22 +1,19 @@
 #!/bin/bash    
-num_layouts=3
-current=1;#layout
-next=$[($current+1) % $num_layouts]
+currentLayout=`setxkbmap -query | grep layout | grep -o '[^" "]*$'`
 
-sed -i "/#layout$/s/=.*#/=$next;#/" ${0}
 
-case "$current" in
-	0)
-		setxkbmap -layout us
+case "$currentLayout" in
+	us)
+		setxkbmap -rules evdev -layout cz -variant qwerty
 		;;
-	1)
-		setxkbmap -layout sk -variant qwerty
+	cz)
+		setxkbmap -rules evdev -layout sk -variant qwerty
 		;;
-	2)
-		setxkbmap -layout cz -variant qwerty
+	sk)
+		setxkbmap -rules evdev -layout us
 		;;
 	*)
-		echo "Invalid keyboard layout number: $current"
+		echo "Invalid keyboard layout: $currentLayout"
 		exit 1
 esac
 
