@@ -1,0 +1,17 @@
+#!/bin/bash
+
+start=$(date +%s)
+"$@"
+
+timeRun=$(($(date +%s) - start))
+timeMin=$(($timeRun / 60))
+timeSec=$(($timeRun % 60))
+
+command="$(echo $@)"
+message="Command took"
+[[ "$timeMin" != "0" ]] && if [[ "$timeMin" == "1" ]] ; then message="$message $timeMin minute and" ; else message="$message $timeMin minutes and" ; fi
+if [[ "$timeSec" == "1" ]] ; then message="$message $timeSec second to finish" ; else message="$message $timeSec seconds to finish" ; fi
+
+notify-send -u low "$command" "$message"
+
+
