@@ -135,15 +135,22 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# ctrl+alt left/right move between workspaces
-bindsym Control+Mod1+Left workspace prev
+# next/previous workspace
 bindsym Control+Mod1+Right workspace next
+bindsym Control+Mod1+Left workspace prev
+bindsym $mod+Tab workspace back_and_forth
+
+# border changing
+bindsym $mod+b border toggle
 
 # move workspace to different screen
 bindsym $mod+m exec i3-msg move workspace to output left
 
 # create new workspace
 bindsym $mod+n exec i3newWorkspace
+
+#dunst
+exec --no-startup-id dunst &
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -204,7 +211,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+bindsym XF86TouchpadToggle exec toggleTouchpad # toggle touchpad
+
+# scratchpad
+bindsym $mod+Shift+o move scratchpad
+bindsym $mod+o scratchpad show
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
