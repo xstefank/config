@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+if [ $# -eq 0 ] 
+then 
+	scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures' -q 100
+else
+	case "$1" in
+		-i)
+			scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures' -s -q 100
+			;;
+		*)
+			echo "Invalid option: $1"
+			exit 1
+	esac			
+fi
+#scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures'
+
