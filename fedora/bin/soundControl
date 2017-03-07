@@ -1,0 +1,51 @@
+#!/bin/bash
+
+SINK=`pactl list short | grep RUNNING | cut -f1`
+SINKNAME=`pactl list short | grep RUNNING | cut -f2`
+
+function getVol {
+	echo `pactl list sinks | grep '^[[:space:]]Volume:' | \
+    head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`
+}
+
+function notifyVol {
+	currentVol=$(getVol)
+    notify-send -u low "Sink \"$SINKNAME\" volume :: $currentVol%"
+}
+
+function isMuted {
+	echo `pactl list sinks | grep 'Mute' | head -n $(( 1 + 1 )) | tail -n 1 | sed 's/.* //g'`
+}
+
+function notifyMuted {
+	IS_MUTED=$(isMuted)
+	MESSAGE="Sink \"$SINKNAME\""
+	if [[ $IS_MUTED == "yes" ]]; then MESSAGE="$MESSAGE muted"; else MESSAGE="$MESSAGE unmuted"; fi
+	echo $MESSAGE
+	notify-send -u low "$MESSAGE"
+}
+
+case "$1" in
+	plus)
+		pactl set-sink-volume $SINK +5% # increase sound volume
+		notifyVol
+		;;
+	minus)
+		pactl set-sink-volume $SINK -5% # increase sound volume
+		notifyVol
+		;;
+	toggle)
+		pactl set-sink-mute $SINK toggle
+		notifyMuted
+		;;
+	ensureMute)
+		IS_MUTED=$(isMuted)
+		if [[ $IS_MUTED == "no" ]]; then pactl set-sink-mute $SINK toggle; fi
+		;; 
+	*)
+		echo "Invalid argument: $1"
+		exit 1
+esac
+
+
+
