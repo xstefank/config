@@ -1,11 +1,19 @@
 #!/bin/bash
 
-SINK=`pactl list short | grep RUNNING | cut -f1`
-SINKNAME=`pactl list short | grep RUNNING | cut -f2`
+function getRunningSinkOrDefault {
+	if `pactl list short | grep RUNNING` ; then
+		echo `pactl list short | grep RUNNING | cut -f2`
+	else
+		echo `pacmd stat | grep "Default sink name" | awk 'NF>1{print $NF}'`
+	fi
+}
+
+SINK=$(getRunningSinkOrDefault)
+SINKNAME=$SINK
 
 function getVol {
 	echo `pactl list sinks | grep '^[[:space:]]Volume:' | \
-    head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`
+    tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`
 }
 
 function notifyVol {
