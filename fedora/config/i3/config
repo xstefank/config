@@ -47,10 +47,11 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+w exec rofi -show window
 
 # wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/10371262_916500888464375_5224014851577686820_o.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 # dual monitors setup
 exec_always xrandr --output DP2-3 --auto --left-of eDP1
+exec_always xrandr --output DP-2-3 --auto --left-of eDP1
 exec_always xrandr --output HDMI1 --auto --left-of eDP1
 exec_always xrandr --output eDP1 --primary
 
@@ -71,6 +72,7 @@ mode "$mode_system" {
 bindsym $mod+grave mode "$mode_system"
 
 # keyboard layouts - bind $mod+space to change layout
+exec_always --no-startup-id setxkbmap -layout us
 bindsym $mod+space exec --no-startup-id changekeyboard 
 
 # change focus
@@ -230,8 +232,24 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym --release Print exec --no-startup-id printscreen
 bindsym --release Shift+Print exec --no-startup-id printscreen -i
 
+# applets
 # nm-applet
-exec_always nm-applet
+exec nm-applet
+exec blueman-applet
+
+# keyring
+exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+
+# colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
