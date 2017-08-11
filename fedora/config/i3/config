@@ -50,9 +50,9 @@ bindsym $mod+w exec rofi -show window
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 # dual monitors setup
-exec_always xrandr --output DP2-3 --auto --left-of eDP1
-exec_always xrandr --output DP-2-3 --auto --left-of eDP1
-exec_always xrandr --output HDMI1 --auto --left-of eDP1
+exec_always xrandr --output DP2-3 --auto --left-of eDP1 ||
+exec_always xrandr --output DP-2-3 --auto --left-of eDP1 ||
+exec_always xrandr --output HDMI1 --auto --left-of eDP1 ||
 exec_always xrandr --output eDP1 --primary
 
 # mode system
@@ -209,7 +209,7 @@ bindsym XF86AudioMute exec --no-startup-id soundControl toggle # mute sound
 exec --no-startup-id soundControl ensureMute
 
 # Microphone mute
-bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
+bindsym XF86AudioMicMute exec --no-startup-id soundControl micMute
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
