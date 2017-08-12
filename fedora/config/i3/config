@@ -50,9 +50,9 @@ bindsym $mod+w exec rofi -show window
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 # dual monitors setup
-exec_always xrandr --output DP2-3 --auto --left-of eDP1 ||
-exec_always xrandr --output DP-2-3 --auto --left-of eDP1 ||
-exec_always xrandr --output HDMI1 --auto --left-of eDP1 ||
+exec_always xrandr --output eDP1 --right-of DP2-3 --auto 
+exec_always xrandr --output eDP1 --right-of DP-2-3 --auto
+exec_always xrandr --output eDP1 --right-of HDMI1 --auto
 exec_always xrandr --output eDP1 --primary
 
 # mode system
@@ -235,7 +235,6 @@ bindsym --release Shift+Print exec --no-startup-id printscreen -i
 # applets
 # nm-applet
 exec nm-applet
-exec blueman-applet
 
 # keyring
 exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
@@ -255,6 +254,6 @@ client.background       #ffffff
 # finds out, if available)
 bar {
        	status_command i3status 
-	tray_output primary
+	tray_output eDP-1
 }
 
