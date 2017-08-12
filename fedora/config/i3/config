@@ -50,10 +50,10 @@ bindsym $mod+w exec rofi -show window
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 # dual monitors setup
-exec_always xrandr --output eDP1 --right-of DP2-3 --auto 
-exec_always xrandr --output eDP1 --right-of DP-2-3 --auto
-exec_always xrandr --output eDP1 --right-of HDMI1 --auto
-exec_always xrandr --output eDP1 --primary
+exec_always xrandr --output eDP-1 --right-of DP2-3 --auto 
+exec_always xrandr --output eDP-1 --right-of DP-2-3 --auto
+exec_always xrandr --output eDP-1 --right-of HDMI-1 --auto
+exec_always xrandr --output eDP-1 --primary
 
 # mode system
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -248,7 +248,6 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
