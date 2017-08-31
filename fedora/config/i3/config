@@ -53,10 +53,9 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 # exec_always /usr/bin/i3reload
 
 # xrandr
-exec_always xrandr -s 0
 exec_always xrandr --output HDMI1 --left-of eDP1 --auto 
-exec_always xrandr --output DP2-3 --left-of eDP1 --auto 
 exec_always xrandr --output DP2 --left-of eDP1 --auto
+exec_always xrandr --output DP2-3 --left-of eDP1 --auto 
 
 # mode system
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
