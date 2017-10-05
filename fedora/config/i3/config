@@ -52,15 +52,6 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 # reload script
 # exec_always /usr/bin/i3reload
 
-# xrandr
-exec_always --no-startup-id xrandr --output HDMI1 --off
-exec_always --no-startup-id xrandr --output DP2 --off
-exec_always --no-startup-id xrandr --output DP2-3 --off
-
-exec_always --no-startup-id xrandr --output HDMI1 --left-of eDP1 --auto 
-exec_always --no-startup-id xrandr --output DP2 --left-of eDP1 --auto
-exec_always --no-startup-id xrandr --output DP2-3 --left-of eDP1 --auto 
-
 # mode system
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -157,8 +148,11 @@ bindsym $mod+m exec i3-msg move workspace to output left
 # create new workspace
 bindsym $mod+n exec i3newWorkspace
 
-#dunst
+# dunst
 exec --no-startup-id dunst &
+
+# dropbox
+exec --no-startup-id dropbox start
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
