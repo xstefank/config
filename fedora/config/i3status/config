@@ -63,7 +63,7 @@ volume master {
 }
 
 run_watch VPN {
-    pidfile = "/var/run/vpnc/pid"
+    pidfile = "/sys/devices/virtual/net/tun*"
 }
 
 cpu_usage {
