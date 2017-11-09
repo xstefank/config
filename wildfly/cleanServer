@@ -1,0 +1,44 @@
+#!/bin/bash
+
+display_help() {
+    echo "Usage: $0 [OPTION] WILDFLY_HOME"
+    echo "   -d, --directory              Set directory to be replaced "
+    exit 1
+}
+
+TEMP=`getopt -o hd: --long help,directory: -n 'cleanServer' -- "$@"`
+eval set -- "$TEMP"
+
+WORKDIR=$PWD
+
+while true; do
+  case $1 in
+    -h|--help)
+      display_help
+      ;;
+    -d|--directory)
+      WORKDIR=$2
+      shift 2
+      ;;
+    --)
+      shift
+      break
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+echo "Cleaning $PWD with server instance $1"
+
+rm -rf $WORKDIR
+cp $1 $WORKDIR -r
+cd $WORKDIR
+
+echo "finished..."
+ 
+
+
+
+
