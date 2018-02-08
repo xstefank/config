@@ -135,10 +135,12 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 bindsym $mod+Mod1+1 workspace 11
 bindsym $mod+Mod1+2 workspace 12
+bindsym $mod+Mod1+3 workspace 13
+bindsym $mod+Mod1+4 workspace 14
 
 # next/previous workspace
-bindsym Control+Mod1+Right workspace next
-bindsym Control+Mod1+Left workspace prev
+bindsym $mod+Mod1+Right workspace next
+bindsym $mod+Mod1+Left workspace prev
 bindsym $mod+Tab workspace back_and_forth
 
 # border changing
@@ -169,6 +171,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+Mod1+1 move container to workspace 11
 bindsym $mod+Shift+Mod1+2 move container to workspace 12
+bindsym $mod+Shift+Mod1+3 move container to workspace 13
+bindsym $mod+Shift+Mod1+4 move container to workspace 14
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -276,7 +280,7 @@ client.background       #ffffff
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-       	status_command i3status 
+    status_command i3status 
 	tray_output eDP-1
 	tray_output eDP1
 }
