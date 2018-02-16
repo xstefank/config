@@ -71,15 +71,15 @@ assign_positional_args
 # [ <-- needed because of Argbash
 
 build_project() {
-  echo "building $1..."
   cd $1
+  echo "building $PWD..."
 
   mvn clean install -DskipTests -Dcheckstyle.skip -Dmaven.javadoc.skip -Denforcer.skip
 
   if [ $? -eq 0 ]; then
-    echo "$1 build successful"
+    echo "$PWD build successful"
   else
-    echo "$1 build failed"
+    echo "$PWD build failed"
     exit
   fi
 }
