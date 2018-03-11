@@ -1,0 +1,6 @@
+#!/bin/bash
+
+eval $(minishift oc-env)git s
+eval $(minishift docker-env)
+oc login $(minishift ip):8443 -u admin -p admin
+
