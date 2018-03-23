@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Installing Java version from $JAVA_HOME ..."
+
+sudo alternatives --install /usr/bin/java java $JAVA_HOME/bin/java 200000
+
+sudo alternatives --install /usr/bin/javac javac $JAVA_HOME/bin/javac 200000
+
+sudo alternatives --install /usr/bin/jar jar $JAVA_HOME/bin/jar 200000
+
+echo Done
+
+
+
