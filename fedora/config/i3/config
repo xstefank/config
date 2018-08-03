@@ -214,9 +214,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id soundControl minus # decrease 
 bindsym XF86AudioMute exec --no-startup-id soundControl toggle # mute sound
 
 # spotifi CLI
-bindsym XF86Tools exec --no-startup-id spotify-cli --playpause
-bindsym XF86Search exec --no-startup-id spotify-cli --prev
-bindsym XF86LaunchA exec --no-startup-id spotify-cli --next
+bindsym XF86Tools exec --no-startup-id spotifycli --playpause
+bindsym XF86Search exec --no-startup-id spotifycli --prev
+bindsym XF86LaunchA exec --no-startup-id spotifycli --next
 
 # no surprises
 exec --no-startup-id soundControl ensureMute
