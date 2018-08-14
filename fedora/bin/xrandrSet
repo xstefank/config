@@ -1,7 +1,12 @@
 #!/bin/bash
 
-xrandr -s 0
-xrandr --output eDP-1-1 --auto --primary
-xrandr --output DP-3.1 --right-of eDP-1-1 --auto
-xrandr --output DP-3.3 --left-of eDP-1-1 --auto
+HDMI=`xrandr | grep "DP-1 connected"`
+
+if [ -z "$HDMI" ]
+then
+	#HDMI not connected, try dock
+      xrandrSetup --dock
+else
+      xrandrSetup --hdmi
+fi
 
