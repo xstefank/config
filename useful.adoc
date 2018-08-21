@@ -1,0 +1,6 @@
+
+= Useful commands and links
+
+=== git PR local checkout +
+`git fetch origin pull/ID/head:BRANCHNAME`
+
