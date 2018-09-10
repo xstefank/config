@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HDMI=`xrandr | grep "DP-1 connected"`
+HDMI=`xrandr | grep "HDMI-2 connected"`
 
 if [ -z "$HDMI" ]
 then
