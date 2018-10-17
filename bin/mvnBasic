@@ -1,0 +1,3 @@
+
+mvn archetype:generate -DarchetypeGroupId=org.xstefank -DarchetypeArtifactId=basic -DgroupId=org.xstefank -DartifactId=future-timeouts-lt
+
