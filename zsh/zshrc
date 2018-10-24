@@ -51,11 +51,22 @@ ZSH_THEME="maranCustom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(
+  git
+  mvn
+  docker
+  docker-compose
+  gradle
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# custom ENV
+JAVA_HOME=
+M2_HOME=
+MAVEN_HOME=$M2_HOME
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -83,6 +94,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
+
 #
 unsetopt share_history
 
