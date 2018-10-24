@@ -105,6 +105,8 @@ sudo alternatives --set javac $JAVA_DIR/bin/javac
 
 sudo alternatives --set jar $JAVA_DIR/bin/jar
 
+sed -i "s#^JAVA_HOME=.*#JAVA_HOME=$JAVA_DIR#g" ~/.zshrc
+
 echo Done
 
 # ] <-- needed because of Argbash
