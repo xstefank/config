@@ -110,8 +110,8 @@ workdir=${_arg_clean_dir:-$PWD}
 
 echo "Cleaning $workdir with server instance $_arg_server_dir"
 
-rm -rf $workdir
-cp $_arg_server_dir $workdir -r
+rm -rf $workdir/*
+cp $_arg_server_dir/* $workdir -r
 cd $workdir
 
 echo "finished..."
