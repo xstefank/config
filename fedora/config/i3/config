@@ -111,10 +111,10 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+Shift+l floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod1+space focus mode_toggle
+bindsym Mod1+l focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -234,6 +234,11 @@ bindsym XF86Tools exec --no-startup-id spotifycli --playpause
 bindsym XF86Search exec --no-startup-id spotifycli --prev
 bindsym XF86LaunchA exec --no-startup-id spotifycli --next
 
+bindsym XF86AudioPlay exec spotifycli --playpause
+bindsym XF86AudioPause exec spotifycli --playpause
+bindsym XF86AudioNext exec spotifycli --next
+bindsym XF86AudioPrev exec spotifycli --prev
+
 # no surprises
 exec --no-startup-id soundControl ensureMute
 
@@ -250,12 +255,6 @@ bindsym XF86TouchpadToggle exec toggleTouchpad # toggle touchpad
 # scratchpad
 bindsym $mod+Shift+o move scratchpad
 bindsym $mod+o scratchpad show
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
 
 # printscreen - scrot
 bindsym --release Print exec --no-startup-id printscreen
