@@ -64,9 +64,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # custom ENV
-export JAVA_HOME=
-export M2_HOME=
-export MAVEN_HOME=$M2_HOME
+JAVA_HOME=
+M2_HOME=
+MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
 
 # export MANPATH="/usr/local/man:$MANPATH"
