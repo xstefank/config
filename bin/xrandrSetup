@@ -107,8 +107,8 @@ if [ $_arg_hdmi = "on" ]; then
 fi
 
 if [ $_arg_dock = "on" ]; then
-	xrandr --output DP3-3 --right-of eDP1 --auto
-	xrandr --output DP3-1 --right-of DP3-3 --auto
+	xrandr --output DP3-2 --right-of eDP1 --auto
+	xrandr --output DP3-1 --right-of DP3-2 --auto
 	exit 0
 fi
 
