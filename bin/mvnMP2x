@@ -130,7 +130,7 @@ assign_positional_args 1 "${_positionals[@]}"
 # [ <-- needed because of Argbash
 
 
-mvn archetype:generate --batch-mode -DarchetypeGroupId=org.xstefank -DarchetypeArtifactId=microprofile21 -DgroupId=$_arg_groupid -DartifactId=$_arg_artifactid -Dversion=$_arg_version
+mvn archetype:generate --batch-mode -DarchetypeGroupId=org.xstefank -DarchetypeArtifactId=microprofile2x -DgroupId=$_arg_groupid -DartifactId=$_arg_artifactid -Dversion=$_arg_version
 
 
 # ] <-- needed because of Argbash
