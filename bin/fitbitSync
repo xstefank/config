@@ -1,0 +1,5 @@
+#!/bin/bash
+
+~/apps/benallard-galileo-83d19bece241/run --bluetooth PyDBUS --debug --database RemoteRESTDatabase
+
+
