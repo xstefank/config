@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Cleaning Intellij IDEA files..."
+
+rm -rf .idea
+rm -rf *.iml
+
+echo "Done"
+
