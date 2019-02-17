@@ -111,7 +111,7 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Shift+l floating toggle
+bindsym Mod1+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym Mod1+l focus mode_toggle
@@ -261,8 +261,8 @@ bindsym --release Print exec --no-startup-id printscreen
 bindsym --release Shift+Print exec --no-startup-id printscreen -i
 
 # applets
-# nm-applet
 exec nm-applet
+exec blueman-applet
 
 #disable bluetooth
 
