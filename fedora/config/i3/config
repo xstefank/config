@@ -260,12 +260,12 @@ bindsym $mod+o scratchpad show
 bindsym --release Print exec --no-startup-id printscreen
 bindsym --release Shift+Print exec --no-startup-id printscreen -i
 
+# bluetooth
+bindsym XF86Display exec --no-startup-id bluetoothSetup
+
 # applets
 exec nm-applet
 exec blueman-applet
-
-#disable bluetooth
-
 
 # keyring
 exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
