@@ -1,0 +1,11 @@
+#!/bin/bash
+
+BLUETOOTH_STATUS=`rfkill list -o DEVICE,SOFT | grep bluetooth | awk '{print $2}'`
+
+if [ $BLUETOOTH_STATUS = "unblocked" ]
+then
+  rfkill block bluetooth
+else
+  rfkill unblock bluetooth
+fi
+
