@@ -10,8 +10,16 @@ fi
 
 # User specific aliases and functions
 
-JAVA_HOME=
-M2_HOME=
+JAVA_HOME=/opt/java/hotspot/jdk8u192-b12
+M2_HOME=/usr/share/maven
 MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
+
+# java
+alias j8='setJDK /opt/java/hotspot/jdk8u192-b12'
+alias j9='setJDK /opt/java/hotspot/jdk-9.0.4+11'
+alias j10='setJDK /opt/java/hotspot/jdk-10.0.2+13'
+alias j11='setJDK /opt/java/hotspot/jdk-11.0.2+9'
+alias j12='setJDK /opt/java/ea/jdk-12'
+alias j13='setJDK /opt/java/ea/jdk-13'
 
