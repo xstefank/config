@@ -64,8 +64,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # custom ENV
-JAVA_HOME=
-M2_HOME=
+JAVA_HOME=/opt/java/hotspot/jdk8u192-b12
+M2_HOME=/usr/share/maven
 MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
 
@@ -98,6 +98,38 @@ export TODOTXT_SORT_COMMAND="sort -rf -k2"
 
 alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 
+# java
+alias j8='setJDK /opt/java/hotspot/jdk8u192-b12'
+alias j9='setJDK /opt/java/hotspot/jdk-9.0.4+11'
+alias j10='setJDK /opt/java/hotspot/jdk-10.0.2+13'
+alias j11='setJDK /opt/java/hotspot/jdk-11.0.2+9'
+alias j12='setJDK /opt/java/ea/jdk-12'
+alias j13='setJDK /opt/java/ea/jdk-13'
+
 #
 unsetopt share_history
+
+# JWT
+
+decode_base64_url() {
+  local len=$((${#1} % 4))
+  local result="$1"
+  if [ $len -eq 2 ]; then result="$1"'=='
+  elif [ $len -eq 3 ]; then result="$1"'='
+  fi
+  echo "$result" | tr '_-' '/+' | openssl enc -d -base64
+}
+
+decode_jwt(){
+   decode_base64_url $(echo -n $2 | cut -d "." -f $1) | jq .
+}
+
+# Decode JWT header
+alias jwth="decode_jwt 1"
+
+# Decode JWT Payload
+alias jwtp="decode_jwt 2"
+
+
+
 
