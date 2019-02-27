@@ -1,0 +1,8 @@
+[user]
+	email = xstefank122@gmail.com
+	name = xstefank
+[alias]
+	lg = !git --no-pager log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n5
+	cane = commit --amend --no-edit
+  fpr = !sh -c 'git fetch $1 pull/$2/head:pr-$2' -
+
