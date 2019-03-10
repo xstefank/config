@@ -65,6 +65,7 @@ source $ZSH/oh-my-zsh.sh
 
 # custom ENV
 JAVA_HOME=/opt/java/hotspot/jdk8u192-b12
+GRAALVM_HOME=/opt/java/graal/graalvm-ce-1.0.0-rc13
 M2_HOME=/usr/share/maven
 MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
