@@ -4,5 +4,5 @@
         "help": "https://github.com/jkbrzt/httpie#config",
         "httpie": "0.9.4"
     },
-    "default_options": ["--style=tango"]
+    "default_options": ["--style=igor"]
 }
