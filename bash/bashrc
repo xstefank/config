@@ -11,7 +11,7 @@ fi
 # User specific aliases and functions
 
 JAVA_HOME=/opt/java/hotspot/jdk8u192-b12
-GRAALVM_HOME=/opt/java/graal/graalvm-ce-1.0.0-rc13
+export GRAALVM_HOME=/opt/java/graalvm-ce-1.0.0-rc14/
 M2_HOME=/usr/share/maven
 MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
