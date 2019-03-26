@@ -69,6 +69,8 @@ export GRAALVM_HOME=/opt/java/graalvm-ce-1.0.0-rc14/
 M2_HOME=/usr/share/maven
 MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
+export DEBUG_8787=-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=y
+export DEBUG_5005=-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
