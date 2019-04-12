@@ -2,8 +2,8 @@
 
 # Created by argbash-init v2.7.1
 # Rearrange the order of options below according to what you would like to see in the help message.
-# ARG_OPTIONAL_SINGLE([groupId],[g],[groupId of the generated project],[org.xstefank])
-# ARG_OPTIONAL_SINGLE([version],[v],[version of the generated project],[0.0.1])
+# ARG_OPTIONAL_SINGLE([groupId],[g],[groupId of the generated project],[io.xstefank])
+# ARG_OPTIONAL_SINGLE([version],[v],[version of the generated project],[999-SNAPSHOT])
 # ARG_POSITIONAL_SINGLE([artifactId],[artifactId of the generated project])
 # ARG_DEFAULTS_POS()
 # ARG_HELP([<The general help message of my script>])
@@ -35,8 +35,8 @@ begins_with_short_option()
 _positionals=()
 _arg_artifactid=
 # THE DEFAULTS INITIALIZATION - OPTIONALS
-_arg_groupid="org.xstefank"
-_arg_version="0.0.1"
+_arg_groupid="io.xstefank"
+_arg_version="999-SNAPSHOT"
 
 
 print_help()
@@ -44,8 +44,8 @@ print_help()
 	printf '%s\n' "<The general help message of my script>"
 	printf 'Usage: %s [-g|--groupId <arg>] [-v|--version <arg>] [-h|--help] <artifactId>\n' "$0"
 	printf '\t%s\n' "<artifactId>: artifactId of the generated project"
-	printf '\t%s\n' "-g, --groupId: groupId of the generated project (default: 'org.xstefank')"
-	printf '\t%s\n' "-v, --version: version of the generated project (default: '0.0.1')"
+	printf '\t%s\n' "-g, --groupId: groupId of the generated project (default: 'io.xstefank')"
+	printf '\t%s\n' "-v, --version: version of the generated project (default: '999-SNAPSHOT')"
 	printf '\t%s\n' "-h, --help: Prints help"
 }
 
@@ -130,7 +130,7 @@ assign_positional_args 1 "${_positionals[@]}"
 # [ <-- needed because of Argbash
 
 
-mvn archetype:generate --batch-mode -DarchetypeGroupId=org.xstefank -DarchetypeArtifactId=basic -DgroupId=$_arg_groupid -DartifactId=$_arg_artifactid -Dversion=$_arg_version
+mvn archetype:generate --batch-mode -DarchetypeGroupId=io.xstefank -DarchetypeArtifactId=basic -DgroupId=$_arg_groupid -DartifactId=$_arg_artifactid -Dversion=$_arg_version
 
 
 # ] <-- needed because of Argbash
