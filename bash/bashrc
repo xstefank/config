@@ -10,10 +10,10 @@ fi
 
 # User specific aliases and functions
 
-JAVA_HOME=/opt/java/hotspot/jdk8u212-b03
+export JAVA_HOME=/home/mstefank/apps/java/jdk8u212-b03
 export GRAALVM_HOME=/opt/java/graalvm-ce-1.0.0-rc15/
-M2_HOME=/usr/share/maven
-MAVEN_HOME=$M2_HOME
+export M2_HOME=/usr/share/maven
+export MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
 export DEBUG_8787=-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=y
 export DEBUG_5005=-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y
