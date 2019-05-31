@@ -63,14 +63,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# custom ENV
-export JAVA_HOME=/home/mstefank/apps/java/jdk8u212-b03
-export GRAALVM_HOME=/opt/java/graalvm-ce-1.0.0-rc15/
-export M2_HOME=/home/mstefank/apps/apache-maven-3.6.1
-export MAVEN_HOME=$M2_HOME
-export TODOTXT_SORT_COMMAND="sort -rf -k2"
-export DEBUG_8787=-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=y
-export DEBUG_5005=-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y
+# Custom ENV
+. ~/.env
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -102,12 +96,12 @@ export DEBUG_5005=-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y
 alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 
 # java
-alias j8='setJDK /opt/java/hotspot/jdk8u212-b03'
-alias j9='setJDK /opt/java/hotspot/jdk-9.0.4+11'
-alias j10='setJDK /opt/java/hotspot/jdk-10.0.2+13'
-alias j11='setJDK /opt/java/hotspot/jdk-11.0.3+7'
-alias j12='setJDK /opt/java/hotspot/jdk-12.0.1+12'
-alias j13='setJDK /opt/java/ea/jdk-13'
+alias j8='. setJDK /opt/java/hotspot/jdk8u212-b03'
+alias j9='. setJDK /opt/java/hotspot/jdk-9.0.4+11'
+alias j10='. setJDK /opt/java/hotspot/jdk-10.0.2+13'
+alias j11='. setJDK /opt/java/hotspot/jdk-11.0.3+7'
+alias j12='. setJDK /opt/java/hotspot/jdk-12.0.1+12'
+alias j13='. setJDK /opt/java/ea/jdk-13'
 
 #
 unsetopt share_history
