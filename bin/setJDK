@@ -9,11 +9,6 @@ last_char=${JAVA_DIR: -1}
 
 echo "Setting Java version from $JAVA_DIR..."
 
-sudo alternatives --set java $JAVA_DIR/bin/java
-
-sudo alternatives --set javac $JAVA_DIR/bin/javac
-
-#sudo alternatives --set jar $JAVA_DIR/bin/jar
 
 sed -i "s#^export JAVA_HOME=.*#export JAVA_HOME=$JAVA_DIR#g" ~/.env
 sed -i "s#^JAVA_HOME=.*#JAVA_HOME=$JAVA_DIR#g" ~/.mavenrc
