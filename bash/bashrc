@@ -13,7 +13,7 @@ fi
 source ~/.env
 
 # java
-alias j8='. setJDK /opt/java/hotspot/jdk8u212-b03'
+alias j8='. setJDK /opt/java/hotspot/jdk8u212-b04'
 alias j9='. setJDK /opt/java/hotspot/jdk-9.0.4+11'
 alias j10='. setJDK /opt/java/hotspot/jdk-10.0.2+13'
 alias j11='. setJDK /opt/java/hotspot/jdk-11.0.3+7'
