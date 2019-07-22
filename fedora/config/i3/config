@@ -178,6 +178,9 @@ bindsym $mod+b border toggle
 bindsym $mod+m exec i3-msg move workspace to output right
 bindsym $mod+Shift+m exec i3-msg move workspace to output left
 
+# bluetooth home headset
+bindsym $mod+Shift+b exec bluetoothctl connect 59:62:2D:D9:BD:AF
+
 # create new workspace
 bindsym $mod+n exec i3newWorkspace
 
