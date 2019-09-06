@@ -4,3 +4,10 @@
 === git PR local checkout +
 `git fetch origin pull/ID/head:BRANCHNAME`
 
+=== change global nautilus theme to dark
+~/.config/gtk-*/setting.ini
+
+- gtk-application-prefer-dark-theme=1
+
+
+
