@@ -13,7 +13,7 @@ echo "Setting Java version from $JAVA_DIR..."
 sed -i "s#^export JAVA_HOME=.*#export JAVA_HOME=$JAVA_DIR#g" ~/.env
 sed -i "s#^JAVA_HOME=.*#JAVA_HOME=$JAVA_DIR#g" ~/.mavenrc
 
-source ~/.zshrc
+source ~/.env
 
 echo Done
 
