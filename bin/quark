@@ -134,7 +134,6 @@ mvn io.quarkus:quarkus-maven-plugin:1.1.1.Final:create \
     -DprojectArtifactId=$_arg_artifactid \
     -DprojectVersion=$_arg_version \
     -DclassName="io.xstefank.PingResource" \
-    -Dpath="/ping" \
-    -DplatformVersion=1.1.0.Final -DplatformArtifactId=quarkus-bom
+    -Dpath="/ping"
 
 # ] <-- needed because of Argbash
