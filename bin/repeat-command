@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cleanup ()
+{
+kill -s SIGTERM $!
+exit 0
+}
+
+trap cleanup SIGINT SIGTERM
+
+while sleep .1; do $1 & wait $!; done
+
