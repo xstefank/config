@@ -107,6 +107,12 @@ assign_positional_args
 # [ <-- needed because of Argbash
 
 workdir=${_arg_clean_dir:-$PWD}
+eval workdir=$workdir
+
+if [[ $workdir -ef ~ ]]; then
+    echo "I won't delete your home directory! Do it yourself if you wish."
+    exit 1
+fi
 
 echo "Cleaning $workdir with server instance $_arg_server_dir"
 
