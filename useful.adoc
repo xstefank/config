@@ -9,5 +9,8 @@
 
 - gtk-application-prefer-dark-theme=1
 
+=== disbale window title in gnome-terminal
+`sudo gsettings set org.gnome.Terminal.Legacy.Settings headerbar false`
+
 
 
