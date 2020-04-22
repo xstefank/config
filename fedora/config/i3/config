@@ -273,6 +273,16 @@ exec blueman-applet
 # keyring
 exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
+# other shortcuts
+# remove mouse
+bindsym $mod+q xdotool mousemove $(xdpyinfo | grep dimensions | awk '{print $2}' | sed 's/x/ /')
+
+# idea
+bindsym $mod+Shift+i exec idea
+
+# google chrome
+bindsym $mod+Shift+g exec google-chrome
+
 # colors
 # class                 border  backgr. text    indicator child_border
 #client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
