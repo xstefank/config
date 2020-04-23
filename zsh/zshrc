@@ -106,11 +106,44 @@ alias j12='. setJDK /opt/java/hotspot/jdk-12.0.2+10'
 alias j13='. setJDK /opt/java/hotspot/jdk-13'
 alias j14='. setJDK /opt/java/hotspot/jdk-14+36'
 
+# git
+alias glg='git lg'
+alias glgi='git lgi'
+alias gacane='git acane'
+alias ggpushf='ggpush -f'
 
-bindkey -M emacs "^ " globalias
-bindkey -M viins "^ " globalias
-bindkey -M emacs " " magic-space
-bindkey -M viins " " magic-space
+# mvn
+alias mci='mvn clean install'
+alias mcp='mvn clean package'
+alias mcif='mvn clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcit='mvn clean install -DskipTests'
+alias mct='mvn clean test'
+alias mcqd='mvn clean compile quarkus:dev'
+
+# idea
+alias i='idea pom.xml'
+
+# grep
+alias grep='grep --color=auto'
+alias ggrep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+
+
+# custom
+alias cs='cleanServer'
+
+# invert Ctrl+Space
+# just reference, leaves ^@ after expansion
+#bindkey -M emacs "^ " globalias
+#bindkey -M viins "^ " globalias
+#bindkey -M emacs " " magic-space
+#bindkey -M viins " " magic-space
+
+#function my-expand() zle _expand_alias && zle expand-word
+#zle -N my-expand
+#bindkey -M emacs "^ " my-expand
+#bindkey -M viins "^ " my-expand
+#bindkey -M emacs " " magic-space
+#bindkey -M viins " " magic-space
 
 #
 unsetopt share_history
