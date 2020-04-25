@@ -129,6 +129,7 @@ alias ggrep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
 # quarkus
 alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
+alias qd='mvn clean compile quarkus:dev'
 
 # custom
 alias cs='cleanServer'
@@ -140,12 +141,12 @@ alias cs='cleanServer'
 #bindkey -M emacs " " magic-space
 #bindkey -M viins " " magic-space
 
-#function my-expand() zle _expand_alias && zle expand-word
-#zle -N my-expand
-#bindkey -M emacs "^ " my-expand
-#bindkey -M viins "^ " my-expand
-#bindkey -M emacs " " magic-space
-#bindkey -M viins " " magic-space
+function my-expand() zle _expand_alias && zle expand-word
+zle -N my-expand
+bindkey -M emacs "^ " my-expand
+bindkey -M viins "^ " my-expand
+bindkey -M emacs " " magic-space
+bindkey -M viins " " magic-space
 
 #
 unsetopt share_history
