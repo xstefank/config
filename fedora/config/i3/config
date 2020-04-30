@@ -275,7 +275,7 @@ exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
 # other shortcuts
 # remove mouse
-bindsym $mod+q xdotool mousemove $(xdpyinfo | grep dimensions | awk '{print $2}' | sed 's/x/ /')
+bindsym $mod+q exec xdotool mousemove $(xdpyinfo | grep dimensions | awk '{print $2}' | sed 's/x/ /')
 
 # idea
 bindsym $mod+Shift+i exec idea
