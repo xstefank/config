@@ -133,6 +133,7 @@ alias ggrep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 # quarkus
 alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
 alias qd='mvn clean compile quarkus:dev'
+alias ql='mvn quarkus:list-extensions'
 
 # custom
 alias cs='cleanServer'
