@@ -135,6 +135,10 @@ alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
 alias qd='mvn clean compile quarkus:dev'
 alias ql='mvn quarkus:list-extensions'
 
+# docker
+alias doc='docker'
+alias docp='docker-compose'
+
 # custom
 alias cs='cleanServer'
 
