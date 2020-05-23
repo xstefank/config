@@ -122,6 +122,7 @@ alias mcif='mvn clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dma
 alias mcit='mvn clean install -DskipTests'
 alias mct='mvn clean test'
 alias mcqd='mvn clean compile quarkus:dev'
+alias mcin='mvn clean install -Pnative'
 
 # idea
 alias i='idea pom.xml'
