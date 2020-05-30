@@ -95,6 +95,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias zshconfig='vim ~/.zshrc'
 alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 
 # java
