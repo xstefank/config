@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/bin/countdown-bin $1 && notify-send "Countdown $1 finished" 
+
