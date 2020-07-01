@@ -117,6 +117,7 @@ alias ggpushf='ggpush -f'
 alias gupull='git pull upstream $(git_current_branch)'
 alias gwip='git wip'
 alias grwip='git reset --soft @~ && git reset'
+alias gch='git checkout HEAD --'
 
 # mvn
 alias mi='mvn install'
