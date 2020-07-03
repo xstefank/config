@@ -132,6 +132,8 @@ alias mp='mvn package'
 alias mcp='mvn clean package'
 alias mcpt='mvn clean package -DskipTests'
 alias mt='mvn test'
+alias 🤘="mvn clean compile quarkus:dev"
+
 
 # idea
 alias i='idea pom.xml'
