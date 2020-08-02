@@ -20,13 +20,13 @@ export PATH
 source ~/.env
 
 # java
-alias j8='. setJDK /opt/java/hotspot/jdk8u212-b04'
-alias j9='. setJDK /opt/java/hotspot/jdk-9.0.4+11'
+alias j8='. setJDK /opt/java/hotspot/jdk8u265-b01'
+alias j9='. setJDK /opt/java/hotspot/jdk-9+181'
 alias j10='. setJDK /opt/java/hotspot/jdk-10.0.2+13'
-alias j11='. setJDK /opt/java/hotspot/jdk-11.0.3+7'
-alias j12='. setJDK /opt/java/hotspot/jdk-12.0.1+12'
-alias j13='. setJDK /opt/java/hotspot/jdk-13'
-alias j14='. setJDK /opt/java/hotspot/jdk-14+36'
+alias j11='. setJDK /opt/java/hotspot/jdk-11.0.8+10'
+alias j12='. setJDK /opt/java/hotspot/jdk-12.0.2+10'
+alias j13='. setJDK /opt/java/hotspot/jdk-13.0.2+8'
+alias j14='. setJDK /opt/java/hotspot/jdk-14.0.2+12'
 alias j15='. setJDK /opt/java/ea/jdk-15'
 
 
