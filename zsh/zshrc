@@ -121,6 +121,8 @@ alias gwip='git wip'
 alias grwip='git reset --soft @~ && git reset'
 alias gch='git checkout HEAD --'
 alias gfpr='git fpr'
+alias gcl='hub clone'
+
 
 # mvn
 alias mi='mvn install'
