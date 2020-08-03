@@ -1,6 +1,6 @@
 export JAVA_HOME=/opt/java/hotspot/jdk-11.0.8+10
 export GRAALVM_HOME=/opt/java/graal/graalvm-ce-java8-20.0.0
-export M2_HOME=/opt/maven/apache-maven-3.6.2
+export M2_HOME=/opt/maven/apache-maven-3.6.3
 export MAVEN_HOME=$M2_HOME
 export TODOTXT_SORT_COMMAND="sort -rf -k2"
 export TODO_ACTIONS_DIR="/home/mstefank/Dropbox/todo/todo.actions.d"
@@ -22,4 +22,16 @@ fi
 
 # linuxbrew
 PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+
+# functions
+
+sha256() {
+  echo "$1 $2" | sha256sum --check
+}
+
+sha512() {
+  echo "$1 $2" | sha512sum --check
+}
+
+
 
