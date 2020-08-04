@@ -98,11 +98,11 @@ parse_commandline "$@"
 
 
 xrandr -s 0
-xrandr --output eDP-1 --auto --primary
+xrandr --output eDP1 --auto --primary
 
 if [ $_arg_hdmi = "on" ]; then
 	#set HDMI output (HDMI-1) left of main monitor (eDP-1-1)
-	xrandr --output DP-1 --right-of eDP-1 --auto
+	xrandr --output DP1 --right-of eDP1 --auto
 	exit 0
 fi
 
