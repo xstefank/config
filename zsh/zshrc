@@ -144,8 +144,8 @@ alias i='idea pom.xml'
 # grep
 alias grep='grep --color=auto'
 alias ggrep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias -g G='| grep'
-alias -g Gi='| grep'
+alias -g G='| grep '
+alias -g Gi='| grep '
 
 # quarkus
 alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
