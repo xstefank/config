@@ -108,7 +108,7 @@ alias j11='jenv global 11.0.8'
 alias j12='jenv global 12.0.2'
 alias j13='jenv global 13.0.2'
 alias j14='jenv global 14.0.2'
-alias j15='. setJDK /opt/java/ea/jdk-15'
+alias j15='jenv global 15-ea'
 
 # git
 alias glg='git lg'
