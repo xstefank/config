@@ -29,8 +29,10 @@ alias j13='. setJDK /opt/java/hotspot/jdk-13.0.2+8'
 alias j14='. setJDK /opt/java/hotspot/jdk-14.0.2+12'
 alias j15='. setJDK /opt/java/ea/jdk-15'
 
-
+# jabba
+[ -s "/home/mstefank/.jabba/jabba.sh" ] && source "/home/mstefank/.jabba/jabba.sh"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
 [[ -s "/home/mstefank/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mstefank/.sdkman/bin/sdkman-init.sh"
+
