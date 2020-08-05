@@ -109,6 +109,8 @@ alias j12='jenv global 12.0.2'
 alias j13='jenv global 13.0.2'
 alias j14='jenv global 14.0.2'
 alias j15='jenv global 15-ea'
+alias jj='java -jar'
+alias jv='java -version'
 
 # git
 alias glg='git lg'
