@@ -101,13 +101,13 @@ alias i3config='vim ~/.config/i3/config'
 alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 
 # java
-alias j8='. setJDK /opt/java/hotspot/jdk8u265-b01'
-alias j9='. setJDK /opt/java/hotspot/jdk-9+181'
-alias j10='. setJDK /opt/java/hotspot/jdk-10.0.2+13'
-alias j11='. setJDK /opt/java/hotspot/jdk-11.0.8+10'
-alias j12='. setJDK /opt/java/hotspot/jdk-12.0.2+10'
-alias j13='. setJDK /opt/java/hotspot/jdk-13.0.2+8'
-alias j14='. setJDK /opt/java/hotspot/jdk-14.0.2+12'
+alias j8='jenv global 1.8.0.265'
+alias j9='jenv global 9'
+alias j10='jenv global 10.0.2'
+alias j11='jenv global 11.0.8'
+alias j12='jenv global 12.0.2'
+alias j13='jenv global 13.0.2'
+alias j14='jenv global 14.0.2'
 alias j15='. setJDK /opt/java/ea/jdk-15'
 
 # git
@@ -198,7 +198,9 @@ alias jwth="decode_jwt 1"
 # Decode JWT Payload
 alias jwtp="decode_jwt 2"
 
-
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 
 
@@ -211,6 +213,4 @@ if [ -f '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/ho
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
 [[ -s "/home/mstefank/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mstefank/.sdkman/bin/sdkman-init.sh"
-
-
 
