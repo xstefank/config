@@ -125,6 +125,8 @@ alias gch='git checkout HEAD --'
 alias gfpr='git fpr'
 alias gcl='hub clone'
 alias gra='hub remote add'
+alias gpr='gh pr'
+alias gprc='gh pr checkout'
 
 # mvn
 alias mi='mvn install'
