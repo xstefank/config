@@ -166,6 +166,7 @@ alias doc='docker-compose'
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
+alias notes='vim ~/Documents/notes.txt'
 
 # invert Ctrl+Space
 # just reference, leaves ^@ after expansion
