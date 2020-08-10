@@ -180,12 +180,12 @@ alias notes='vim ~/Documents/notes.txt'
 #bindkey -M emacs " " magic-space
 #bindkey -M viins " " magic-space
 
-#function my-expand() zle _expand_alias && zle expand-word
-#zle -N my-expand
-#bindkey -M emacs "^ " my-expand
-#bindkey -M viins "^ " my-expand
-#bindkey -M emacs " " magic-space
-#bindkey -M viins " " magic-space
+function my-expand() zle _expand_alias && zle expand-word
+zle -N my-expand
+bindkey -M emacs "^ " my-expand
+bindkey -M viins "^ " my-expand
+bindkey -M emacs " " magic-space
+bindkey -M viins " " magic-space
 
 #
 unsetopt share_history
