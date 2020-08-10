@@ -143,6 +143,8 @@ alias mt='mvn test'
 alias 🤘="mvn clean compile quarkus:dev"
 alias mdt='mvn dependency:tree'
 alias Mv='mvn -v'
+alias -g st='-Dtest='
+alias -g it='-Dit.test='
 
 # idea
 alias i='idea pom.xml'
@@ -150,8 +152,8 @@ alias i='idea pom.xml'
 # grep
 alias grep='grep --color=auto'
 alias ggrep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias -g G='| grep '
-alias -g Gi='| grep '
+alias -g G='| grep'
+alias -g Gi='| grep -i'
 
 # quarkus
 alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
