@@ -242,6 +242,9 @@ bindsym XF86AudioPause exec spotifycli --playpause
 bindsym XF86AudioNext exec spotifycli --next
 bindsym XF86AudioPrev exec spotifycli --prev
 
+# VPN
+bindsym XF86Favorites exec --no-startup-id nmcli con up id "Brno (BRQ)"
+
 # no surprises
 exec --no-startup-id soundControl ensureMute
 
