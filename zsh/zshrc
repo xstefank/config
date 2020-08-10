@@ -98,7 +98,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias zshconfig='vim ~/.zshrc'
 alias i3config='vim ~/.config/i3/config'
-alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 
 # java
 alias j8='jenv global 1.8.0.265'
@@ -162,6 +161,10 @@ alias ql='mvn quarkus:list-extensions'
 # docker
 alias d='docker'
 alias doc='docker-compose'
+
+# todo.txt
+alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
+alias tA='t ap A '
 
 # other
 alias cs='cleanServer'
