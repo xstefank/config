@@ -172,6 +172,7 @@ alias tA='t ap A '
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
 alias notes='vim ~/Documents/notes.txt'
+alias j='cd /home/mstefank/junk'
 
 # invert Ctrl+Space
 # just reference, leaves ^@ after expansion
