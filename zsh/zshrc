@@ -164,6 +164,10 @@ alias ql='mvn quarkus:list-extensions'
 alias d='docker'
 alias doc='docker-compose'
 
+# openshift
+alias op='oc get pods'
+alias olg='oc logs -f'
+
 # todo.txt
 alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 alias tA='t ap A '
