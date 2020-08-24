@@ -157,6 +157,8 @@ alias gprc='gh pr checkout'
 alias gr='git reset'
 alias grf='git checkout HEAD --'
 alias gre='git remote'
+alias grh='git reset --hard'
+alias grs='git reset --soft'
 
 # mvn
 alias mi='mvn install'
