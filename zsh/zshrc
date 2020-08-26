@@ -206,6 +206,10 @@ alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 alias tA='t ap A '
 alias tB='t ap B '
 
+# httpie
+alias h='http'
+alias hl='hl() { http :8080/$1 };hl'
+
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
