@@ -178,6 +178,7 @@ alias mdt='mvn dependency:tree'
 alias Mv='mvn -v'
 alias -g st='-Dtest='
 alias -g it='-Dit.test='
+alias -g cs='-Dcheckstyle.skip'
 
 # idea
 alias i='idea pom.xml'
