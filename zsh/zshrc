@@ -160,6 +160,7 @@ alias gre='git remote'
 alias grh='git reset --hard'
 alias grs='git reset --soft'
 alias gcfd='git clean -fd'
+alias gfr='grhh && gcfd'
 
 # mvn
 alias mi='mvn install'
