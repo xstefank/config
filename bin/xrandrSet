@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCK=`xrandr | grep "DP-3.1 connected"`
+DOCK=`xrandr | grep "DP3-3 connected"`
 
 if [ -z "$DOCK" ]
 then
