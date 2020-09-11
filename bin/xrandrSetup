@@ -98,9 +98,9 @@ parse_commandline "$@"
 
 
 xrandr -s 0
-xrandr --output eDP1 --auto --primary
 
 if [ $_arg_hdmi = "on" ]; then
+  xrandr --output eDP1 --auto --primary
 	#set HDMI output (DP1) left of main monitor (eDP1)
 	xrandr --output DP1 --right-of eDP1 --auto
 	exit 0
@@ -108,9 +108,11 @@ fi
 
 if [ $_arg_dock = "on" ]; then
   xrandr --output DP3-3 --right-of eDP1 --auto
-  xrandr --output DP3-1 --right-of DP3-3 --auto
-  #xrandr --output DP-1 --right-of DP-3.1 --auto
-	exit 0
+  xrandr --output DP3-2 --right-of DP3-3 --auto
+  xrandr --output eDP1 --off
+  xrandr --output DP3-1 --right-of DP3-2 --auto
+  xrandr --output DP3-2 --primary
+  exit 0
 fi
 
 # ] <-- needed because of Argbash
