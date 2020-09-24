@@ -162,6 +162,7 @@ alias grh='git reset --hard'
 alias grs='git reset --soft'
 alias gcfd='git clean -fd'
 alias gfr='grhh && gcfd'
+alias grrr='git rerere'
 
 # mvn
 alias mi='mvn install'
@@ -175,6 +176,7 @@ alias mcin='mvn clean install -Pnative'
 alias mp='mvn package'
 alias mcp='mvn clean package'
 alias mcpt='mvn clean package -DskipTests'
+alias mcpf='mvn clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 alias mt='mvn test'
 alias 🤘="mvn clean compile quarkus:dev"
 alias mdt='mvn dependency:tree'
