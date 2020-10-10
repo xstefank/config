@@ -213,6 +213,9 @@ alias docker=podman
 alias op='oc get pods'
 alias olg='oc logs -f'
 
+# kubernetes
+alias k='kubectl'
+
 # todo.txt
 alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
 alias tl='t ls'
