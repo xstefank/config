@@ -202,6 +202,9 @@ alias ql='mvn quarkus:list-extensions'
 # docker
 alias d='docker'
 alias doc='docker-compose'
+alias di='docker image'
+alias dis='docker images'
+alias dps='docker ps'
 
 # openshift
 alias op='oc get pods'
