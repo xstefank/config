@@ -205,6 +205,7 @@ alias doc='docker-compose'
 alias di='docker image'
 alias dis='docker images'
 alias dps='docker ps'
+alias docker-compose='podman-compose'
 
 # podman
 alias docker=podman
