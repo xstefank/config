@@ -35,7 +35,7 @@ begins_with_short_option()
 _positionals=()
 _arg_artifactid=
 # THE DEFAULTS INITIALIZATION - OPTIONALS
-_arg_groupid="org.xstefank"
+_arg_groupid="io.xstefank"
 _arg_version="0.0.1"
 
 
@@ -44,7 +44,7 @@ print_help()
 	printf '%s\n' "<The general help message of my script>"
 	printf 'Usage: %s [-g|--groupId <arg>] [-v|--version <arg>] [-h|--help] <artifactId>\n' "$0"
 	printf '\t%s\n' "<artifactId>: artifactId of the generated project"
-	printf '\t%s\n' "-g, --groupId: groupId of the generated project (default: 'org.xstefank')"
+	printf '\t%s\n' "-g, --groupId: groupId of the generated project (default: 'io.xstefank')"
 	printf '\t%s\n' "-v, --version: version of the generated project (default: '0.0.1')"
 	printf '\t%s\n' "-h, --help: Prints help"
 }
