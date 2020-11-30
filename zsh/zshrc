@@ -136,8 +136,10 @@ alias js13='jenv shell $J13'
 alias js14='jenv shell $J14'
 alias js15='jenv shell $J15'
 
+alias j='java'
 alias jj='java -jar'
 alias jv='java -version'
+alias jol='java -jar java -jar /home/mstefank/apps/jol-cli-latest.jar'
 
 # git
 alias glg='git lg'
@@ -231,7 +233,7 @@ alias hl='hl() { http :8080/$1 };hl'
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
 alias notes='vim ~/Documents/notes.txt'
-alias j='cd /home/mstefank/junk'
+
 
 # invert Ctrl+Space
 # just reference, leaves ^@ after expansion
@@ -274,6 +276,9 @@ alias jwtp="decode_jwt 2"
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# kafka
+export PATH="$HOME/apps/kafka/bin:$PATH"
 
 # jabba
 [ -s "/home/mstefank/.jabba/jabba.sh" ] && source "/home/mstefank/.jabba/jabba.sh"
