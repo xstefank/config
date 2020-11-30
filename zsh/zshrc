@@ -139,7 +139,7 @@ alias js15='jenv shell $J15'
 alias j='java'
 alias jj='java -jar'
 alias jv='java -version'
-alias jol='java -jar java -jar /home/mstefank/apps/jol-cli-latest.jar'
+alias jol='jj /home/mstefank/apps/jol-cli-latest.jar'
 
 # git
 alias glg='git lg'
