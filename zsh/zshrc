@@ -207,7 +207,12 @@ alias doc='docker-compose'
 alias di='docker image'
 alias dis='docker images'
 alias dps='docker ps'
+alias dlf='docker logs -f'
 alias docker-compose='podman-compose'
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+alias dcud='docker-compose up -d'
+alias dcd='docker-compose down'
 
 # podman
 alias docker=podman
