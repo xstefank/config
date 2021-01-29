@@ -111,7 +111,7 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Mod1+p floating toggle
+bindsym $mod+Mod1+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym Mod1+l focus mode_toggle
@@ -143,6 +143,16 @@ bindsym $mod+Mod1+7 workspace 17
 bindsym $mod+Mod1+8 workspace 18
 bindsym $mod+Mod1+9 workspace 19
 bindsym $mod+Mod1+0 workspace 20
+bindsym $mod+Mod1+Control+1 workspace 21
+bindsym $mod+Mod1+Control+2 workspace 22
+bindsym $mod+Mod1+Control+3 workspace 23
+bindsym $mod+Mod1+Control+4 workspace 24
+bindsym $mod+Mod1+Control+5 workspace 25
+bindsym $mod+Mod1+Control+6 workspace 26
+bindsym $mod+Mod1+Control+7 workspace 27
+bindsym $mod+Mod1+Control+8 workspace 28
+bindsym $mod+Mod1+Control+9 workspace 29
+bindsym $mod+Mod1+Control+0 workspace 30
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -165,6 +175,16 @@ bindsym $mod+Shift+Mod1+7 move container to workspace 17
 bindsym $mod+Shift+Mod1+8 move container to workspace 18
 bindsym $mod+Shift+Mod1+9 move container to workspace 19
 bindsym $mod+Shift+Mod1+0 move container to workspace 20
+bindsym $mod+Shift+Mod1+Control+1 move container to workspace 21
+bindsym $mod+Shift+Mod1+Control+2 move container to workspace 22
+bindsym $mod+Shift+Mod1+Control+3 move container to workspace 23
+bindsym $mod+Shift+Mod1+Control+4 move container to workspace 24
+bindsym $mod+Shift+Mod1+Control+5 move container to workspace 25
+bindsym $mod+Shift+Mod1+Control+6 move container to workspace 26
+bindsym $mod+Shift+Mod1+Control+7 move container to workspace 27
+bindsym $mod+Shift+Mod1+Control+8 move container to workspace 28
+bindsym $mod+Shift+Mod1+Control+9 move container to workspace 29
+bindsym $mod+Shift+Mod1+Control+0 move container to workspace 30
 
 # next/previous workspace
 bindsym $mod+Mod1+Right workspace next
@@ -180,6 +200,9 @@ bindsym $mod+Shift+m exec i3-msg move workspace to output left
 
 # bluetooth home headset
 bindsym $mod+Shift+b exec bluetoothctl connect 38:18:4C:BF:46:3E
+
+# VPN
+bindsym $mod+Shift+v exec nmcli connection up Brno\ \(BRQ\)
 
 # create new workspace
 bindsym $mod+n exec i3newWorkspace
