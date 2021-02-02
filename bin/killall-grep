@@ -1,0 +1,10 @@
+#!/bin/sh
+
+GREP=$(ps aux | grep $1)
+
+for PID in $(echo "$GREP" | awk -F ' ' '{print $2}');
+do
+  kill -9 $PID
+done
+
+
