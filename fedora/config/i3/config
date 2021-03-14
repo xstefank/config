@@ -303,11 +303,16 @@ exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 # remove mouse
 bindsym $mod+q exec xdotool mousemove $(xdpyinfo | grep dimensions | awk '{print $2}' | sed 's/x/ /')
 
+# applications
+
 # idea
 bindsym $mod+Shift+i exec idea
 
 # google chrome
 bindsym $mod+Shift+g exec google-chrome
+
+# nautilus
+bindsym $mod+Shift+f exec nautilus
 
 # colors
 # class                 border  backgr. text    indicator child_border
