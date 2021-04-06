@@ -301,7 +301,8 @@ exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
 # other shortcuts
 # remove mouse
-bindsym $mod+q exec xdotool mousemove $(xdpyinfo | grep dimensions | awk '{print $2}' | sed 's/x/ /')
+bindsym $mod+y exec /usr/bin/xbanish
+bindsym $mod+Shift+y exec killall xbanish
 
 # applications
 
