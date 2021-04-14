@@ -49,6 +49,12 @@ bindsym $mod+w exec rofi -show window
 # wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 
+# xmodmap
+exec_always --no-startup-id xmodmap /home/mstefank/.Xmodmap
+
+# battery warning popup
+exec --no-startup-id i3-battery-popup
+
 # reload script
 # exec_always /usr/bin/i3reload
 
