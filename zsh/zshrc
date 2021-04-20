@@ -196,6 +196,9 @@ alias -g st='-Dtest='
 alias -g it='-Dit.test='
 alias -g cs='-Dcheckstyle.skip'
 
+# mvnd
+unalias mvnd
+
 # idea
 alias i='idea pom.xml'
 
@@ -243,6 +246,9 @@ alias tB='t ap B '
 alias h='http'
 alias hl='hl() { http :8080/$1 };hl'
 
+# tz - https://github.com/oz/tz/
+alias tz='TZ_LIST=America/Los_Angeles,America/Chicago,America/New_York,Asia/Shanghai /home/mstefank/apps/tz/tz'
+
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
@@ -262,6 +268,9 @@ bindkey -M emacs "^ " my-expand
 bindkey -M viins "^ " my-expand
 bindkey -M emacs " " magic-space
 bindkey -M viins " " magic-space
+
+# suffix aliases
+alias -s html=google-chrome
 
 #
 unsetopt share_history
