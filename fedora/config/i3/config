@@ -218,6 +218,7 @@ exec --no-startup-id dropbox start
 
 # xmodmap
 exec_always --no-startup-id xmodmap ~/.Xmodmap
+bindsym $mod+x exec --no-startup-id xmodmap ~/.Xmodmap
 
 # xrandr 
 exec_always --no-startup-id xrandrSet
