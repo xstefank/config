@@ -56,7 +56,7 @@ case "$1" in
 		if [[ $IS_MUTED == "no" ]]; then pactl set-sink-mute $SINK toggle; fi
 		;; 
 	micMute)
-		amixer set Capture toggle
+		amixer -c 0 set Capture toggle
 		notifyMicMuted
 		;;
 	*)
