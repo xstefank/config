@@ -34,7 +34,7 @@ function notifyMuted {
 }
 
 function notifyMicMuted {
-	STATUS=`amixer get Capture | grep "Front Left: Capture" | awk '{print $NF}'`
+	STATUS=`amixer -c 0 get Capture | grep "Front Left: Capture" | awk '{print $NF}'`
 	notify-send -u low "Microphone $STATUS"
 }
 
