@@ -205,7 +205,7 @@ bindsym $mod+Shift+m exec i3-msg move workspace to output left
 bindsym $mod+Shift+b exec bluetoothctl connect 38:18:4C:BF:46:3E
 
 # VPN
-bindsym $mod+Shift+v exec nmcli connection up Brno\ \(BRQ\)
+bindsym $mod+Shift+v exec nmcli -f GENERAL.STATE con show Brno\ \(BRQ\) | grep activated && nmcli connection down Brno\ \(BRQ\) || nmcli connection up Brno\ \(BRQ\)
 
 # create new workspace
 bindsym $mod+n exec i3newWorkspace
