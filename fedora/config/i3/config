@@ -319,7 +319,7 @@ bindsym $mod+Shift+y exec killall xbanish
 bindsym $mod+Shift+i exec idea
 
 # google chrome
-bindsym $mod+Shift+g exec google-chrome
+bindsym $mod+Shift+g exec google-chrome-beta
 
 # nautilus
 bindsym $mod+Shift+f exec nautilus
