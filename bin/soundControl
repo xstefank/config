@@ -34,7 +34,7 @@ function notifyMuted {
 }
 
 function notifyMicMuted {
-	STATUS=`amixer -c 1 get Capture | grep "Front Left: Capture" | awk '{print $NF}'`
+	STATUS=`amixer -c 0 get Capture | grep "Front Left: Capture" | awk '{print $NF}'`
 	notify-send -u low "Microphone $STATUS"
 }
 
@@ -56,7 +56,7 @@ case "$1" in
 		if [[ $IS_MUTED == "no" ]]; then pactl set-sink-mute $SINK toggle; fi
 		;; 
 	micMute)
-		amixer -c 1 set Capture toggle
+		amixer -c 0 set Capture toggle
 		notifyMicMuted
 		;;
 	*)
