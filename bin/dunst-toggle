@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eo pipefail
+
+readonly IS_PAUSED=$(dunstctl is-paused)
+
+if [ "${IS_PAUSED}" = 'true' ]; then
+  dunstctl set-paused false
+else
+  dunstctl set-paused true
+fi
+
