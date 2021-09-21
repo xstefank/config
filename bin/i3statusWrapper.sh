@@ -58,10 +58,10 @@ function remove_holder {
 function dunst_paused {
   local is_paused="$(dunstctl is-paused)"
   if [ "$is_paused" = "true" ]; then
-    local json='{ "full_text": "Dunst: false", "color": "#FF0000" }'
+    local json='{ "full_text": "Dunst: off", "color": "#FF0000" }'
     json_array=$(update_holder holder__dunst_paused "$json")
   else
-    local json='{ "full_text": "Dunst: true"}'
+    local json='{ "full_text": "Dunst: on"}'
     json_array=$(update_holder holder__dunst_paused "$json")
   fi
 }
