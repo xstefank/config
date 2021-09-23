@@ -313,6 +313,9 @@ exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 bindsym $mod+y exec /usr/bin/xbanish
 bindsym $mod+Shift+y exec killall xbanish
 
+# reload xmodmap
+bindsym $mod+Shift+x exec xmodmap /home/mstefank/.Xmodmap
+
 # applications
 
 # idea
