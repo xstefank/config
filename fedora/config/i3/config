@@ -298,7 +298,8 @@ bindsym $mod+o scratchpad show
 bindsym --release Print exec --no-startup-id printscreen
 bindsym --release Shift+Print exec --no-startup-id printscreen -i
 
-# bluetooth - not needed in P1, have separate button
+# bluetooth
+bindsym $mod+Mod1+b exec --no-startup-id bluetoothSetup
 # bindsym XF86Display exec --no-startup-id bluetoothSetup
 
 # applets
