@@ -200,6 +200,8 @@ alias -g cs='-Dcheckstyle.skip'
 # mvnd
 unalias mvnd
 
+alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+
 # idea
 alias i='idea pom.xml'
 
@@ -229,6 +231,14 @@ alias dcd='docker-compose down'
 
 # podman
 alias docker=podman
+alias pi='podman image'
+alias pis='podman images'
+alias pps='podman ps'
+alias plf='podman logs -f'
+alias pc='podman-compose'
+alias pcu='podman-compose up'
+alias pcud='podman-compose up -d'
+alias pcd='podman-compose down'
 
 # openshift
 alias op='oc get pods'
@@ -318,3 +328,7 @@ export SDKMAN_DIR="/home/mstefank/.sdkman"
 [[ -s "/home/mstefank/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mstefank/.sdkman/bin/sdkman-init.sh"
 
 
+
+# Add Jbang to environment
+alias j!=jbang
+export PATH="$HOME/.jbang/bin:$PATH"
