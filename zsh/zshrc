@@ -108,7 +108,7 @@ J13=13
 J14=14
 J15=15
 J16=16
-J17=17-ea
+J17=17
 
 # java
 alias j8='jenv global $J8'
@@ -247,11 +247,23 @@ alias olg='oc logs -f'
 # kubernetes
 alias k='kubectl'
 
-# todo.txt
-alias t=/home/mstefank/apps/todo.txt_cli-2.11.0/todo.sh
-alias tl='t ls'
-alias tA='t ap A '
-alias tB='t ap B '
+# taskwarrior
+alias t=task
+alias tlw='task list project:work'
+alias tlh='task list project:home'
+alias tlt='task list +today'
+alias tc='task calendar'
+alias twH='task add project:work priority:H'
+alias tw='task add project:work'
+alias twL='task add project:work priority:L'
+alias thH='task add project:home priority:H'
+alias th='task add project:home'
+alias thL='task add project:home priority:L'
+alias tm='task modify'
+alias ts='task start'
+alias tst='task stop'
+alias td='task done'
+alias tdel='task delete'
 
 # httpie
 alias h='http'
