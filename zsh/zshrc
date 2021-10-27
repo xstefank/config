@@ -259,26 +259,26 @@ alias td='task done'
 alias tdel='task delete'
 
 # list
-alias tlw='task list project:work'
-alias tlh='task list project:home'
-alias tlsl='task list project:sl'
-alias tlb='task list project:backlog'
+alias tlw='task list +work'
+alias tlh='task list +home'
+alias tlsl='task list +sl'
+alias tlb='task list +backlog'
 alias tlt='task list +today'
 
 # adds
 alias ta='task add'
 
-alias twH='task add project:work priority:H'
-alias tw='task add project:work'
-alias twL='task add project:work priority:L'
+alias twH='task add +work priority:H'
+alias tw='task add +work'
+alias twL='task add +work priority:L'
 
-alias thH='task add project:home priority:H'
-alias th='task add project:home'
-alias thL='task add project:home priority:L'
+alias thH='task add +home priority:H'
+alias th='task add +home'
+alias thL='task add +home priority:L'
 
-alias tasl='task add project:sl'
+alias tasl='task add +sl'
 
-alias tb='task add project:backlog'
+alias tb='task add +backlog'
 
 # httpie
 alias h='http'
