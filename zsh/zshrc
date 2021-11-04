@@ -263,7 +263,7 @@ alias tlw='task list +work'
 alias tlh='task list +home'
 alias tlsl='task list +sl'
 alias tlb='task list +backlog'
-alias tlt='task list +today'
+alias tlc='task project::current'
 
 # adds
 alias ta='task add'
@@ -279,6 +279,8 @@ alias thL='task add +home priority:L'
 alias tasl='task add +sl'
 
 alias tb='task add +backlog'
+
+alias tac='task modify pro:current'
 
 # httpie
 alias h='http'
