@@ -213,6 +213,10 @@ bindsym $mod+n exec i3newWorkspace
 # dunst
 exec --no-startup-id dunst &
 bindsym $mod+Shift+d exec --no-startup-id dunstctl set-paused toggle
+bindsym ctrl+comma exec --no-startup-id dunstctl close
+bindsym ctrl+shift+comma exec --no-startup-id dunstctl close-all
+bindsym ctrl+period exec --no-startup-id dunstctl history-pop
+bindsym ctrl+shift+period exec --no-startup-context
 
 # dropbox
 exec --no-startup-id dropbox start
