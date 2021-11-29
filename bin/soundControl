@@ -12,13 +12,12 @@ SINK=$(getRunningSinkOrDefault)
 SINKNAME=$SINK
 
 function getVol {
-	echo `pactl list sinks | grep '^[[:space:]]Volume:' | \
-    awk 'NR==2' | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`
+	awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master)
 }
 
 function notifyVol {
 	currentVol=$(getVol)
-    notify-send -u low "Sink \"$SINKNAME\" volume :: $currentVol%"
+    notify-send -u low "Volume :: $currentVol"
 }
 
 function isMuted {
@@ -40,15 +39,15 @@ function notifyMicMuted {
 
 case "$1" in
 	plus)
-		pactl set-sink-volume $SINK +5% # increase sound volume
+		amixer -q sset Master 5%+ # increase sound volume
 		notifyVol
 		;;
 	minus)
-		pactl set-sink-volume $SINK -5% # increase sound volume
+		amixer -q sset Master 5%- # increase sound volume
 		notifyVol
 		;;
 	toggle)
-		pactl set-sink-mute $SINK toggle
+		amixer set Master toggle
 		notifyMuted
 		;;
 	ensureMute)
