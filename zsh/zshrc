@@ -58,7 +58,6 @@ plugins=(
   docker-compose
   gradle
   globalias
-  zsh-autosuggestions
   gh
 )
 
@@ -163,6 +162,7 @@ alias grwip='git reset --soft @~ && git reset'
 alias gch='git checkout HEAD --'
 alias gfpr='git fpr'
 alias gcl='hub clone'
+alias gccd='gccd() { gcl $1 && cd $(echo $1 | cut -d'/' -f2)};gccd'
 alias gra='hub remote add'
 alias grad='grad() { hub remote add upstream "$1"/"${PWD##*/}" };grad'
 alias gpr='gh pr'
