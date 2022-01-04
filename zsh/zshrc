@@ -293,6 +293,8 @@ alias tz='TZ_LIST=America/Los_Angeles,America/Chicago,America/New_York,Asia/Shan
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
 alias notes='vim ~/Documents/notes.txt'
+alias k9='kill -9'
+alias ka='killall'
 
 
 # invert Ctrl+Space
