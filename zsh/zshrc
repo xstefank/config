@@ -216,6 +216,7 @@ alias -g Gi='| grep -i'
 alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
 alias qd='mvn clean compile quarkus:dev'
 alias ql='mvn quarkus:list-extensions'
+alias qcd='qcd() { quark $1; cd $1 };qcd'
 
 # docker
 alias d='docker'
