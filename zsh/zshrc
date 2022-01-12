@@ -201,6 +201,7 @@ alias -g cs='-Dcheckstyle.skip'
 # mvnd
 unalias mvnd
 
+mcid='mvnd clean install'
 alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 
 # idea
