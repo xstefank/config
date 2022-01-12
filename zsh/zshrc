@@ -175,6 +175,8 @@ alias grs='git reset --soft'
 alias gcfd='git clean -fd'
 alias gfr='grhh && gcfd'
 alias grrr='git rerere'
+alias gs='git stash'
+alias gsp='git stash pop'
 
 # mvn
 alias mi='mvn install'
