@@ -98,6 +98,8 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig='vim ~/.zshrc'
 alias i3config='vim ~/.config/i3/config'
 
+# java
+
 J8=1.8
 J9=9
 J10=10
@@ -108,8 +110,9 @@ J14=14
 J15=15
 J16=16
 J17=17
+J18=18-ea
+J19=19-ea
 
-# java
 alias j8='jenv global $J8'
 alias j9='jenv global $J9'
 alias j10='jenv global $J10'
@@ -120,6 +123,8 @@ alias j14='jenv global $J14'
 alias j15='jenv global $J15'
 alias j16='jenv global $J16'
 alias j17='jenv global $J17'
+alias j18='jenv global $J18'
+alias j19='jenv global $J19'
 
 alias jl8='jenv local $J8'
 alias jl9='jenv local $J9'
@@ -131,6 +136,8 @@ alias jl14='jenv local $J14'
 alias jl15='jenv local $J15'
 alias jl16='jenv local $J16'
 alias jl17='jenv local $J17'
+alias jl18='jenv local $J18'
+alias jl19='jenv local $J19'
 
 alias js8='jenv shell $J8'
 alias js9='jenv shell $J9'
@@ -142,6 +149,8 @@ alias js14='jenv shell $J14'
 alias js15='jenv shell $J15'
 alias js16='jenv shell $J16'
 alias js17='jenv shell $J17'
+alias js18='jenv shell $J18'
+alias js19='jenv shell $J19'
 
 alias j='java'
 alias jj='java -jar'
