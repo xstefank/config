@@ -255,6 +255,9 @@ alias pcu='podman-compose up'
 alias pcud='podman-compose up -d'
 alias pcd='podman-compose down'
 
+# testcontainers
+alias enable-test-containers='systemctl --user enable podman.socket --now; export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock; export TESTCONTAINERS_RYUK_DISABLED=true'
+
 # openshift
 alias op='oc get pods'
 alias olg='oc logs -f'
