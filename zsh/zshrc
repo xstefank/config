@@ -217,6 +217,7 @@ unalias mvnd
 
 mcid='mvnd clean install'
 alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcifd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 
 # idea
 alias i='idea pom.xml'
@@ -229,7 +230,7 @@ alias -g Gi='| grep -i'
 
 # quarkus
 alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
-alias qd='mvn clean compile quarkus:dev'
+alias qd='mvn quarkus:dev'
 alias ql='mvn quarkus:list-extensions'
 alias qcd='qcd() { quark $1; cd $1 };qcd'
 
