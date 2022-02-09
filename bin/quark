@@ -145,7 +145,7 @@ assign_positional_args 1 "${_positionals[@]}"
 
 # vvv  PLACE YOUR CODE HERE  vvv
 
-QUARKUS_VERSION=2.6.3.Final
+QUARKUS_VERSION=2.7.1.Final
 
 if [ "$_arg_offline" == "on" ]; then
   ADDITIONAL_PARAMS="$ADDITIONAL_PARAMS -DquarkusRegistryClient=false"
