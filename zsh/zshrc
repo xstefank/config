@@ -204,6 +204,7 @@ alias mp='mvn package'
 alias mcp='mvn clean package'
 alias mcpt='mvn clean package -DskipTests'
 alias mcpf='mvn clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcpn='mvn clean package -Pnative'
 alias mt='mvn test'
 alias 🤘="mvn clean compile quarkus:dev"
 alias mdt='mvn dependency:tree'
@@ -216,8 +217,9 @@ alias -g cs='-Dcheckstyle.skip'
 unalias mvnd
 
 mcid='mvnd clean install'
+mcpd='mvnd clean package'
 alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
-alias mcifd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcpfd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 
 # idea
 alias i='idea pom.xml'
