@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/mstefank/.oh-my-zsh
+export ZSH=/home/mstefank/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -110,7 +110,7 @@ J14=14
 J15=15
 J16=16
 J17=17
-J18=18-ea
+J18=18
 J19=19-ea
 
 alias j8='jenv global $J8'
