@@ -12,24 +12,21 @@ SINK=$(getRunningSinkOrDefault)
 SINKNAME=$SINK
 
 function getVol {
-	awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master)
+	pactl get-sink-volume 0 | awk -F " +/ +" '{print $2}'
 }
 
 function notifyVol {
-	currentVol=$(getVol)
+    currentVol=$(getVol)
     notify-send -u low "Volume :: $currentVol"
 }
 
 function isMuted {
-	echo `pactl list sinks | grep 'Mute' | head -n $(( 1 + 1 )) | tail -n 1 | sed 's/.* //g'`
+	amixer sget Master | grep "Front Left: Playback" | awk '{print $NF}'
 }
 
 function notifyMuted {
 	IS_MUTED=$(isMuted)
-	MESSAGE="Sink \"$SINKNAME\""
-	if [[ $IS_MUTED == "yes" ]]; then MESSAGE="$MESSAGE muted"; else MESSAGE="$MESSAGE unmuted"; fi
-	echo $MESSAGE
-	notify-send -u low "$MESSAGE"
+	notify-send -u low "Audio: $IS_MUTED"
 }
 
 function notifyMicMuted {
@@ -39,11 +36,11 @@ function notifyMicMuted {
 
 case "$1" in
 	plus)
-		amixer -q sset Master 5%+ # increase sound volume
+		pactl set-sink-volume 0 +10% # increase sound volume
 		notifyVol
 		;;
 	minus)
-		amixer -q sset Master 5%- # increase sound volume
+		pactl set-sink-volume 0 -10% # increase sound volume
 		notifyVol
 		;;
 	toggle)
