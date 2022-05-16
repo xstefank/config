@@ -213,9 +213,13 @@ alias Mv='mvn -v'
 alias -g st='-Dtest='
 alias -g it='-Dit.test='
 alias -g cs='-Dcheckstyle.skip'
+alias -g lt='-Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss,SSS'
 
 # mvnd
 unalias mvnd
+
+# quarkus
+alias q='quarkus'
 
 mcid='mvnd clean install'
 mcpd='mvnd clean package'
@@ -232,10 +236,20 @@ alias -g G='| grep'
 alias -g Gi='| grep -i'
 
 # quarkus
-alias qa='qa() { mvn quarkus:add-extension -Dextensions="$1" };qa'
-alias qd='mvn quarkus:dev'
-alias ql='mvn quarkus:list-extensions'
-alias qcd='qcd() { quark $1; cd $1 };qcd'
+qa() {
+  quarkus ext add "$1" 
+}
+qr() {
+  quarkus ext remove "$1"
+}
+alias qd='quarkus dev'
+alias ql='quarkus ext -i'
+alias qe='quarkus ext'
+qcd() { 
+  quarkus create app $1 
+  cd ${1#*:} 
+}
+alias quark='quarkus create app'
 
 # docker
 alias d='docker'
