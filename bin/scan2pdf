@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -euo pipefail
+
+intermediate_file="temp.pdf"
+final_file="$1.pdf"
+temp_dir=$(mktemp -d)
+current_dir=$PWD
+## Pre-flight tests
+#echo "
+#*** Usage:
+# scan2pdf.sh filename.pdf
+#
+#"
+## Batch scan PDF scanner
+echo "Scanning..."
+echo "Temp dir: $temp_dir"
+cd $temp_dir
+scanimage -d 'airscan:e0:Canon TS5300 series' --batch --batch-count=1 --format=tiff
+## Merge TIF and to PDF
+tiffcp out*.tif $1.tif
+convert $1.tif $intermediate_file
+## Shrink PDF
+echo "Shrinking..."
+ps2pdf $intermediate_file $final_file
+cp $final_file $current_dir
+echo "File saved to: $final_file"
+## Cleaning
+echo "Cleaning ..."
+#rm -rf $temp_dir
+echo "Done!"
