@@ -101,7 +101,7 @@ xrandr -s 1
 xrandr -s 0
 
 if [ $_arg_hdmi = "on" ]; then
-  xrandr --output DP1 --auto --primary
+  	xrandr --output DP1 --auto --primary
 	#set HDMI output (DP1) left of main monitor (eDP1)
 	xrandr --output eDP1 --left-of DP1 --auto
 	exit 0
@@ -115,5 +115,8 @@ if [ $_arg_dock = "on" ]; then
   xrandr --output DP3-2 --primary
   exit 0
 fi
+
+# no dock and no HDMI
+xrandr --output eDP1 --primary
 
 # ] <-- needed because of Argbash

@@ -4,8 +4,13 @@ DOCK=`xrandr | grep "DP3-3 connected"`
 
 if [ -z "$DOCK" ]
 then
-      #DOCK not connected, try HDMI
-      xrandrSetup --hdmi
+	if [ -z $(xrandr | grep "DP1 connected") ]
+	then
+		#DOCK not connected, try HDMI
+      		xrandrSetup --hdmi
+	else
+		xrandrSetup
+	fi
 else
       xrandrSetup --dock
 fi
