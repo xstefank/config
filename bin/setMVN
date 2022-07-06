@@ -103,7 +103,7 @@ assign_positional_args 1 "${_positionals[@]}"
 
 echo "Setting Maven install from $_arg_maven_home..."
 
-sudo alternatives --set mvn $_arg_maven_home/bin/mvn
+ln -snf $_arg_maven_home/bin/mvn /home/mstefank/bin/mvn
 
 sed -i "s#^M2_HOME=.*#M2_HOME=$_arg_maven_home#g" ~/.zshrc
 
