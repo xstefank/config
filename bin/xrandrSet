@@ -1,15 +1,15 @@
 #!/bin/bash
 
-DOCK=`xrandr | grep "DP3-3 connected"`
+DOCK=$(xrandr | grep "DP-0 connected")
 
 if [ -z "$DOCK" ]
 then
-	if [ -z $(xrandr | grep "DP1 connected") ]
+	if [ -z $(xrandr | grep "HDMI-0 connected") ]
 	then
-		#DOCK not connected, try HDMI
-      		xrandrSetup --hdmi
+		# nothing seems to be connect, so use just normal display setup
+      		xrandrSetup
 	else
-		xrandrSetup
+		xrandrSetup --hdmi
 	fi
 else
       xrandrSetup --dock
