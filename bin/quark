@@ -145,23 +145,7 @@ assign_positional_args 1 "${_positionals[@]}"
 
 # vvv  PLACE YOUR CODE HERE  vvv
 
-QUARKUS_VERSION=2.9.1.Final
-
-if [ "$_arg_offline" == "on" ]; then
-  ADDITIONAL_PARAMS="$ADDITIONAL_PARAMS -DquarkusRegistryClient=false"
-fi
-
-mvn io.quarkus:quarkus-maven-plugin:$QUARKUS_VERSION:create \
-    -DprojectGroupId=$_arg_groupid \
-    -DprojectArtifactId=$_arg_artifactid \
-    -DprojectVersion=$_arg_version \
-    -DclassName="io.xstefank.PingResource" \
-    $ADDITIONAL_PARAMS \
-    -Dpath="/ping"
-#    -Dquarkus.platform.artifact-id=quarkus-bom \
-#    -Dquarkus.platform.version=$QUARKUS_VERSION \
-#    -Dquarkus-plugin.version=$QUARKUS_VERSION
-
+quarkus create app $_arg_groupid:$_arg_artifactid:$_arg_version
 
 # ^^^  TERMINATE YOUR CODE BEFORE THE BOTTOM ARGBASH MARKER  ^^^
 
