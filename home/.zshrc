@@ -158,17 +158,19 @@ alias jv='java -version'
 alias jol='jj /home/mstefank/apps/jol-cli-latest.jar'
 
 # git
-alias glg='git lg'
-alias glgi='git lgi'
-alias gacane='git acane'
+alias glg="git --no-pager log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n5"
+alias glgi="git log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gcane="git commit --amend --no-edit"
+alias gacane="git add . && gcane"
 alias gcom='git commit -m'
 alias gcasm='git commit -asm'
 alias ggpushf='ggpush -f'
 alias gupull='git pull upstream $(git_current_branch)'
-alias gmpull='git pull upstream master'
+alias gmpull='git pull upstream main'
+alias gmapull='git pull upstream master'
 alias gu='git pull upstream main --rebase'
 alias gplu='git pull upstream' 
-alias gwip='git wip'
+alias gwip='git add . && git commit -am "---- WIP ----"'
 alias grwip='git reset --soft @~ && git reset'
 alias gch='git checkout HEAD --'
 alias gfpr='git fpr'
@@ -328,13 +330,22 @@ alias hl='hl() { http :8080/$1 };hl'
 # tz - https://github.com/oz/tz/
 alias tz='TZ_LIST=America/Los_Angeles,America/Chicago,America/New_York,Asia/Shanghai /home/mstefank/apps/tz/tz'
 
+# exa
+alias e='exa -l'
+alias eg='exa -l --git'
+
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
 alias notes='vim ~/Documents/notes.txt'
 alias k9='kill -9'
 alias ka='killall'
+alias spotify='snap run spotify'
 
+qia-pdf() {
+  echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/$1_Stefanko_Quarkus_in_Action.pdf"
+  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-1.6.2/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && okular ./manuscript/$1_Stefanko_Quarkus_in_Action.pdf
+}
 
 # invert Ctrl+Space
 # just reference, leaves ^@ after expansion
@@ -351,7 +362,7 @@ bindkey -M emacs " " magic-space
 bindkey -M viins " " magic-space
 
 # suffix aliases
-alias -s {pdf,PDF}='background mupdf'
+alias -s {pdf,PDF}='background okular'
 alias -s {jpg,JPG,png,PNG}='background gpicview'
 alias -s {ods,ODS,odt,ODT,odp,ODP,doc,DOC,docx,DOCX,xls,XLS,xlsx,XLSX,xlsm,XLSM,ppt,PPT,pptx,PPTX,csv,CSV}='background libreoffice'
 alias -s {html,HTML}='background google-chrome-beta'
@@ -364,6 +375,8 @@ alias -s {tgz,TGZ}="tar -tf"
 
 #
 unsetopt share_history
+setopt INC_APPEND_HISTORY
+setopt APPEND_HISTORY
 
 # JWT
 
