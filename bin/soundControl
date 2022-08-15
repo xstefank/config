@@ -1,18 +1,19 @@
 #!/bin/bash
 
 function getRunningSinkOrDefault {
-	if `pactl list short | grep RUNNING` ; then
-		echo `pactl list short | grep RUNNING | cut -f2`
-	else
-		echo `pacmd stat | grep "Default sink name" | awk 'NF>1{print $NF}'`
-	fi
+#	if `pactl list short | grep RUNNING` ; then
+#		echo `pactl list short | grep RUNNING | cut -f2`
+#	else
+#		echo `pacmd stat | grep "Default sink name" | awk 'NF>1{print $NF}'`
+#	fi
+	echo "pactl get-default-sink"
 }
 
 SINK=$(getRunningSinkOrDefault)
 SINKNAME=$SINK
 
 function getVol {
-	pactl get-sink-volume 0 | awk -F " +/ +" '{print $2}'
+	pactl get-sink-volume $(pactl get-default-sink) | grep "Volume" | awk -F " +/ +" '{print $2}'
 }
 
 function notifyVol {
@@ -21,7 +22,7 @@ function notifyVol {
 }
 
 function isMuted {
-	amixer sget Master | grep "Front Left: Playback" | awk '{print $NF}'
+	pactl get-sink-mute $(pactl get-default-sink)
 }
 
 function notifyMuted {
@@ -36,20 +37,20 @@ function notifyMicMuted {
 
 case "$1" in
 	plus)
-		pactl set-sink-volume 0 +10% # increase sound volume
+		pactl set-sink-volume $(pactl get-default-sink) +10% # increase sound volume
 		notifyVol
 		;;
 	minus)
-		pactl set-sink-volume 0 -10% # increase sound volume
+		pactl set-sink-volume $(pactl get-default-sink) -10% # increase sound volume
 		notifyVol
 		;;
 	toggle)
-		amixer set Master toggle
+		pactl set-sink-mute $(pactl get-default-sink) toggle
 		notifyMuted
 		;;
 	ensureMute)
 		IS_MUTED=$(isMuted)
-		if [[ $IS_MUTED == "no" ]]; then pactl set-sink-mute $SINK toggle; fi
+		if [[ $IS_MUTED == "Mute: no" ]]; then pactl set-sink-mute $(pactl get-default-sink) toggle; fi
 		;; 
 	micMute)
 		amixer set Capture toggle
@@ -59,6 +60,4 @@ case "$1" in
 		echo "Invalid argument: $1"
 		exit 1
 esac
-
-
 
