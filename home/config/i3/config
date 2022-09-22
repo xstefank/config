@@ -43,8 +43,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # rofi binding
-bindsym $mod+d exec rofi -show run 
-bindsym $mod+w exec rofi -show window
+bindsym $mod+d exec zsh -c "rofi -show run"
+bindsym $mod+w exec zsh -c "rofi -show window"
 
 # wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
@@ -72,7 +72,7 @@ mode "$mode_system" {
 bindsym $mod+grave mode "$mode_system"
 
 # keyboard layouts - bind $mod+space to change layout
-exec_always --no-startup-id setxkbmap -layout us
+# exec_always --no-startup-id setxkbmap -layout us
 bindsym $mod+space exec --no-startup-id changekeyboard 
 
 # change focus
@@ -223,10 +223,13 @@ exec --no-startup-id dropbox start
 
 # xmodmap
 exec_always --no-startup-id xmodmap ~/.Xmodmap
-bindsym $mod+x exec --no-startup-id xmodmap ~/.Xmodmap
+bindsym $mod+x exec --no-startup-id xmodmap ~/.Xmodmap-switch
 
 # xrandr 
 exec_always --no-startup-id xrandrSet
+# keep an eye on if any other stuff needs to be restarted with just xrandr commands
+bindsym $mod+Shift+p exec --no-startup-id xrandrSet 
+bindsym $mod+Mod1+p exec --no-startup-id xrandrMainOn
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -324,7 +327,7 @@ bindsym $mod+Shift+x exec xmodmap /home/mstefank/.Xmodmap
 # applications
 
 # idea
-bindsym $mod+Shift+i exec idea
+bindsym $mod+Shift+i exec /home/mstefank/bin/idea
 
 # google chrome
 bindsym $mod+Shift+g exec google-chrome-beta
@@ -355,7 +358,8 @@ client.background       #ffffff
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command /usr/bin/i3statusWrapper.sh 
+  	status_command /usr/bin/i3statusWrapper.sh 
+	#status_command i3status
 	tray_output primary
 }
 
