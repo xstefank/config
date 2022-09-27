@@ -16,7 +16,7 @@ order += "ipv6"
 order += "ipv4"
 order += "disk /"
 order += "disk /home"
-order += "wireless wlan0"
+order += "wireless _first_"
 order += "ethernet _first_"
 order += "run_watch VPN"
 order += "tztime holder__dunst_paused"
@@ -24,14 +24,15 @@ order += "volume master"
 order += "battery all"
 order += "load"
 order += "cpu_usage"
+order += "cpu_temperature 0"
 order += "tztime local"
 
 tztime holder__dunst_paused {
   format = "holder__dunst_paused"
 }
 
-wireless wlan0 {
-  format_up = "W: (%quality at %essid, %bitrate) %ip"
+wireless _first_ {
+  format_up = "W: %ip (%essid%quality, %bitrate)"
   format_down = "W: down"
 }
 
@@ -75,5 +76,9 @@ run_watch VPN {
 
 cpu_usage {
 	format = "CPU: %usage"
+}
+
+cpu_temperature 0 {
+  format = "T: %degrees °C"
 }
 
