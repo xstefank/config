@@ -415,6 +415,9 @@ if [ -f '/home/mstefank/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mst
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc'; fi
 
+# The next line enables shell command completion for quarkus CLI.
+source <(~/.sdkman/candidates/quarkus/current/bin/quarkus completion)
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
 [[ -s "/home/mstefank/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mstefank/.sdkman/bin/sdkman-init.sh"
