@@ -111,7 +111,8 @@ J15=15
 J16=16
 J17=17
 J18=18
-J19=19-ea
+J19=19
+J20=20
 
 alias j8='jenv global $J8'
 alias j9='jenv global $J9'
@@ -125,6 +126,7 @@ alias j16='jenv global $J16'
 alias j17='jenv global $J17'
 alias j18='jenv global $J18'
 alias j19='jenv global $J19'
+alias j20='jenv global $J20'
 
 alias jl8='jenv local $J8'
 alias jl9='jenv local $J9'
@@ -138,6 +140,7 @@ alias jl16='jenv local $J16'
 alias jl17='jenv local $J17'
 alias jl18='jenv local $J18'
 alias jl19='jenv local $J19'
+alias jl20='jenv local $J20'
 
 alias js8='jenv shell $J8'
 alias js9='jenv shell $J9'
@@ -151,6 +154,7 @@ alias js16='jenv shell $J16'
 alias js17='jenv shell $J17'
 alias js18='jenv shell $J18'
 alias js19='jenv shell $J19'
+alias js20='jenv shell $J20'
 
 alias j='java'
 alias jj='java -jar'
@@ -241,10 +245,10 @@ alias -g Gi='| grep -i'
 
 # quarkus
 qa() {
-  quarkus ext add "$1" 
+  quarkus ext add "$@" 
 }
 qr() {
-  quarkus ext remove "$1"
+  quarkus ext remove "$@"
 }
 alias qd='quarkus dev'
 alias ql='quarkus ext -i'
@@ -331,8 +335,8 @@ alias hl='hl() { http :8080/$1 };hl'
 alias tz='TZ_LIST=America/Los_Angeles,America/Chicago,America/New_York,Asia/Shanghai /home/mstefank/apps/tz/tz'
 
 # exa
-alias e='exa -l'
-alias eg='exa -l --git'
+alias e='exa -la'
+alias eg='exa -la --git'
 
 # other
 alias cs='cleanServer'
@@ -343,8 +347,8 @@ alias ka='killall'
 alias spotify='snap run spotify'
 
 qia-pdf() {
-  echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/$1_Stefanko_Quarkus_in_Action.pdf"
-  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-1.6.2/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && okular ./manuscript/$1_Stefanko_Quarkus_in_Action.pdf
+  echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf"
+  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-1.6.2/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && okular ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf
 }
 
 # invert Ctrl+Space
