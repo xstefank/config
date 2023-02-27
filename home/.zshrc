@@ -338,6 +338,9 @@ alias tz='TZ_LIST=America/Los_Angeles,America/Chicago,America/New_York,Asia/Shan
 alias e='exa -la'
 alias eg='exa -la --git'
 
+# xcp
+alias cp=xcp
+
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
@@ -409,6 +412,9 @@ eval "$(jenv init -)"
 
 # kafka
 export PATH="$HOME/apps/kafka/bin:$PATH"
+
+# cargo
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # jabba
 [ -s "/home/mstefank/.jabba/jabba.sh" ] && source "/home/mstefank/.jabba/jabba.sh"
