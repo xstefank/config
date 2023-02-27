@@ -59,6 +59,7 @@ plugins=(
   gradle
   globalias
   gh
+  spring
 )
 
 source $ZSH/oh-my-zsh.sh
