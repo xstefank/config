@@ -214,6 +214,7 @@ alias mp='mvn package'
 alias mcp='mvn clean package'
 alias mcpt='mvn clean package -DskipTests'
 alias mcpf='mvn clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcpfn='mcpf -Pnative'
 alias mcpn='mvn clean package -Pnative'
 alias mt='mvn test'
 alias 🤘="mvn clean compile quarkus:dev"
@@ -224,14 +225,11 @@ alias -g it='-Dit.test='
 alias -g cs='-Dcheckstyle.skip'
 alias -g lt='-Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss,SSS'
 
-# mvnd
-unalias mvnd
-
 # quarkus
 alias q='quarkus'
 
-mcid='mvnd clean install'
-mcpd='mvnd clean package'
+alias mcid='mvnd clean install'
+alias mcpd='mvnd clean package'
 alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 alias mcpfd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 
@@ -283,6 +281,7 @@ alias pc='podman-compose'
 alias pcu='podman-compose up'
 alias pcud='podman-compose up -d'
 alias pcd='podman-compose down'
+alias prl='podman run --rm -p 8080:8080'
 
 # testcontainers
 alias enable-test-containers='systemctl --user enable podman.socket --now; export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock; export TESTCONTAINERS_RYUK_DISABLED=true'
@@ -355,6 +354,11 @@ qia-pdf() {
   asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-1.6.2/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && okular ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf
 }
 
+qia-pdf-code-icon() {
+  echo "Generating PDF from ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc to ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf"
+  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-1.6.2/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs/code-icon ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc && okular ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf
+}
+
 # invert Ctrl+Space
 # just reference, leaves ^@ after expansion
 #bindkey -M emacs "^ " globalias
@@ -371,7 +375,7 @@ bindkey -M viins " " magic-space
 
 # suffix aliases
 alias -s {pdf,PDF}='background okular'
-alias -s {jpg,JPG,png,PNG}='background gpicview'
+alias -s {jpg,JPG,png,PNG}='background feh'
 alias -s {ods,ODS,odt,ODT,odp,ODP,doc,DOC,docx,DOCX,xls,XLS,xlsx,XLSX,xlsm,XLSM,ppt,PPT,pptx,PPTX,csv,CSV}='background libreoffice'
 alias -s {html,HTML}='background google-chrome-beta'
 alias -s {mp4,MP4,mov,MOV,mkv,MKV}='background vlc'
