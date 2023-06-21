@@ -15,3 +15,4 @@ else
       xrandrSetup --dock
 fi
 
+#setxkbmap -rules evdev -layout us
