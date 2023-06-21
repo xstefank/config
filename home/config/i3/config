@@ -316,6 +316,9 @@ exec blueman-applet
 # keyring
 exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
+# dark theme
+exec --no-startup-id /usr/lib/gsd-xsettings
+
 # other shortcuts
 # remove mouse
 bindsym $mod+y exec /usr/bin/xbanish
