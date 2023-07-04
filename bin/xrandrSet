@@ -1,10 +1,10 @@
 #!/bin/bash
 
-DOCK=$(xrandr | grep "DP-0 connected")
+DOCK=$(xrandr | grep "DP-1 connected")
 
 if [ -z "$DOCK" ]
 then
-	if [ -z $(xrandr | grep "HDMI-0 connected") ]
+	if [ -z $(xrandr | grep "HDMI-1 connected") ]
 	then
 		# nothing seems to be connect, so use just normal display setup
       		xrandrSetup

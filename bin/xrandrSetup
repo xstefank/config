@@ -97,8 +97,8 @@ parse_commandline "$@"
 # [ <-- needed because of Argbash
 
 #xrandr -s 1
-xrandr -s 0
-
+#xrandr -s 0
+# TODO HDMI
 if [ $_arg_hdmi = "on" ]; then
   	xrandr --output HDMI-0 --auto --primary
 	xrandr --output DP-4 --left-of HDMI-0 --auto
@@ -106,28 +106,32 @@ if [ $_arg_hdmi = "on" ]; then
 fi
 
 if [ $_arg_dock = "on" ]; then
-	xrandr --output DP-0 --off
-	xrandr --output DP-5.2 --off
-	xrandr --output DP-5.1.6 --off
-	xrandr --output DP-5.1.5 --off
+	xrandr --output DP-1 --off
+	xrandr --output DP-2-2 --off
+	xrandr --output DP-2-1-6 --off
+	xrandr --output DP-2-1-5 --off
 
-	xrandr --output DP-0 --right-of DP-4 --auto
-	xrandr --output DP-4 --off
-	xrandr --output DP-5.2 --right-of DP-0 --auto
-	xrandr --output DP-5.1.6 --right-of DP-5.2 --auto
-	xrandr --output DP-5.1.5 --right-of DP-5.1.6 --auto
+	xrandr --output DP-1 --right-of eDP-1 --auto
+	xrandr --output eDP-1 --off
+	xrandr --output DP-2-2 --right-of DP-1 --auto
+	xrandr --output DP-2-1-6 --right-of DP-2-2 --auto
+	xrandr --output DP-2-1-5 --right-of DP-2-1-6 --auto
   
-	xrandr --output DP-5.2 --primary
+	xrandr --output DP-2-2 --primary
+ 	echo "Xft.dpi: 90" | xrdb -merge
+	i3-msg restart
   exit 0
 fi
 
 # no dock and no HDMI
-xrandr --output DP-0 --off
-xrandr --output DP-5.2 --off
-xrandr --output DP-5.1.6 --off
-xrandr --output DP-5.1.5 --off
-xrandr --output HDMI-0 --off
-xrandr -s 0
-xrandr --output DP-4 --auto --primary
+xrandr --output DP-1 --off
+xrandr --output eDP-1 --auto --primary
+xrandr --output DP-2-2 --off
+xrandr --output DP-2-1-6 --off
+xrandr --output DP-2-1-5 --off
+xrandr --output HDMI-1 --off
+#xrandr -s 0
+echo "Xft.dpi: 120" | xrdb -merge
+i3-msg restart
 
 # ] <-- needed because of Argbash
