@@ -1,1 +1,1 @@
-sudo dnf install -y nautilus scrot 
+sudo dnf install -y nautilus scrot httpie
