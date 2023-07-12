@@ -1,1 +1,1 @@
-sudo dnf install -y nautilus scrot httpie
+sudo dnf install -y nautilus scrot httpie podman podman-compose
