@@ -1,7 +1,7 @@
 #/bin/sh
 
 echo "Installing rpms..."
-sudo dnf install -y nautilus scrot httpie podman podman-compose gimp libreoffice task xbanish conky gnome-control-center gnome-tweaks vlc pip bat blueman cargo lxappearance unar thunderbird snapd hub dropbox linuxbrew
+sudo dnf install -y nautilus scrot httpie podman podman-compose gimp libreoffice task xbanish conky gnome-control-center gnome-tweaks vlc pip bat blueman cargo lxappearance unar thunderbird snapd hub dropbox linuxbrew okular obs-studio
 
 echo "Linux Brew..."
 brew install jenv
