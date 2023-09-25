@@ -1,0 +1,15 @@
+#!/bin/sh
+
+tiv -w 60 /home/mstefank/GIT/xstefank/backups/profile/profile-2.png
+
+echo -e "- \033[1mMartin Štefanko\033[0m"
+echo "- Red Hat, Principal Software Engineer"
+echo "- X/Twitter: @xstefank"
+echo "- Mastodon: @xstefank@mastodon.cloud"
+echo "- GitHub: @xstefank"
+echo "- LinkedIn: https://www.linkedin.com/in/martin-stefanko/"
+echo -e "- Email: xstefank122@gmail.com\n\n"
+
+echo "Author of Quarkus in Action (Manning)"
+echo "https://www.manning.com/books/quarkus-in-action"
+echo -e "Code \"\033[1mau35ste\033[0m\" for 35% off all Manning"
