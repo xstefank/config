@@ -114,6 +114,7 @@ J17=17
 J18=18
 J19=19
 J20=20
+J21=21
 
 alias j8='jenv global $J8'
 alias j9='jenv global $J9'
@@ -128,6 +129,7 @@ alias j17='jenv global $J17'
 alias j18='jenv global $J18'
 alias j19='jenv global $J19'
 alias j20='jenv global $J20'
+alias j21='jenv global $J21'
 
 alias jl8='jenv local $J8'
 alias jl9='jenv local $J9'
@@ -142,6 +144,7 @@ alias jl17='jenv local $J17'
 alias jl18='jenv local $J18'
 alias jl19='jenv local $J19'
 alias jl20='jenv local $J20'
+alias jl21='jenv local $J21'
 
 alias js8='jenv shell $J8'
 alias js9='jenv shell $J9'
@@ -156,6 +159,7 @@ alias js17='jenv shell $J17'
 alias js18='jenv shell $J18'
 alias js19='jenv shell $J19'
 alias js20='jenv shell $J20'
+alias js21='jenv shell $J21'
 
 alias j='java'
 alias jj='java -jar'
@@ -179,6 +183,7 @@ alias gwip='git add . && git commit -am "---- WIP ----"'
 alias grwip='git reset --soft @~ && git reset'
 alias gch='git checkout HEAD --'
 alias gfpr='git fpr'
+alias gfu='git fetch upstream'
 alias gcl='hub clone'
 alias gccd='gccd() { gcl $1 && cd $(echo $1 | cut -d'/' -f2)};gccd'
 alias gra='hub remote add'
@@ -234,7 +239,7 @@ alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -D
 alias mcpfd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 
 # idea
-alias i='idea pom.xml'
+alias i='idea.sh pom.xml'
 
 # grep
 alias grep='grep --color=auto'
@@ -341,6 +346,9 @@ alias eg='exa -la --git'
 # xcp
 alias cp=xcp
 
+# dnf
+alias di='sudo dnf install -y'
+
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
@@ -351,12 +359,12 @@ alias spotify='snap run spotify'
 
 qia-pdf() {
   echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf"
-  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-1.6.2/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && okular ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf
+  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-2.3.9/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && google-chrome-stable ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf
 }
 
 qia-pdf-code-icon() {
   echo "Generating PDF from ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc to ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf"
-  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-1.6.2/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs/code-icon ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc && okular ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf
+  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-2.3.9/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs/code-icon ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc && google-chrome-stable ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf
 }
 
 # invert Ctrl+Space
@@ -374,18 +382,16 @@ bindkey -M emacs " " magic-space
 bindkey -M viins " " magic-space
 
 # suffix aliases
-alias -s {pdf,PDF}='background okular'
-alias -s {jpg,JPG,png,PNG}='background feh'
+alias -s {pdf,PDF}='background google-crhome-stable'
+alias -s {jpg,JPG,png,PNG}='background feh --scale-down'
 alias -s {ods,ODS,odt,ODT,odp,ODP,doc,DOC,docx,DOCX,xls,XLS,xlsx,XLSX,xlsm,XLSM,ppt,PPT,pptx,PPTX,csv,CSV}='background libreoffice'
-alias -s {html,HTML}='background google-chrome-beta'
+alias -s {html,HTML}='background google-chrome-stable'
 alias -s {mp4,MP4,mov,MOV,mkv,MKV}='background vlc'
 alias -s {zip,ZIP,war,WAR}="unzip -l"
 alias -s {jar,JAR}="java -jar"
 alias -s {gz,tar.gz}="tar -tf"
 alias -s {tgz,TGZ}="tar -tf"
 
-
-#
 unsetopt share_history
 setopt INC_APPEND_HISTORY
 setopt APPEND_HISTORY
@@ -421,6 +427,12 @@ export PATH="$HOME/apps/kafka/bin:$PATH"
 # cargo
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# snap
+export PATH="$PATH:/var/lib/snapd/snap/bin"
+
+# pip
+export PATH="$PATH:/home/mstefank/.local/bin"
+
 # jabba
 [ -s "/home/mstefank/.jabba/jabba.sh" ] && source "/home/mstefank/.jabba/jabba.sh"
 
@@ -433,12 +445,12 @@ if [ -f '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/ho
 # The next line enables shell command completion for quarkus CLI.
 source <(~/.sdkman/candidates/quarkus/current/bin/quarkus completion)
 
+# Add Jbang to environment
+alias j!=jbang
+export PATH="$HOME/.jbang/bin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
 [[ -s "/home/mstefank/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mstefank/.sdkman/bin/sdkman-init.sh"
 
 
-
-# Add Jbang to environment
-alias j!=jbang
-export PATH="$HOME/.jbang/bin:$PATH"
