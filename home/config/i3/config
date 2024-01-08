@@ -202,7 +202,7 @@ bindsym $mod+m exec i3-msg move workspace to output right
 bindsym $mod+Shift+m exec i3-msg move workspace to output left
 
 # bluetooth home headset
-bindsym $mod+Shift+b exec bluetoothctl connect 38:18:4C:BF:46:3E
+bindsym $mod+Shift+b exec bluetoothctl connect AC:80:0A:6B:BB:A7
 
 # VPN
 bindsym $mod+Shift+v exec nmcli -f GENERAL.STATE con show Brno\ \(BRQ\) | grep activated && nmcli connection down Brno\ \(BRQ\) || nmcli connection up Brno\ \(BRQ\)
@@ -211,12 +211,12 @@ bindsym $mod+Shift+v exec nmcli -f GENERAL.STATE con show Brno\ \(BRQ\) | grep a
 bindsym $mod+n exec i3newWorkspace
 
 # dunst
-exec --no-startup-id dunst &
+exec_always --no-startup-id killall dunst && dunst &
 bindsym $mod+Shift+d exec --no-startup-id dunstctl set-paused toggle
 bindsym ctrl+comma exec --no-startup-id dunstctl close
 bindsym ctrl+shift+comma exec --no-startup-id dunstctl close-all
 bindsym ctrl+period exec --no-startup-id dunstctl history-pop
-bindsym ctrl+shift+period exec --no-startup-context
+#bindsym ctrl+shift+period exec --no-startup-context
 
 # dropbox
 exec --no-startup-id dropbox start
@@ -228,7 +228,7 @@ bindsym $mod+x exec --no-startup-id xmodmap ~/.Xmodmap-switch
 # xrandr 
 exec_always --no-startup-id xrandrSet
 # keep an eye on if any other stuff needs to be restarted with just xrandr commands
-bindsym $mod+Shift+p exec --no-startup-id xrandrSet 
+bindsym $mod+Shift+p exec --no-startup-id xrandrSet
 bindsym $mod+Mod1+p exec --no-startup-id xrandrMainOn
 
 # reload the configuration file
@@ -330,10 +330,10 @@ bindsym $mod+Shift+x exec xmodmap /home/mstefank/.Xmodmap
 # applications
 
 # idea
-bindsym $mod+Shift+i exec /home/mstefank/bin/idea
+bindsym $mod+Shift+i exec idea.sh
 
 # google chrome
-bindsym $mod+Shift+g exec google-chrome-beta
+bindsym $mod+Shift+g exec google-chrome-stable
 
 # nautilus
 bindsym $mod+Shift+f exec nautilus
