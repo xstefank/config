@@ -66,10 +66,17 @@ function dunst_paused {
   fi
 }
 
+function keyboard {
+  currentLayout=`setxkbmap -query | grep layout | grep -o '[^" "]*$'`
+  local json="{ \"full_text\": \"K: $currentLayout\" }"
+  json_array=$(update_holder holder__keyboard "$json")
+}
+
 i3status | (read line; echo "$line"; read line ; echo "$line" ; read line ; echo "$line" ; while true
 do
   read line
   json_array="$(echo $line | sed -e 's/^,//')"
   dunst_paused
+  keyboard
   echo ",$json_array" 
 done)
