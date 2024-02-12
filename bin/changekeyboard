@@ -10,11 +10,14 @@ case "$currentLayout" in
 		setxkbmap -rules evdev -layout sk -variant qwerty
 		;;
 	sk)
-		setxkbmap -rules evdev -layout us
+		setxkbmap -rules evdev -layout de -variant qwerty
 		;;
+  de)
+    setxkbmap -rules evdev -layout us
+    ;;
   us,cz,sk)
-    # starting default is us, so switch to the next in line which is cz
-    setxkbmap -rules evdev -layout cz -variant qwerty
+    # starting default is us, so just set it explicitly
+    setxkbmap -rules evdev -layout us
     ;;
 	*)
 		echo "Invalid keyboard layout: $currentLayout"
