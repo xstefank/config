@@ -72,7 +72,6 @@ mode "$mode_system" {
 bindsym $mod+grave mode "$mode_system"
 
 # keyboard layouts - bind $mod+space to change layout
-# exec_always --no-startup-id setxkbmap -layout us
 bindsym $mod+space exec --no-startup-id changekeyboard 
 
 # change focus
@@ -330,7 +329,7 @@ bindsym $mod+Shift+x exec xmodmap /home/mstefank/.Xmodmap
 # applications
 
 # idea
-bindsym $mod+Shift+i exec idea.sh
+bindsym $mod+Shift+i exec idea
 
 # google chrome
 bindsym $mod+Shift+g exec google-chrome-stable
