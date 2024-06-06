@@ -1,0 +1,6 @@
+#!/bin/bash    
+
+readonly CERT=${1}
+
+keytool -import -alias $(rand 10)-internal.redhat.com -keystore $JAVA_HOME/lib/security/cacerts -file "$CERT" -storepass changeit -noprompt
+
