@@ -46,9 +46,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec zsh -c "rofi -show run"
 bindsym $mod+w exec zsh -c "rofi -show window"
 
-# wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
-
 # battery warning popup
 exec --no-startup-id i3-battery-popup -n
 
@@ -73,6 +70,8 @@ bindsym $mod+grave mode "$mode_system"
 
 # keyboard layouts - bind $mod+space to change layout
 bindsym $mod+space exec --no-startup-id changekeyboard 
+# set us layout on startup
+exec_always --no-startup-id setxkbmap -rules evdev -layout us
 
 # change focus
 bindsym $mod+h focus left
@@ -204,7 +203,7 @@ bindsym $mod+Shift+m exec i3-msg move workspace to output left
 bindsym $mod+Shift+b exec bluetoothctl connect AC:80:0A:6B:BB:A7
 
 # VPN
-bindsym $mod+Shift+v exec nmcli -f GENERAL.STATE con show Brno\ \(BRQ\) | grep activated && nmcli connection down Brno\ \(BRQ\) || nmcli connection up Brno\ \(BRQ\)
+bindsym $mod+Shift+v exec nmcli -f GENERAL.STATE con show Brno\ \(BRQ2\) | grep activated && nmcli connection down Brno\ \(BRQ2\) || nmcli connection up Brno\ \(BRQ2\)
 
 # create new workspace
 bindsym $mod+n exec i3newWorkspace
@@ -222,13 +221,17 @@ exec --no-startup-id dropbox start
 
 # xmodmap
 exec_always --no-startup-id xmodmap ~/.Xmodmap
-bindsym $mod+x exec --no-startup-id xmodmap ~/.Xmodmap-switch
+bindsym $mod+x exec --no-startup-id xmodmap ~/.Xmodmap-escape-remap
+bindsym $mod+Shift+x exec --no-startup-id xmodmap ~/.Xmodmap
 
 # xrandr 
-exec_always --no-startup-id xrandrSet
+#exec_always --no-startup-id xrandrSet
 # keep an eye on if any other stuff needs to be restarted with just xrandr commands
 bindsym $mod+Shift+p exec --no-startup-id xrandrSet
 bindsym $mod+Mod1+p exec --no-startup-id xrandrMainOn
+
+# wallpaper
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -323,9 +326,6 @@ exec --no-startup-id /usr/lib/gsd-xsettings
 bindsym $mod+y exec /usr/bin/xbanish
 bindsym $mod+Shift+y exec killall xbanish
 
-# reload xmodmap
-bindsym $mod+Shift+x exec xmodmap /home/mstefank/.Xmodmap
-
 # applications
 
 # idea
@@ -336,6 +336,9 @@ bindsym $mod+Shift+g exec google-chrome-stable
 
 # nautilus
 bindsym $mod+Shift+f exec nautilus
+
+# magnus
+bindsym $mod+Mod1+m exec magnus
 
 # colors
 # class                 border  backgr. text    indicator child_border
