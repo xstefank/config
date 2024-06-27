@@ -21,6 +21,7 @@ order += "ethernet _first_"
 order += "run_watch VPN"
 order += "tztime holder__dunst_paused"
 order += "tztime holder__keyboard"
+order += "tztime holder__bt_battery"
 order += "volume master"
 order += "battery all"
 order += "load"
@@ -34,6 +35,10 @@ tztime holder__keyboard {
 
 tztime holder__dunst_paused {
   format = "holder__dunst_paused"
+}
+
+tztime holder__bt_battery {
+  format = "holder__bt_battery"
 }
 
 wireless _first_ {
