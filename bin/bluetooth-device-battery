@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BT_INFO=$(bluetoothctl info)
+
+if [[ "$BT_INFO" == *"No default controller"* ]]; then
+  echo "N/A"
+  exit 0
+fi
+ 
+readonly NAME=$(echo "$BT_INFO" | grep "Name:" | sed -e "s/^.*Name: //")
+readonly BATTERY=$(echo "$BT_INFO" | grep "Battery Percentage:" | sed 's/.*(\(.*\))/\1/')
+
+echo "$NAME ($BATTERY)"
+
