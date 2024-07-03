@@ -9,7 +9,7 @@ TEXT='#ffffffff'
 WRONG='#880000bb'
 VERIFYING='#000000cc'
 
-i3lock -n \
+i3lock  \
 -i ~/Pictures/screensaver2.jpg -etf \
 --inactivity-timeout=1 \
 --pass-media-keys \
