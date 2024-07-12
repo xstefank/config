@@ -1,8 +1,16 @@
 #/bin/sh
 
-xrandr --output DP-1 --off
-xrandr --output DP-2-2 --off
-xrandr --output DP-2-1-6 --off
-xrandr --output DP-2-1-5 --off
-xrandr --output HDMI-1 --off
-xrandr --output eDP-1 --auto --primary
+readonly DISPLAY_LAPTOP=eDP1
+readonly DISPLAY_1=DP1-8
+readonly DISPLAY_2=DP2-2-8
+readonly DISPLAY_3=DP2-1-6-8
+readonly DISPLAY_4=DP2-1-5
+
+xrandr --output "$DISPLAY_1" --off
+xrandr --output "$DISPLAY_2" --off
+xrandr --output eDP1 --auto --primary
+xrandr --output "$DISPLAY_3" --off
+xrandr --output "$DISPLAY_4" --off
+xrandr --output DP3 --off
+xrandr --output HDMI1 --off
+
