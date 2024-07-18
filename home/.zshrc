@@ -60,6 +60,7 @@ plugins=(
   globalias
   gh
   spring
+  kubectl-autocomplete
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,6 +116,8 @@ J18=18
 J19=19
 J20=20
 J21=21
+J22=22
+J23=23
 
 alias j8='jenv global $J8'
 alias j9='jenv global $J9'
@@ -130,6 +133,8 @@ alias j18='jenv global $J18'
 alias j19='jenv global $J19'
 alias j20='jenv global $J20'
 alias j21='jenv global $J21'
+alias j22='jenv global $J22'
+alias j23='jenv global $J23'
 
 alias jl8='jenv local $J8'
 alias jl9='jenv local $J9'
@@ -145,6 +150,8 @@ alias jl18='jenv local $J18'
 alias jl19='jenv local $J19'
 alias jl20='jenv local $J20'
 alias jl21='jenv local $J21'
+alias jl22='jenv local $J22'
+alias jl23='jenv local $J23'
 
 alias js8='jenv shell $J8'
 alias js9='jenv shell $J9'
@@ -160,11 +167,18 @@ alias js18='jenv shell $J18'
 alias js19='jenv shell $J19'
 alias js20='jenv shell $J20'
 alias js21='jenv shell $J21'
+alias js22='jenv shell $J22'
+alias js23='jenv shell $J23'
 
 alias j='java'
 alias jj='java -jar'
 alias jv='java -version'
 alias jol='jj /home/mstefank/apps/jol-cli-latest.jar'
+alias jf='jf() { jps | grep -e "$1" | cut -d " " -f1 };jf'
+alias jl='java --source 22 --enable-preview'
+
+# graalvm
+export GRAALVM_HOME=$HOME/.sdkman/candidates/java/21.0.1-graal
 
 # git
 alias glg="git --no-pager log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n5"
@@ -206,6 +220,7 @@ alias gsl='git stash list'
 
 # mvn
 alias mi='mvn install'
+alias mc='mvn clean'
 alias mci='mvn clean install'
 alias mcif='mvn clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 alias mcit='mvn clean install -DskipTests'
@@ -238,8 +253,12 @@ alias mcpd='mvnd clean package'
 alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 alias mcpfd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 
+# RSS
+alias rss='rss() { ps -o pid,rss,command -p $(pgrep -f "$1") | numfmt --header --from-unit=1024 --to=iec --field 2 | column -t  };rss'
+
 # idea
-alias i='idea.sh pom.xml'
+alias i='my-idea'
+alias id='idea.sh'
 
 # grep
 alias grep='grep --color=auto'
@@ -356,6 +375,7 @@ alias notes='vim ~/Documents/notes.txt'
 alias k9='kill -9'
 alias ka='killall'
 alias spotify='snap run spotify'
+alias kj="jps | grep quarkus-run | cut -d ' ' -f1 | xargs kill -9"
 
 qia-pdf() {
   echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf"
@@ -382,8 +402,8 @@ bindkey -M emacs " " magic-space
 bindkey -M viins " " magic-space
 
 # suffix aliases
-alias -s {pdf,PDF}='background google-crhome-stable'
-alias -s {jpg,JPG,png,PNG}='background feh --scale-down'
+alias -s {pdf,PDF}='background google-chrome-stable'
+alias -s {jpg,jpeg,JPG,png,PNG}='background google-chrome-stable'
 alias -s {ods,ODS,odt,ODT,odp,ODP,doc,DOC,docx,DOCX,xls,XLS,xlsx,XLSX,xlsm,XLSM,ppt,PPT,pptx,PPTX,csv,CSV}='background libreoffice'
 alias -s {html,HTML}='background google-chrome-stable'
 alias -s {mp4,MP4,mov,MOV,mkv,MKV}='background vlc'
@@ -433,6 +453,12 @@ export PATH="$PATH:/var/lib/snapd/snap/bin"
 # pip
 export PATH="$PATH:/home/mstefank/.local/bin"
 
+# go
+export PATH="$PATH:/home/mstefank/go/bin"
+
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # jabba
 [ -s "/home/mstefank/.jabba/jabba.sh" ] && source "/home/mstefank/.jabba/jabba.sh"
 
@@ -443,14 +469,41 @@ if [ -f '/home/mstefank/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mst
 if [ -f '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc'; fi
 
 # The next line enables shell command completion for quarkus CLI.
-source <(~/.sdkman/candidates/quarkus/current/bin/quarkus completion)
+source <(cat ~/completion)
 
 # Add Jbang to environment
 alias j!=jbang
 export PATH="$HOME/.jbang/bin:$PATH"
 
+# openshift
+if [ $commands[oc] ]; then
+  source <(oc completion zsh)
+  compdef _oc oc
+fi
+
+# linuxbrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+#        . "/usr/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/usr/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+
+# prospero
+alias prospero='/home/mstefank/GIT/xstefank/prospero/prospero'
+alias prospero-extras='java -jar /home/mstefank/GIT/xstefank/prospero-extras/target/prospero-extras-*-shaded.jar'
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
 [[ -s "/home/mstefank/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mstefank/.sdkman/bin/sdkman-init.sh"
-
 
