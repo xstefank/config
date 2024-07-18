@@ -3,6 +3,11 @@
 BT_INFO=$(bluetoothctl info)
 
 if [[ "$BT_INFO" == *"No default controller"* ]]; then
+  echo "OFF"
+  exit 0
+fi
+
+if [[ "$BT_INFO" == *"DeviceSet (null)"* ]]; then
   echo "N/A"
   exit 0
 fi

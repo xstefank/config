@@ -1,16 +1,14 @@
 #!/bin/sh
 
-xmodmap /home/mstefank/.Xmodmap-lock
-
 BLANK='#00000000'
 CLEAR='#ffffff22'
 DEFAULT='#00000000'
-TEXT='#ffffffff'
+TEXT='#000000ff'
 WRONG='#880000bb'
 VERIFYING='#000000cc'
 
-i3lock  \
--i ~/Pictures/screensaver2.jpg -etf \
+i3lock \
+-i ~/Pictures/screensaver-2560x1440.jpg -etf \
 --inactivity-timeout=1 \
 --pass-media-keys \
 --insidever-color=$CLEAR     \

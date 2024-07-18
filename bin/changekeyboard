@@ -15,7 +15,7 @@ case "$currentLayout" in
   de)
     setxkbmap -rules evdev -layout us
     ;;
-  us,cz,sk)
+  us,cz,sk,de)
     # starting default is us, so just set it explicitly
     setxkbmap -rules evdev -layout us
     ;;

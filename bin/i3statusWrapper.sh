@@ -72,11 +72,19 @@ function keyboard {
   json_array=$(update_holder holder__keyboard "$json")
 }
 
+function bt_battery {
+  BT_BATTERY=$(bluetooth-device-battery)
+
+  local json="{ \"full_text\": \"BT: $BT_BATTERY\"}"
+  json_array=$(update_holder holder__bt_battery "$json")
+}
+
 i3status | (read line; echo "$line"; read line ; echo "$line" ; read line ; echo "$line" ; while true
 do
   read line
   json_array="$(echo $line | sed -e 's/^,//')"
   dunst_paused
   keyboard
+  bt_battery
   echo ",$json_array" 
 done)
