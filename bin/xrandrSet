@@ -1,18 +1,29 @@
 #!/bin/bash
 
-DOCK=$(xrandr | grep "DP-1 connected")
-
-if [ -z "$DOCK" ]
+xrandr | grep -q "DP1-8 connected"
+if [ $? -eq 0 ]
 then
-	if [ -z $(xrandr | grep "HDMI-1 connected") ]
-	then
-		# nothing seems to be connect, so use just normal display setup
-      		xrandrSetup
-	else
-		xrandrSetup --hdmi
-	fi
-else
-      xrandrSetup --dock
+  echo "dock"
+  xrandrSetup --dock
+  exit 0;
 fi
 
-#setxkbmap -rules evdev -layout us
+xrandr | grep -q "DP2 connected"
+if [ $? -eq 0 ]
+then
+  echo "dock"
+  xrandrSetup --dock
+  exit 0;
+fi
+
+xrandr | grep "HDMI1 connected"
+if [ $? -eq 0 ]
+then
+  echo "hdmi"
+  xrandrSetup --hdmi
+  exit 0
+fi
+
+echo "nothing"
+xrandrSetup 
+
