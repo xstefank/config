@@ -102,6 +102,11 @@ readonly DISPLAY_2=DP2-2-8
 readonly DISPLAY_3=DP2-1-6-8
 readonly DISPLAY_4=DP2-1-5
 
+readonly DISPLAY_DOCK_1=DP2-8
+readonly DISPLAY_DOCK_2=DP1-2-8
+readonly DISPLAY_DOCK_3=DP1-1-6-8
+readonly DISPLAY_DOCK_4=DP1-1-5
+
 # TODO HDMI
 if [ $_arg_hdmi = "on" ]; then
   	xrandr --output HDMI1 --auto --primary
@@ -110,7 +115,7 @@ if [ $_arg_hdmi = "on" ]; then
 fi
 
 if [ $_arg_dock = "on" ]; then
-  xrandr | grep -q "$DISPLAY_2 connected"
+  xrandr | grep -q "$DISPLAY_1 connected"
   if [ $? -eq 0 ]
   then
     xrandr --output "$DISPLAY_1" --off
@@ -126,21 +131,21 @@ if [ $_arg_dock = "on" ]; then
     exit 0
   fi
 
-#  xrandr | grep -q "DP2 connected"
-#  if [ $? -eq 0 ]
-#  then
-#    xrandr --output DP2 --off
-#    xrandr --output DP1-2 --off
-#    xrandr --output DP1-1-6 --off
-#    xrandr --output DP1-1-5 --off
-#
-#    xrandr --output DP2 --right-of eDP1 --auto
-#    xrandr --output DP1-2 --right-of DP2 --auto --primary
-#    xrandr --output DP1-1-6 --right-of DP1-2 --auto
-#    xrandr --output eDP1 --off
-#    xrandr --output DP1-1-5 --right-of DP1-1-6 --auto
-#    exit 0
-#  fi
+  xrandr | grep -q "$DISPLAY_DOCK_1 connected"
+  if [ $? -eq 0 ]
+  then
+    xrandr --output "$DISPLAY_DOCK_1" --off
+    xrandr --output "$DISPLAY_DOCK_2" --off
+    xrandr --output "$DISPLAY_DOCK_3" --off
+    xrandr --output "$DISPLAY_DOCK_4" --off
+
+    xrandr --output "$DISPLAY_DOCK_1" --right-of "$DISPLAY_LAPTOP" --auto
+    xrandr --output "$DISPLAY_LAPTOP" --off
+    xrandr --output "$DISPLAY_DOCK_2" --right-of "$DISPLAY_DOCK_1" --auto --primary
+    xrandr --output "$DISPLAY_DOCK_3" --right-of "$DISPLAY_DOCK_2" --auto
+    xrandr --output "$DISPLAY_DOCK_4" --right-of "$DISPLAY_DOCK_3" --auto
+    exit 0
+  fi
 
 	#xrandr --output DP-2-2 --primary
  	#echo "Xft.dpi: 90" | xrdb -merge
