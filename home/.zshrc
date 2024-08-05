@@ -61,6 +61,7 @@ plugins=(
   gh
   spring
   kubectl-autocomplete
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -69,6 +70,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Custom ENV
 . ~/.env
+. ~/.secret-env
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -259,12 +261,16 @@ alias rss='rss() { ps -o pid,rss,command -p $(pgrep -f "$1") | numfmt --header -
 # idea
 alias i='my-idea'
 alias id='idea.sh'
+alias iqd='i && qd'
 
 # grep
 alias grep='grep --color=auto'
 alias ggrep='grep --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias -g G='| grep'
 alias -g Gi='| grep -i'
+
+# clipcopy
+alias -g C='| clipcopy'
 
 # quarkus
 qa() {
@@ -274,6 +280,7 @@ qr() {
   quarkus ext remove "$@"
 }
 alias qd='quarkus dev'
+alias qdc='quarkus dev --clean'
 alias ql='quarkus ext -i'
 alias qe='quarkus ext'
 qcd() { 
@@ -289,14 +296,16 @@ alias di='docker image'
 alias dis='docker images'
 alias dps='docker ps'
 alias dlf='docker logs -f'
-alias docker-compose='podman-compose'
+#alias docker-compose='podman-compose'
 alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcud='docker-compose up -d'
 alias dcd='docker-compose down'
 
 # podman
-alias docker=podman
+#alias docker=podman
+alias ph='. podman-host'
+alias uph='. unset-podman-host'
 alias pi='podman image'
 alias pis='podman images'
 alias pps='podman ps'
@@ -316,6 +325,8 @@ alias olg='oc logs -f'
 
 # kubernetes
 alias k='kubectl'
+alias kap='k apply -f '
+alias kdel='k delete -f '
 
 # taskwarrior
 # general
