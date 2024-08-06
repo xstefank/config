@@ -1,0 +1,6 @@
+#!/bin/bash    
+
+readonly POSTGRES_PORT=$(podman ps | grep postgres | sed 's/.*0.0.0.0://' | sed 's/->.*//')
+
+PGPASSWORD=quarkus psql -h localhost -p "$POSTGRES_PORT" -U quarkus "$@"
+
