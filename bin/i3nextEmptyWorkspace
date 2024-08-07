@@ -1,0 +1,4 @@
+#!/bin/bash
+
+i3-msg workspace $(i3-msg -t get_workspaces | tr , '\n' | grep '"num":' | cut -d : -f 2 | sort -n | awk '{for(i=p+1; i<$1; i++) print i} {p=$1}' | head -1)
+
