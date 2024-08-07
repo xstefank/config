@@ -206,7 +206,8 @@ bindsym $mod+Shift+b exec bluetoothctl connect AC:80:0A:6B:BB:A7
 bindsym $mod+Shift+v exec nmcli -f GENERAL.STATE con show Brno\ \(BRQ2\) | grep activated && nmcli connection down Brno\ \(BRQ2\) || nmcli connection up Brno\ \(BRQ2\)
 
 # create new workspace
-bindsym $mod+n exec i3newWorkspace
+bindsym $mod+n exec i3nextEmptyWorkspace
+bindsym $mod+Shift+n exec i3newWorkspace
 
 # dunst
 exec_always --no-startup-id killall dunst && dunst &
@@ -225,13 +226,13 @@ bindsym $mod+x exec --no-startup-id xmodmap ~/.Xmodmap-escape-remap
 bindsym $mod+Shift+x exec --no-startup-id xmodmap ~/.Xmodmap
 
 # xrandr 
-#exec_always --no-startup-id xrandrSet
+exec --no-startup-id xrandrSet
 # keep an eye on if any other stuff needs to be restarted with just xrandr commands
 bindsym $mod+Shift+p exec --no-startup-id xrandrSet
 bindsym $mod+Mod1+p exec --no-startup-id xrandrMainOn
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper-2560x1440.jpg
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
