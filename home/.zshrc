@@ -288,6 +288,7 @@ qcd() {
   cd ${1#*:} 
 }
 alias quark='quarkus create app'
+alias quarkl='quarkus create app -P io.quarkus::999-SNAPSHOT'
 
 # docker
 alias d='docker'
@@ -387,6 +388,8 @@ alias k9='kill -9'
 alias ka='killall'
 alias spotify='snap run spotify'
 alias kj="jps | grep quarkus-run | cut -d ' ' -f1 | xargs kill -9"
+alias rr='rm -rf'
+alias o='oathtool --totp $(cat ~/.secret/.otp-secret) | tr -d '\n' | clipcopy'
 
 qia-pdf() {
   echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf"
