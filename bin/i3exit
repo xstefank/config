@@ -1,11 +1,14 @@
 #!/bin/sh
 lock() {
-  i3lock-with-color 
+  i3lock-with-color "$@"
 }
 
 case "$1" in
     lock)
-        lock
+        readonly dunst_paused=$(dunstctl get-pause-level)
+        dunstctl set-paused true
+        lock -n
+        if [ $dunst_paused -eq "0" ]; then dunstctl set-paused false; else dunstctl set-paused true; fi
         ;;
     logout)
         i3-msg exit
