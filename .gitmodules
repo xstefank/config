@@ -1,3 +1,6 @@
 [submodule "home/.oh-my-zsh"]
 	path = home/.oh-my-zsh
 	url = git@github.com:xstefank/oh-my-zsh.git
+[submodule "logstash"]
+	path = logstash
+	url = https://github.com/elastic/logstash.git
