@@ -105,72 +105,32 @@ alias i3config='vim ~/.config/i3/config'
 # java
 
 J8=1.8
-J9=9
-J10=10
 J11=11
-J12=12
-J13=13
-J14=14
-J15=15
-J16=16
 J17=17
-J18=18
-J19=19
-J20=20
 J21=21
-J22=22
 J23=23
+J24=24
 
 alias j8='jenv global $J8'
-alias j9='jenv global $J9'
-alias j10='jenv global $J10'
 alias j11='jenv global $J11'
-alias j12='jenv global $J12'
-alias j13='jenv global $J13'
-alias j14='jenv global $J14'
-alias j15='jenv global $J15'
-alias j16='jenv global $J16'
 alias j17='jenv global $J17'
-alias j18='jenv global $J18'
-alias j19='jenv global $J19'
-alias j20='jenv global $J20'
 alias j21='jenv global $J21'
-alias j22='jenv global $J22'
 alias j23='jenv global $J23'
+alias j24='jenv global $J24'
 
 alias jl8='jenv local $J8'
-alias jl9='jenv local $J9'
-alias jl10='jenv local $J10'
 alias jl11='jenv local $J11'
-alias jl12='jenv local $J12'
-alias jl13='jenv local $J13'
-alias jl14='jenv local $J14'
-alias jl15='jenv local $J15'
-alias jl16='jenv local $J16'
 alias jl17='jenv local $J17'
-alias jl18='jenv local $J18'
-alias jl19='jenv local $J19'
-alias jl20='jenv local $J20'
 alias jl21='jenv local $J21'
-alias jl22='jenv local $J22'
 alias jl23='jenv local $J23'
+alias jl24='jenv local $J24'
 
 alias js8='jenv shell $J8'
-alias js9='jenv shell $J9'
-alias js10='jenv shell $J10'
 alias js11='jenv shell $J11'
-alias js12='jenv shell $J12'
-alias js13='jenv shell $J13'
-alias js14='jenv shell $J14'
-alias js15='jenv shell $J15'
-alias js16='jenv shell $J16'
 alias js17='jenv shell $J17'
-alias js18='jenv shell $J18'
-alias js19='jenv shell $J19'
-alias js20='jenv shell $J20'
 alias js21='jenv shell $J21'
-alias js22='jenv shell $J22'
 alias js23='jenv shell $J23'
+alias js24='jenv shell $J24'
 
 alias j='java'
 alias jj='java -jar'
@@ -180,12 +140,13 @@ alias jf='jf() { jps | grep -e "$1" | cut -d " " -f1 };jf'
 alias jl='java --source 22 --enable-preview'
 
 # graalvm
-export GRAALVM_HOME=$HOME/.sdkman/candidates/java/21.0.1-graal
+export GRAALVM_HOME=$HOME/.sdkman/candidates/java/23.0.1-graalce
 
 # git
 alias glg="git --no-pager log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n5"
 alias glgi="git log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gcane="git commit --amend --no-edit"
+alias gamen="git commit --amend"
 alias gacane="git add . && gcane"
 alias gcom='git commit -m'
 alias gcasm='git commit -asm'
@@ -200,10 +161,10 @@ alias grwip='git reset --soft @~ && git reset'
 alias gch='git checkout HEAD --'
 alias gfpr='git fpr'
 alias gfu='git fetch upstream'
-alias gcl='hub clone'
+alias gcl='gh repo clone'
 alias gccd='gccd() { gcl $1 && cd $(echo $1 | cut -d'/' -f2)};gccd'
-alias gra='hub remote add'
-alias grau='grau() { hub remote add upstream "$1"/"${PWD##*/}" };grau'
+alias gra='gra() { git remote add "$1" "git@github.com:$1/${PWD##*/}.git" };gra'
+alias grau='grau() { git remote add upstream "git@github.com:$1/${PWD##*/}.git" };grau'
 alias gpr='gh pr'
 alias gprco='gh pr checkout'
 alias gprc='gh pr create'
@@ -270,7 +231,7 @@ alias -g G='| grep'
 alias -g Gi='| grep -i'
 
 # clipcopy
-alias -g C='| clipcopy'
+alias -g C='| tee /dev/tty | clipcopy'
 
 # quarkus
 qa() {
@@ -283,12 +244,17 @@ alias qd='quarkus dev'
 alias qdc='quarkus dev --clean'
 alias ql='quarkus ext -i'
 alias qe='quarkus ext'
-qcd() { 
-  quarkus create app $1 
-  cd ${1#*:} 
+quark() { 
+  quarkus create app "$1" 
+  cd "${1#*:}"
 }
-alias quark='quarkus create app'
-alias quarkl='quarkus create app -P io.quarkus::999-SNAPSHOT'
+quarkl() {
+  quarkus create app -P io.quarkus::999-SNAPSHOT "$1"
+  cd "${1#*:}"
+}
+
+# nautilus
+alias n='nautilus . &; disown %1'
 
 # docker
 alias d='docker'
@@ -297,14 +263,14 @@ alias di='docker image'
 alias dis='docker images'
 alias dps='docker ps'
 alias dlf='docker logs -f'
-#alias docker-compose='podman-compose'
+alias docker-compose='podman-compose'
 alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcud='docker-compose up -d'
 alias dcd='docker-compose down'
 
 # podman
-#alias docker=podman
+alias docker=podman
 alias ph='. podman-host'
 alias uph='. unset-podman-host'
 alias pi='podman image'
@@ -383,22 +349,26 @@ alias di='sudo dnf install -y'
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
-alias notes='vim ~/Documents/notes.txt'
+alias notes='vim ~/.secret/notes.txt'
 alias k9='kill -9'
 alias ka='killall'
 alias spotify='snap run spotify'
 alias kj="jps | grep quarkus-run | cut -d ' ' -f1 | xargs kill -9"
 alias rr='rm -rf'
-alias o='oathtool --totp $(cat ~/.secret/.otp-secret) | tr -d '\n' | clipcopy'
+alias ocz='ocz() { openai-grammar $1 C };ocz'
+alias osl='osl() { openai-grammar -l Slovak $1 C };osl'
+alias svg='svg() { inkscape -p $1 -o $(echo $1 | sed -e "s/.png$/.svg/") };svg'
+alias -g s='2>&1 | less'
+
 
 qia-pdf() {
   echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf"
-  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-2.3.9/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && google-chrome-stable ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf
+  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-2.3.19/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && google-chrome-stable ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf
 }
 
 qia-pdf-code-icon() {
   echo "Generating PDF from ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc to ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf"
-  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-2.3.9/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs/code-icon ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc && google-chrome-stable ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf
+  asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-2.3.19/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs/code-icon ./manuscript/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.adoc && google-chrome-stable ./manuscript/PDFs/code-icon/$1_Stefanko_Quarkus_in_Action-code-icon.pdf
 }
 
 # invert Ctrl+Space
