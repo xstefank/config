@@ -29,6 +29,9 @@ font pango:monospace bold 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Follow mouse on workspace move
+focus_follows_mouse yes
+
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
 
@@ -69,7 +72,8 @@ mode "$mode_system" {
 bindsym $mod+grave mode "$mode_system"
 
 # keyboard layouts - bind $mod+space to change layout
-bindsym $mod+space exec --no-startup-id changekeyboard 
+bindsym $mod+space exec changekeyboard
+bindsym $mod+Shift+space exec setxkbmap -rules evdev -layout us
 # set us layout on startup
 exec_always --no-startup-id setxkbmap -rules evdev -layout us
 
@@ -294,8 +298,8 @@ bindsym XF86AudioMicMute exec --no-startup-id soundControl micMute
 bindsym $mod+z exec --no-startup-id soundControl micMute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec backlight Up
+bindsym XF86MonBrightnessDown exec backlight Down
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec toggleTouchpad # toggle touchpad
@@ -322,10 +326,12 @@ exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 # dark theme
 exec --no-startup-id /usr/lib/gsd-xsettings
 
-# other shortcuts
 # remove mouse
 bindsym $mod+y exec /usr/bin/xbanish
 bindsym $mod+Shift+y exec killall xbanish
+
+# other shortcuts
+bindsym $mod+Mod1+i exec token && notify-send "Token copied to clipboard"
 
 # applications
 
@@ -364,7 +370,7 @@ client.background       #ffffff
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  	status_command /usr/bin/i3statusWrapper.sh 
+  	status_command i3statusWrapper.sh 
 	#status_command i3status
 	tray_output primary
 }
