@@ -1,0 +1,14 @@
+#!/bin/bash
+
+readonly param=$1
+
+if [[ "$param" == "ram" ]]; then
+  output=$(conky -c $HOME/.conkyrc-ram)
+fi 
+
+if [[ "$param" == "uptime" ]]; then
+  output=$(conky -c $HOME/.conkyrc-uptime)
+fi
+
+echo $output
+
