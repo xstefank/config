@@ -1,6 +1,9 @@
 #!/bin/bash
 
-xrandr | grep -q "DP1-8 connected"
+# Displays definitions
+. ~/.env
+
+xrandr | grep -q "$DISPLAY_1 connected"
 if [ $? -eq 0 ]
 then
   echo "dock"
@@ -8,7 +11,7 @@ then
   exit 0;
 fi
 
-xrandr | grep -q "DP2-8 connected"
+xrandr | grep -q "$DISPLAY_DOCK_1 connected"
 if [ $? -eq 0 ]
 then
   echo "dock"
@@ -16,7 +19,7 @@ then
   exit 0;
 fi
 
-xrandr | grep "HDMI1 connected"
+xrandr | grep "$DISPLAY_HDMI connected"
 if [ $? -eq 0 ]
 then
   echo "hdmi"

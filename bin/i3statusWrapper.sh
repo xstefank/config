@@ -79,6 +79,16 @@ function bt_battery {
   json_array=$(update_holder holder__bt_battery "$json")
 }
 
+function conky_ram {
+  local json=$(i3conkyWrapper ram)
+  json_array=$(update_holder holder__conky_ram "$json")
+}
+
+function conky_uptime {
+  local json=$(i3conkyWrapper uptime)
+  json_array=$(update_holder holder__conky_uptime "$json")
+}
+
 i3status | (read line; echo "$line"; read line ; echo "$line" ; read line ; echo "$line" ; while true
 do
   read line
@@ -86,5 +96,7 @@ do
   dunst_paused
   keyboard
   bt_battery
+  conky_ram
+  conky_uptime
   echo ",$json_array" 
 done)
