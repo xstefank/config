@@ -219,7 +219,11 @@ bindsym $mod+Shift+d exec --no-startup-id dunstctl set-paused toggle
 bindsym ctrl+comma exec --no-startup-id dunstctl close
 bindsym ctrl+shift+comma exec --no-startup-id dunstctl close-all
 bindsym ctrl+period exec --no-startup-id dunstctl history-pop
-#bindsym ctrl+shift+period exec --no-startup-context
+bindsym ctrl+shift+period exec --no-startup-id dunstctl action
+
+# grammar corrections
+bindsym $mod+Mod1+u exec --no-startup-id ocz-for-bash
+bindsym $mod+Mod1+Shift+u exec --no-startup-id osl-for-bash
 
 # dropbox
 exec --no-startup-id dropbox start
