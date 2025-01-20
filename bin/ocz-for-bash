@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. ~/.secret-env
+
+readonly text=$(xsel)
+openai-grammar -l Czech "$text" | xclip -sel clip
+notify-send "Czech grammar fixed $(xsel)"
+
