@@ -3,6 +3,7 @@
 . ~/.secret-env
 
 readonly text=$(xsel)
+notify-send "Sending clipboard for the grammar check"
 openai-grammar -l Slovak "$text" | xclip -sel clip
 notify-send "Slovak grammar fixed"
 
