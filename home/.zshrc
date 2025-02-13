@@ -191,8 +191,8 @@ alias mcist='mcist() { mvn clean install -DfailIfNoTests=false -Dtest="$1" };mci
 alias mcie='mvn clean install -fae'
 alias mct='mvn clean test'
 alias mcqd='mvn clean compile quarkus:dev'
-alias mcin='mvn clean install -Pnative'
-alias mcifn='mcif -Pnative'
+alias mcin='mvn clean install -Pnative -Dquarkus.native.container-build=true'
+alias mcifn='mcif -Pnative -Dquarkus.native.container-build=true'
 alias mp='mvn package'
 alias mcp='mvn clean package'
 alias mcpt='mvn clean package -DskipTests'
@@ -203,6 +203,7 @@ alias mt='mvn test'
 alias 🤘="mvn clean compile quarkus:dev"
 alias mdt='mvn dependency:tree'
 alias Mv='mvn -v'
+alias mq='mvn -Dquickly'
 alias -g st='-Dtest='
 alias -g it='-Dit.test='
 alias -g cs='-Dcheckstyle.skip'
@@ -292,6 +293,7 @@ alias olg='oc logs -f'
 
 # kubernetes
 alias k='kubectl'
+alias kc='kubectl cluster-info'
 alias kap='k apply -f '
 alias kdel='k delete -f '
 
