@@ -33,7 +33,7 @@ floating_modifier $mod
 focus_follows_mouse yes
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -345,7 +345,8 @@ bindsym $mod+Shift+i exec idea
 # google chrome
 bindsym $mod+Shift+g exec google-chrome-stable
 
-# nautilus
+# files
+bindsym $mod+Shift+w exec kitty ranger
 bindsym $mod+Shift+f exec nautilus
 
 # magnus
