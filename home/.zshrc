@@ -253,6 +253,9 @@ quarkl() {
   quarkus create app -P io.quarkus::999-SNAPSHOT "$1"
   cd "${1#*:}"
 }
+quark-test() {
+  quark "$1" && iqd
+}
 
 # nautilus
 alias n='nautilus . &; disown %1'
