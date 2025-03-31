@@ -346,7 +346,7 @@ bindsym $mod+Shift+i exec idea
 bindsym $mod+Shift+g exec google-chrome-stable
 
 # files
-bindsym $mod+Shift+w exec kitty ranger
+bindsym $mod+Shift+w exec kitty ranger-with-clean 
 bindsym $mod+Shift+f exec nautilus
 
 # magnus
