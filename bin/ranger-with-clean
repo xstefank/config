@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ranger
+rm /tmp/ranger_thumb_*
+
