@@ -3,11 +3,13 @@
 
 if [ $# -eq 0 ] 
 then 
-	scrot '%Y-%m-%d-%s_$wx$h.png' -e 'mv $f ~/Pictures' -q 100
+	#scrot '%Y-%m-%d-%s_$wx$h.png' -e 'mv $f ~/Pictures' -q 100
+  flameshot full -p ~/Pictures
 else
 	case "$1" in
 		-i)
-			scrot '%Y-%m-%d-%s_$wx$h.png' -e 'mv $f ~/Pictures' -s -q 100
+			#scrot '%Y-%m-%d-%s_$wx$h.png' -e 'mv $f ~/Pictures' -s -q 100
+      flameshot gui -p ~/Pictures
 			;;
 		*)
 			echo "Invalid option: $1"
