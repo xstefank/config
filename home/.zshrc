@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias zshconfig='vim ~/.zshrc'
 alias i3config='vim ~/.config/i3/config'
+alias kittyconfig='vim ~/.config/kitty/kitty.conf'
 
 # java
 
@@ -110,6 +111,7 @@ J17=17
 J21=21
 J23=23
 J24=24
+J25=25
 
 alias j8='jenv global $J8'
 alias j11='jenv global $J11'
@@ -117,6 +119,7 @@ alias j17='jenv global $J17'
 alias j21='jenv global $J21'
 alias j23='jenv global $J23'
 alias j24='jenv global $J24'
+alias j25='jenv global $J25'
 
 alias jl8='jenv local $J8'
 alias jl11='jenv local $J11'
@@ -124,6 +127,7 @@ alias jl17='jenv local $J17'
 alias jl21='jenv local $J21'
 alias jl23='jenv local $J23'
 alias jl24='jenv local $J24'
+alias jl25='jenv local $J25'
 
 alias js8='jenv shell $J8'
 alias js11='jenv shell $J11'
@@ -131,6 +135,7 @@ alias js17='jenv shell $J17'
 alias js21='jenv shell $J21'
 alias js23='jenv shell $J23'
 alias js24='jenv shell $J24'
+alias js25='jenv shell $J25'
 
 alias j='java'
 alias jj='java -jar'
@@ -140,7 +145,7 @@ alias jf='jf() { jps | grep -e "$1" | cut -d " " -f1 };jf'
 alias jl='java --source 22 --enable-preview'
 
 # graalvm
-export GRAALVM_HOME=$HOME/.sdkman/candidates/java/23.0.1-graalce
+export GRAALVM_HOME=$HOME/.sdkman/candidates/java/24-graal
 
 # git
 alias glg="git --no-pager log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n5"
@@ -246,15 +251,15 @@ alias qdc='quarkus dev --clean'
 alias ql='quarkus ext -i'
 alias qe='quarkus ext'
 quark() { 
-  quarkus create app "$1" 
+  quarkus create app "io.xstefank:$1" 
   cd "${1#*:}"
 }
 quarkl() {
-  quarkus create app -P io.quarkus::999-SNAPSHOT "$1"
+  quarkus create app -P io.quarkus::999-SNAPSHOT "io.xstefank:$1"
   cd "${1#*:}"
 }
 quark-test() {
-  quark "$1" && iqd
+  quark "io.xstefank:$1" && iqd
 }
 
 # nautilus
@@ -364,6 +369,8 @@ alias ocz='ocz() { openai-grammar $1 C };ocz'
 alias osl='osl() { openai-grammar -l Slovak $1 C };osl'
 alias svg='svg() { inkscape -p $1 -o $(echo $1 | sed -e "s/.png$/.svg/") };svg'
 alias -g s='2>&1 | less'
+alias fs='java -jar ~/GIT/xstefank/ai-cli/fs/target/quarkus-app/quarkus-run.jar'
+alias jaeger='docker run --rm -p 16686:16686 -p 4317:4317 docker.io/jaegertracing/all-in-one:1'
 
 
 qia-pdf() {
