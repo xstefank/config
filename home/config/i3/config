@@ -31,6 +31,7 @@ floating_modifier $mod
 
 # Follow mouse on workspace move
 focus_follows_mouse yes
+mouse_warping output
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -46,8 +47,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # rofi binding
-bindsym $mod+d exec zsh -c "rofi -show run"
-bindsym $mod+w exec zsh -c "rofi -show window"
+bindsym $mod+d exec --no-startup-id zsh -c "rofi -show run"
+bindsym $mod+w exec --no-startup-id zsh -c "rofi -show window"
 
 # battery warning popup
 exec --no-startup-id i3-battery-popup -n
@@ -327,12 +328,9 @@ exec blueman-applet
 # keyring
 exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
-# dark theme
-exec --no-startup-id /usr/lib/gsd-xsettings
-
 # remove mouse
-bindsym $mod+y exec /usr/bin/xbanish
-bindsym $mod+Shift+y exec killall xbanish
+bindsym $mod+Mod1+y exec /usr/bin/xbanish
+bindsym $mod+Mod1+Shift+y exec killall xbanish
 
 # other shortcuts
 bindsym $mod+Mod1+i exec token && notify-send "Token copied to clipboard"
@@ -346,11 +344,14 @@ bindsym $mod+Shift+i exec idea
 bindsym $mod+Shift+g exec google-chrome-stable
 
 # files
-bindsym $mod+Shift+w exec kitty ranger-with-clean 
+bindsym $mod+y exec kitty ranger-with-clean 
 bindsym $mod+Shift+f exec nautilus
 
 # magnus
 bindsym $mod+Mod1+m exec magnus
+
+# redhshift
+bindsym $mod+Mod1+Shift+m exec redshift-toggle
 
 # colors
 # class                 border  backgr. text    indicator child_border
