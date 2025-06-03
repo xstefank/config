@@ -143,9 +143,10 @@ alias jv='java -version'
 alias jol='jj /home/mstefank/apps/jol-cli-latest.jar'
 alias jf='jf() { jps | grep -e "$1" | cut -d " " -f1 };jf'
 alias jl='java --source 22 --enable-preview'
+alias jp='java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:+EnableDynamicAgentLoading -jar'
 
 # graalvm
-export GRAALVM_HOME=$HOME/.sdkman/candidates/java/24-graal
+export GRAALVM_HOME=$HOME/.sdkman/candidates/java/24-graalce
 
 # git
 alias glg="git --no-pager log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n5"
@@ -196,14 +197,19 @@ alias mcist='mcist() { mvn clean install -DfailIfNoTests=false -Dtest="$1" };mci
 alias mcie='mvn clean install -fae'
 alias mct='mvn clean test'
 alias mcqd='mvn clean compile quarkus:dev'
-alias mcin='mvn clean install -Pnative -Dquarkus.native.container-build=true'
-alias mcifn='mcif -Pnative -Dquarkus.native.container-build=true'
+alias mcin='mci -Pnative'
+alias mcinc='mci -Pnative -Dquarkus.native.container-build=true'
+alias mcifn='mcif -Pnative'
+alias mcifnc='mcif -Pnative -Dquarkus.native.container-build=true'
 alias mp='mvn package'
 alias mcp='mvn clean package'
 alias mcpt='mvn clean package -DskipTests'
 alias mcpf='mvn clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
 alias mcpfn='mcpf -Pnative'
-alias mcpn='mvn clean package -Pnative'
+alias mcpn='mcp -Pnative'
+alias mcpnc='mcp -Pnative -Dquarkus.native.container-build=true'
+alias mcpfn='mcpf -Pnative'
+alias mcpfnc='mcpf -Pnative -Dquarkus.native.container-build=true'
 alias mt='mvn test'
 alias 🤘="mvn clean compile quarkus:dev"
 alias mdt='mvn dependency:tree'
@@ -243,7 +249,7 @@ alias -g C='| tee /dev/tty | clipcopy'
 qa() {
   quarkus ext add "$@" 
 }
-qr() {
+qrm() {
   quarkus ext remove "$@"
 }
 alias qd='quarkus dev'
@@ -498,6 +504,12 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # prospero
 alias prospero='/home/mstefank/GIT/xstefank/prospero/prospero'
 alias prospero-extras='java -jar /home/mstefank/GIT/xstefank/prospero-extras/target/prospero-extras-*-shaded.jar'
+
+# QR codes
+alias create-qr='/home/mstefank/bin/QrCode.java'
+qr() {
+  /home/mstefank/bin/QrCode.java "$1" "/home/mstefank/GIT/xstefank/backups/profile/profile-50.jpg" "./qr-$(date '+%Y-%m-%d-%H:%M:%S-%3N').png"
+}
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
