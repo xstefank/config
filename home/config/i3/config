@@ -352,6 +352,7 @@ bindsym $mod+Mod1+m exec magnus
 
 # redhshift
 bindsym $mod+Mod1+Shift+m exec redshift-toggle
+exec --no-startup-id redshift-toggle
 
 # colors
 # class                 border  backgr. text    indicator child_border
