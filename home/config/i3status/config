@@ -63,7 +63,7 @@ ethernet _first_ {
 }
 
 battery 0 {
-format = "<span color='#00ff00'>%status %percentage %remaining %emptytime</span>"
+format = "<span color='#ffff00'>%status %percentage %remaining %emptytime</span>"
 path = "/sys/class/power_supply/BAT0/uevent"
 format_down = "No battery"
 low_threshold = 10
