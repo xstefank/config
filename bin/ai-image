@@ -1,0 +1,5 @@
+#!/bin/sh
+
+file=$(generate-image --no-anim "$1")
+nomacs "${file}"
+
