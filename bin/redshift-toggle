@@ -1,0 +1,11 @@
+#!/bin/sh
+
+pidof redshift
+if [ $? -eq 0 ]; then
+  notify-send "Stopping redshift"
+  killall redshift
+else
+  notify-send "Running redshift"
+  redshift -l $(curl http://ip-api.com/json\?fields\=lat,lon | jq '. | "\(.lat):\(.lon)"' | sed -e 's/^"//' -e 's/"$//') -t 6500:1000
+fi
+
