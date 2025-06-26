@@ -1,5 +1,12 @@
 #!/bin/sh
 
+cleanup ()
+{
+  exit 0
+}
+ 
+trap cleanup SIGINT SIGTERM SIGKILL
+
 ITER=0
 
 while : ; do
