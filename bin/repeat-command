@@ -117,14 +117,17 @@ assign_positional_args 1 "${_positionals[@]}"
 
 cleanup ()
 {
-kill -s SIGTERM $!
-exit 0
+  exit 0
 }
 
-trap cleanup SIGINT SIGTERM
+trap cleanup SIGINT SIGTERM SIGKILL
 
 $_arg_command
 
-while sleep $_arg_interval; do $_arg_command & wait $!; done
+while [ 1 ]
+do
+  sleep $_arg_interval &
+  $_arg_command & wait $!
+done
 
 # ] <-- needed because of Argbash
