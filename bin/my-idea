@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -f pom.xml ]; then
+ idea pom.xml
+ exit 0
+fi
+
+if [ -f build.gradle ]; then
+  idea build.gradle
+  exit 0
+fi
+
+if [ -f build.gradle.kts ]; then
+  idea build.gradle.kts
+  exit 0
+fi
+
+idea .
+
