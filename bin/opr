@@ -1,0 +1,11 @@
+#!/bin/bash    
+
+readonly REPO=$(git config --get remote.origin.url | grep -Po "(?<=git@github\.com:)(.*?)(?=.git)")
+readonly USER=$(echo $REPO | sed 's#/.*##')
+readonly BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+echo "Opening new PR for $BRANCH to the $REPO repository..."
+gh pr create --title "$(git log -1 --oneline --format=%s)" --body "-" --head "$USER:$BRANCH" --web
+
+#google-chrome "https://github.com/$REPO/pull/new/$BRANCH"
+
