@@ -1,0 +1,36 @@
+
+= Useful commands and links
+
+== Useful repositories
+https://github.com/Raymo111/i3lock-color
+https://github.com/tarka/xcp
+https://github.com/jenv/jenv
+
+=== git PR local checkout +
+`git fetch origin pull/ID/head:BRANCHNAME`
+
+=== change global nautilus theme to dark
+~/.config/gtk-*/setting.ini
+
+- gtk-application-prefer-dark-theme=1
+
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+=== disable window title in gnome-terminal
+`sudo gsettings set org.gnome.Terminal.Legacy.Settings headerbar false`
+
+=== thunderbolt 3 gen 2 setup
+`boltctl`
+```
+● Lenovo ThinkPad Thunderbolt 3 Dock
+   ├─ type:          peripheral
+   ├─ name:          ThinkPad Thunderbolt 3 Dock
+   ├─ vendor:        Lenovo
+   ├─ uuid:          -- UUID --
+   ├─ generation:    Thunderbolt 3
+```
+
+`boltctl enroll $UUID`
+
+=== time change
+sudo ntpdate pool.ntp.org
