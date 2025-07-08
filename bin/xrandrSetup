@@ -110,15 +110,14 @@ if [ $_arg_dock = "on" ]; then
   xrandr | grep -q "$DISPLAY_1 connected"
   if [ $? -eq 0 ]
   then
-    xrandr --output "$DISPLAY_1" --off
-	  xrandr --output "$DISPLAY_2" --off
-	  xrandr --output "$DISPLAY_3" --off
-	  xrandr --output "$DISPLAY_4" --off
-
 	  xrandr --output "$DISPLAY_1" --right-of "$DISPLAY_LAPTOP" --auto
-	  xrandr --output "$DISPLAY_LAPTOP" --off
+	  timeout 2 monitor-count 1
 	  xrandr --output "$DISPLAY_2" --right-of "$DISPLAY_1" --auto --primary
+	  timeout 2 monitor-count 2
 	  xrandr --output "$DISPLAY_3" --right-of "$DISPLAY_2" --auto
+	  timeout 2 monitor-count 3
+	  xrandr --output "$DISPLAY_LAPTOP" --off
+	  timeout 2 monitor-count 3
 	  xrandr --output "$DISPLAY_4" --right-of "$DISPLAY_3" --auto
     exit 0
   fi

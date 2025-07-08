@@ -1,0 +1,10 @@
+#!/bin/sh
+
+readonly expected=$1
+
+while :; do
+if [ $(xrandr --listmonitors | head -n 1 | sed 's/Monitors: //g' ) -eq "$expected" ]; then
+	exit 0
+fi
+done
+
