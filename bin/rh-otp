@@ -1,0 +1,4 @@
+#!/bin/sh
+
+oathtool -b --totp "${RH_OTP}" | tr -d "\n" | xclip -sel clip
+
