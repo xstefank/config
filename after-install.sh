@@ -2,7 +2,7 @@
 
 sudo dnf install -y conky feh snap pip task dropbox gedit xclip oathtool scrot inkscape gimp podman xbanish kitty ranger \
   rofi blueman snap flameshot kubectl k9s yt-dlp podman-compose nm-applet redshift httpie xsel xclip xev task \
-  flatpak virt-manager thunderbird snapd cargo xcp jq dunst git magnus
+  flatpak virt-manager thunderbird snapd cargo xcp jq dunst git magnus atril
 
 sudo dnf config-manager setopt google-chrome.enabled=1
 sudo dnf install google-chrome-stable
