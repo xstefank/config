@@ -322,8 +322,11 @@ exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 bindsym $mod+Mod1+y exec /usr/bin/xbanish
 bindsym $mod+Mod1+Shift+y exec killall xbanish
 
+# davmail
+exec /home/mstefank/.sdkman/candidates/java/24.fx-librca/bin/java -jar /home/mstefank/apps/davmail/davmail.jar
+
 # other shortcuts
-bindsym $mod+Mod1+i exec token && notify-send "Token copied to clipboard"
+bindsym $mod+Mod1+i exec --no-startup-id rh-otp && notify-send "Token copied to clipboard"
 
 # applications
 
