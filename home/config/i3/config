@@ -323,10 +323,10 @@ bindsym $mod+Mod1+y exec /usr/bin/xbanish
 bindsym $mod+Mod1+Shift+y exec killall xbanish
 
 # davmail
-exec /home/mstefank/.sdkman/candidates/java/24.fx-librca/bin/java -jar /home/mstefank/apps/davmail/davmail.jar
+exec_always davmail
 
 # other shortcuts
-bindsym $mod+Mod1+i exec --no-startup-id rh-otp && notify-send "Token copied to clipboard"
+bindsym $mod+Mod1+i exec rh-otp && notify-send "Token copied to clipboard"
 
 # applications
 
@@ -346,6 +346,9 @@ bindsym $mod+Mod1+m exec magnus
 # redhshift
 bindsym $mod+Mod1+Shift+m exec redshift-toggle
 exec --no-startup-id redshift-toggle
+
+# timewarrior (timew)
+bindsym $mod+Shift+t exec --no-startup-id timew stop
 
 # colors
 # class                 border  backgr. text    indicator child_border
