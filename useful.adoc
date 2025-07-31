@@ -10,11 +10,13 @@ https://github.com/jenv/jenv
 `git fetch origin pull/ID/head:BRANCHNAME`
 
 === change global nautilus theme to dark
+
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
 ~/.config/gtk-*/setting.ini
 
 - gtk-application-prefer-dark-theme=1
 
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
 === disable window title in gnome-terminal
 `sudo gsettings set org.gnome.Terminal.Legacy.Settings headerbar false`
