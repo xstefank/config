@@ -60,7 +60,7 @@ plugins=(
   globalias
   gh
   spring
-  kubectl-autocomplete
+  kubectl
   vi-mode
 )
 
@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Custom ENV
-. ~/.env
+. ~/.my-env
 . ~/.secret-env
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -506,9 +506,9 @@ alias prospero='/home/mstefank/GIT/xstefank/prospero/prospero'
 alias prospero-extras='java -jar /home/mstefank/GIT/xstefank/prospero-extras/target/prospero-extras-*-shaded.jar'
 
 # QR codes
-alias create-qr='/home/mstefank/bin/QrCode.java'
+alias create-qr='jbang qrcode@xam.dk'
 qr() {
-  /home/mstefank/bin/QrCode.java "$1" "/home/mstefank/GIT/xstefank/backups/profile/profile-50.jpg" "./qr-$(date '+%Y-%m-%d-%H:%M:%S-%3N').png"
+  jbang qrcode@xam.dk "$1" -i "/home/mstefank/GIT/xstefank/backups/profile/profile-50.jpg" -o "./qr-$(date '+%Y-%m-%d-%H:%M:%S-%3N').png"
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

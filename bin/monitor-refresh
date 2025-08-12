@@ -1,0 +1,12 @@
+#!/bin/sh
+
+readonly DISPLAY_RESTART=$1
+readonly DISPLAY_LEFT=$2
+readonly MONITORS_NUM=$(xrandr --listmonitors | head -n 1 | sed 's/Monitors: //g')
+
+xrandr --output $DISPLAY_RESTART --off
+timeout 2 monitor-count $(($MONITOR_NUM - 1))
+
+xrandr --output $DISPLAY_RESTART --right-of $DISPLAY_LEFT --auto
+timeout 2 monitor-count $MONITORS_NUM
+

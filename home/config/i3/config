@@ -323,7 +323,7 @@ bindsym $mod+Mod1+y exec /usr/bin/xbanish
 bindsym $mod+Mod1+Shift+y exec killall xbanish
 
 # davmail
-exec_always davmail
+exec_always davmail-restart
 
 # other shortcuts
 bindsym $mod+Mod1+i exec rh-otp && notify-send "Token copied to clipboard"

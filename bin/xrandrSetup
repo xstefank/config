@@ -97,7 +97,7 @@ parse_commandline "$@"
 # [ <-- needed because of Argbash
 
 # Displays definitions
-. ~/.env
+. ~/.my-env
 
 # TODO HDMI
 if [ $_arg_hdmi = "on" ]; then
