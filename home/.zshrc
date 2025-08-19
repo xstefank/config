@@ -310,6 +310,9 @@ alias k='kubectl'
 alias kc='kubectl cluster-info'
 alias kap='k apply -f '
 alias kdel='k delete -f '
+alias kg='kubectl get'
+alias ka='kubectl apply'
+alias kd='kubectl delete'
 
 # taskwarrior
 # general
