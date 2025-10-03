@@ -13,4 +13,6 @@ sudo dnf install gh --repo gh-cli
 
 pip install spotify-cli-linux
 
+sudo mkdir -p '/etc/systemd/logind.conf.d' && echo -e "[Login]\nHandleLidSwitch=ignore\nHandleLidSwitchExternalPower=ignore\nHandleLidSwitchDocked=ignore\n" | sudo tee '/etc/systemd/logind.conf.d/99-laptop-server.conf' > '/dev/null'
+
 # https://github.com/stuartlangridge/magnus
