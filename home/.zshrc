@@ -146,7 +146,7 @@ alias jl='java --source 22 --enable-preview'
 alias jp='java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:+EnableDynamicAgentLoading -jar'
 
 # graalvm
-export GRAALVM_HOME=$HOME/.sdkman/candidates/java/24-graalce
+export GRAALVM_HOME=$HOME/.sdkman/candidates/java/21-graalce
 
 # git
 alias glg="git --no-pager log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n5"
