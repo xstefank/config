@@ -99,6 +99,7 @@ parse_commandline "$@"
 # Displays definitions
 . ~/.my-env
 
+
 # TODO HDMI
 if [ $_arg_hdmi = "on" ]; then
   	xrandr --output HDMI1 --auto --primary
@@ -107,34 +108,19 @@ if [ $_arg_hdmi = "on" ]; then
 fi
 
 if [ $_arg_dock = "on" ]; then
-  xrandr | grep -q "$DISPLAY_1 connected"
+  xrandr | grep -q "^$DISPLAY_1 connected"
   if [ $? -eq 0 ]
   then
-	  xrandr --output "$DISPLAY_1" --right-of "$DISPLAY_LAPTOP" --auto
-	  timeout 2 monitor-count 1
-	  xrandr --output "$DISPLAY_2" --right-of "$DISPLAY_1" --auto --primary
-	  timeout 2 monitor-count 2
-	  xrandr --output "$DISPLAY_3" --right-of "$DISPLAY_2" --auto
-	  timeout 2 monitor-count 3
-	  xrandr --output "$DISPLAY_LAPTOP" --off
-	  timeout 2 monitor-count 3
-	  xrandr --output "$DISPLAY_4" --right-of "$DISPLAY_3" --auto
+    echo "option 1"
+    xrandr --output "$DISPLAY_1" --right-of "$DISPLAY_LAPTOP" --auto --output "$DISPLAY_2" --right-of "$DISPLAY_1" --auto --primary --output "$DISPLAY_3" --right-of "$DISPLAY_2" --auto --output "$DISPLAY_LAPTOP" --off --output "$DISPLAY_4" --right-of "$DISPLAY_3" --auto
     exit 0
   fi
 
-  xrandr | grep -q "$DISPLAY_DOCK_1 connected"
+  xrandr | grep -q "^$DISPLAY_DOCK_1 connected"
   if [ $? -eq 0 ]
   then
-    xrandr --output "$DISPLAY_DOCK_1" --off
-    xrandr --output "$DISPLAY_DOCK_2" --off
-    xrandr --output "$DISPLAY_DOCK_3" --off
-    xrandr --output "$DISPLAY_DOCK_4" --off
-
-    xrandr --output "$DISPLAY_DOCK_1" --right-of "$DISPLAY_LAPTOP" --auto
-    xrandr --output "$DISPLAY_LAPTOP" --off
-    xrandr --output "$DISPLAY_DOCK_2" --right-of "$DISPLAY_DOCK_1" --auto --primary
-    xrandr --output "$DISPLAY_DOCK_3" --right-of "$DISPLAY_DOCK_2" --auto
-    xrandr --output "$DISPLAY_DOCK_4" --right-of "$DISPLAY_DOCK_3" --auto
+    echo "are we here?"
+    xrandr --output "$DISPLAY_DOCK_1" --right-of "$DISPLAY_LAPTOP" --auto --output "$DISPLAY_DOCK_2" --right-of "$DISPLAY_DOCK_1" --auto --primary --output "$DISPLAY_DOCK_3" --right-of "$DISPLAY_DOCK_2" --auto --output "$DISPLAY_LAPTOP" --off --output "$DISPLAY_DOCK_4" --right-of "$DISPLAY_DOCK_3" --auto
     exit 0
   fi
 
@@ -146,7 +132,7 @@ fi
 
 # no dock and no HDMI
 #xrandr --output DP-1 --off
-xrandr --output eDP1 --auto --primary
+#xrandr --output eDP1 --auto --primary
 #xrandr --output DP-2-2 --off
 #xrandr --output DP-2-1-6 --off
 #xrandr --output DP-2-1-5 --off
