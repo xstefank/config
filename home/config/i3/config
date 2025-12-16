@@ -50,10 +50,10 @@ exec --no-startup-id i3-battery-popup -n
 # exec_always /usr/bin/i3reload
 
 # mode system
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (p) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym p exec --no-startup-id i3exit logout, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
@@ -376,5 +376,6 @@ bar {
  	status_command i3statusWrapper.sh 
 	#status_command i3status
 	tray_output primary
+  hidden_state hide
 }
 
