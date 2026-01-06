@@ -191,7 +191,7 @@ alias gsl='git stash list'
 alias mi='mvn install'
 alias mc='mvn clean'
 alias mci='mvn clean install'
-alias mcif='mvn clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcif='mvn clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip -Dno-build-cache'
 alias mcit='mvn clean install -DskipTests'
 alias mcist='mcist() { mvn clean install -DfailIfNoTests=false -Dtest="$1" };mcist'
 alias mcie='mvn clean install -fae'
@@ -204,7 +204,7 @@ alias mcifnc='mcif -Pnative -Dquarkus.native.container-build=true'
 alias mp='mvn package'
 alias mcp='mvn clean package'
 alias mcpt='mvn clean package -DskipTests'
-alias mcpf='mvn clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcpf='mvn clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip -Dno-build-cache'
 alias mcpfn='mcpf -Pnative'
 alias mcpn='mcp -Pnative'
 alias mcpnc='mcp -Pnative -Dquarkus.native.container-build=true'
@@ -225,8 +225,8 @@ alias q='quarkus'
 
 alias mcid='mvnd clean install'
 alias mcpd='mvnd clean package'
-alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
-alias mcpfd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip'
+alias mcifd='mvnd clean install -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip -Dno-build-cache'
+alias mcpfd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -Dmaven.javadoc.skip -Dno-build-cache'
 
 # RSS
 alias rss='rss() { ps -o pid,rss,command -p $(pgrep -f "$1") | numfmt --header --from-unit=1024 --to=iec --field 2 | column -t  };rss'
@@ -382,6 +382,7 @@ alias fs='java -jar ~/GIT/xstefank/ai-cli/fs/target/quarkus-app/quarkus-run.jar'
 alias jaeger='docker run --rm -p 16686:16686 -p 4317:4317 docker.io/jaegertracing/all-in-one:1'
 
 
+
 qia-pdf() {
   echo "Generating PDF from ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc to ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf"
   asciidoctor-pdf -r asciidoctor-pdf -r /home/mstefank/.local/share/gem/ruby/gems/asciidoctor-pdf-2.3.19/lib/sectnumoffset-treeprocessor.rb -b pdf -a pdf-style=manning -D ./manuscript/PDFs ./manuscript/$1_Stefanko_Quarkus_in_Action.adoc && google-chrome-stable ./manuscript/PDFs/$1_Stefanko_Quarkus_in_Action.pdf
@@ -416,6 +417,7 @@ alias -s {zip,ZIP,war,WAR}="unzip -l"
 alias -s {jar,JAR}="java -jar"
 alias -s {gz,tar.gz}="tar -tf"
 alias -s {tgz,TGZ}="tar -tf"
+alias -s {yml,yaml,txt}="vim"
 
 unsetopt share_history
 setopt INC_APPEND_HISTORY
@@ -441,6 +443,9 @@ alias jwth="decode_jwt 1"
 
 # Decode JWT Payload
 alias jwtp="decode_jwt 2"
+
+# my bin
+export PATH="$HOME/bin:$PATH"
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
@@ -513,6 +518,9 @@ alias create-qr='jbang qrcode@xam.dk'
 qr() {
   jbang qrcode@xam.dk "$1" -i "/home/mstefank/GIT/xstefank/backups/profile/profile-50.jpg" -o "./qr-$(date '+%Y-%m-%d-%H:%M:%S-%3N').png"
 }
+
+# TEMP use docker on startup
+. unset-podman-host
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
