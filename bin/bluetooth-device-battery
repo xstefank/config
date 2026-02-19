@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BT_INFO=$(bluetoothctl info)
+BT_INFO=$(echo "info" | bluetoothctl)
 
 if [[ "$BT_INFO" == *"No default controller"* ]]; then
   echo "OFF"
