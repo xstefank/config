@@ -187,6 +187,11 @@ alias gs='git stash'
 alias gsp='git stash pop'
 alias gsl='git stash list'
 
+gde() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
+}
+
 # mvn
 alias mi='mvn install'
 alias mc='mvn clean'
