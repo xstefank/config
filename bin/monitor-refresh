@@ -5,13 +5,21 @@ source /home/mstefank/.my-env
 readonly DISPLAY_NUM=$1
 readonly MONITORS_NUM=$(xrandr --listmonitors | head -n 1 | sed 's/Monitors: //g')
 
+if xrandr | grep -q "$DISPLAY_1 connected"; then
+  PREFIX="DISPLAY_"
+elif xrandr | grep -q "$DISPLAY_DOCK_1 connected"; then
+  PREFIX="DISPLAY_DOCK_"
+fi
+
 if [[ "$DISPLAY_NUM" == 1 ]]; then
- xrandr --output "$DISPLAY_1" --off
- xrandr --output "$DISPLAY_1" --left-of "$DISPLAY_2" --auto
+  _r="${PREFIX}1"
+  _l="${PREFIX}2"
+  xrandr --output "${!_r}" --off
+  xrandr --output "${!_r}" --left-of "${!_l}" --auto
 else
-  readonly DISPLAY_RESTART=DISPLAY_$DISPLAY_NUM
-  readonly DISPLAY_LEFT=DISPLAY_$(($DISPLAY_NUM-1))
-  xrandr --output "${!DISPLAY_RESTART}" --off
-  xrandr --output "${!DISPLAY_RESTART}" --right-of "${!DISPLAY_LEFT}" --auto
-fi 
+  _r="${PREFIX}${DISPLAY_NUM}"
+  _l="${PREFIX}$(($DISPLAY_NUM-1))"
+  xrandr --output "${!_r}" --off
+  xrandr --output "${!_r}" --right-of "${!_l}" --auto
+fi
 
