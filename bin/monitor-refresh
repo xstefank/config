@@ -1,12 +1,17 @@
 #!/bin/sh
 
-readonly DISPLAY_RESTART=$1
-readonly DISPLAY_LEFT=$2
+source /home/mstefank/.my-env
+
+readonly DISPLAY_NUM=$1
 readonly MONITORS_NUM=$(xrandr --listmonitors | head -n 1 | sed 's/Monitors: //g')
 
-xrandr --output $DISPLAY_RESTART --off
-timeout 2 monitor-count $(($MONITOR_NUM - 1))
-
-xrandr --output $DISPLAY_RESTART --right-of $DISPLAY_LEFT --auto
-timeout 2 monitor-count $MONITORS_NUM
+if [[ "$DISPLAY_NUM" == 1 ]]; then
+ xrandr --output "$DISPLAY_1" --off
+ xrandr --output "$DISPLAY_1" --left-of "$DISPLAY_2" --auto
+else
+  readonly DISPLAY_RESTART=DISPLAY_$DISPLAY_NUM
+  readonly DISPLAY_LEFT=DISPLAY_$(($DISPLAY_NUM-1))
+  xrandr --output "${!DISPLAY_RESTART}" --off
+  xrandr --output "${!DISPLAY_RESTART}" --right-of "${!DISPLAY_LEFT}" --auto
+fi 
 
