@@ -351,7 +351,10 @@ exec --no-startup-id redshift-toggle
 bindsym $mod+Shift+t exec --no-startup-id timew stop
 
 # watch ICS file downloads
-exec_always --no-startup-id sh -c "pkill -f watch_downloaded_ics.sh; sleep 2; su -c watch_downloaded_ics.sh mstefank"
+exec_always --no-startup-id /home/mstefank/bin/watch_downloaded_ics.sh
+
+# watch priority wifis
+exec_always --no-startup-id /home/mstefank/bin/wifi-priority-switch.sh
 
 # colors
 # class                 border  backgr. text    indicator child_border
