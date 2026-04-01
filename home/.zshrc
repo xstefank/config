@@ -385,6 +385,7 @@ alias svg='svg() { inkscape -p $1 -o $(echo $1 | sed -e "s/.png$/.svg/") };svg'
 alias -g s='2>&1 | less'
 alias fs='java -jar ~/GIT/xstefank/ai-cli/fs/target/quarkus-app/quarkus-run.jar'
 alias jaeger='docker run --rm -p 16686:16686 -p 4317:4317 docker.io/jaegertracing/all-in-one:1'
+alias gw='gcalcli calw'
 
 
 
