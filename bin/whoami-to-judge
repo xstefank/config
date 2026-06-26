@@ -1,9 +1,10 @@
 #!/bin/sh
 
-tiv -w 60 /home/mstefank/GIT/xstefank/backups/profile/profile-2.png
+timg /home/mstefank/git/xstefank/backups/profile/profile-2.png
 
 echo -e "- \033[1mMartin Štefanko\033[0m"
-echo "- Red Hat, Principal Software Engineer"
+echo "- IBM, Principal Software Engineer"
+echo "- Brno Java User Group (bJUG) leader"
 echo "- X/Twitter: @xstefank"
 echo "- Mastodon: @xstefank@mastodon.cloud"
 echo "- GitHub: @xstefank"
