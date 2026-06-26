@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. /home/mstefank/.secret-env
+
 file=$(generate-image --no-anim "$1")
 nomacs "${file}"
 

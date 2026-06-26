@@ -1,17 +1,7 @@
 #/bin/sh
 
 # Displays definitions
-. ~/.env
+. ~/.my-env
 
-xrandr --output "$DISPLAY_1" --off
-xrandr --output "$DISPLAY_2" --off
-xrandr --output "$DISPLAY_DOCK_1" --off
-xrandr --output "$DISPLAY_DOCK_2" --off
-xrandr --output "$DISPLAY_LAPTOP" --auto --primary
-xrandr --output "$DISPLAY_3" --off
-xrandr --output "$DISPLAY_4" --off
-xrandr --output "$DISPLAY_DOCK_3" --off
-xrandr --output "$DISPLAY_DOCK_4" --off
-xrandr --output "$DISPLAY_DP3" --off
-xrandr --output "$DISPLAY_HDMI" --off
+xrandr --output "$DISPLAY_1" --off --output "$DISPLAY_2" --off --output "$DISPLAY_DOCK_1" --off --output "$DISPLAY_DOCK_2" --off --output "$DISPLAY_3" --off --output "$DISPLAY_4" --off --output "$DISPLAY_DOCK_3" --off --output "$DISPLAY_DOCK_4" --off --output "$DISPLAY_DP3" --off --output "$DISPLAY_HDMI" --off --output "$DISPLAY_LAPTOP" --auto --primary
 

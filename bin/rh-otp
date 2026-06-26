@@ -1,4 +1,8 @@
 #!/bin/sh
 
-oathtool -b --totp "${RH_OTP}" | tr -d "\n" | xclip -sel clip
+#oathtool -b --totp "${RH_OTP}" | tr -d "\n" | xclip -sel clip
+
+source ~/.secret-env
+
+CURR_COUNTER="$(cat ~/.secret/rh-hotp-counter)" bash -c 'oathtool -b --hotp "${RH_HOTP}" -c "${CURR_COUNTER}" -d 6 && echo $((CURR_COUNTER+1)) > ~/.secret/rh-hotp-counter' | tr -d "\n" | xclip -sel clip
 

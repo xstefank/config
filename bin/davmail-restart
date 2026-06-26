@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 
 pkill -9 -f davmail.jar
-davmail
+PATH="/home/mstefank/.sdkman/candidates/java/26.fx-zulu/bin:$PATH" davmail
 
