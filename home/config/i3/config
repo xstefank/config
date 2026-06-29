@@ -43,6 +43,13 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id zsh -c "rofi -show run"
 bindsym $mod+w exec --no-startup-id zsh -c "rofi -show window"
 
+# dark theme
+exec --no-startup-id xsettingsd
+
+# file access for apps like Signal
+exec --no-startup-id /usr/libexec/xdg-desktop-portal-gtk
+exec --no-startup-id /usr/libexec/xdg-desktop-portal
+
 # battery warning popup
 exec --no-startup-id i3-battery-popup -n
 
@@ -53,11 +60,11 @@ exec --no-startup-id i3-battery-popup -n
 set $mode_system System (l) lock, (z) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock-with-color, mode "default"
-    bindsym z exec --no-startup-id i3exit i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id i3exit systemctl suspend, mode "default"
+    bindsym z exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     #bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit systemctl poweroff, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -208,7 +215,10 @@ bindsym $mod+n exec i3nextEmptyWorkspace
 bindsym $mod+Shift+n exec i3newWorkspace
 
 # dunst
-exec_always --no-startup-id killall dunst && dunst &
+#exec_always --no-startup-id killall dunst && dunst &
+exec --no-startup-id dunst
+exec --no-startup-id dbus-update-activation-environment --all
+exec --no-startup-id systemctl --user import-environment DISPLAY XAUTHORITY
 bindsym $mod+Shift+d exec --no-startup-id dunstctl set-paused toggle
 bindsym ctrl+comma exec --no-startup-id dunstctl close
 bindsym ctrl+shift+comma exec --no-startup-id dunstctl close-all
