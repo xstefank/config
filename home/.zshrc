@@ -96,12 +96,9 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias zshconfig='vim ~/.zshrc'
-alias i3config='vim ~/.config/i3/config'
-alias kittyconfig='vim ~/.config/kitty/kitty.conf'
+alias zshconfig='nvim ~/.zshrc'
+alias i3config='nvim ~/.config/i3/config'
+alias kittyconfig='nvim ~/.config/kitty/kitty.conf'
 
 # java
 
@@ -112,6 +109,7 @@ J21=21
 J23=23
 J24=24
 J25=25
+J26=26
 
 alias j8='jenv global $J8'
 alias j11='jenv global $J11'
@@ -120,6 +118,7 @@ alias j21='jenv global $J21'
 alias j23='jenv global $J23'
 alias j24='jenv global $J24'
 alias j25='jenv global $J25'
+alias j26='jenv global $J26'
 
 alias jl8='jenv local $J8'
 alias jl11='jenv local $J11'
@@ -128,6 +127,7 @@ alias jl21='jenv local $J21'
 alias jl23='jenv local $J23'
 alias jl24='jenv local $J24'
 alias jl25='jenv local $J25'
+alias jl26='jenv local $J26'
 
 alias js8='jenv shell $J8'
 alias js11='jenv shell $J11'
@@ -136,6 +136,7 @@ alias js21='jenv shell $J21'
 alias js23='jenv shell $J23'
 alias js24='jenv shell $J24'
 alias js25='jenv shell $J25'
+alias js26='jenv shell $J26'
 
 alias j='java'
 alias jj='java -jar'
@@ -373,7 +374,7 @@ alias di='sudo dnf install -y'
 # other
 alias cs='cleanServer'
 alias background='f(){ "$@" > /dev/null 2>&1 & disown };f'
-alias notes='vim ~/.secret/notes.txt'
+alias notes='nvim ~/.secret/notes.txt'
 alias k9='kill -9'
 alias ka='killall'
 alias spotify='snap run spotify'
