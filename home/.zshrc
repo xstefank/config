@@ -237,6 +237,9 @@ alias mcpfd='mvnd clean package -DskipTests -Denforcer.skip -Dcheckstyle.skip -D
 # RSS
 alias rss='rss() { ps -o pid,rss,command -p $(pgrep -f "$1") | numfmt --header --from-unit=1024 --to=iec --field 2 | column -t  };rss'
 
+# filesystem
+alias lla='ls -alh'
+
 # idea
 alias i='my-idea'
 alias id='idea.sh'
