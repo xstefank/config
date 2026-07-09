@@ -284,16 +284,13 @@ alias di='docker image'
 alias dis='docker images'
 alias dps='docker ps'
 alias dlf='docker logs -f'
-alias docker-compose='podman-compose'
 alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcud='docker-compose up -d'
 alias dcd='docker-compose down'
 
 # podman
-alias docker=podman
 alias ph='. podman-host'
-alias uph='. unset-podman-host'
 alias pi='podman image'
 alias pis='podman images'
 alias pps='podman ps'
@@ -303,9 +300,6 @@ alias pcu='podman-compose up'
 alias pcud='podman-compose up -d'
 alias pcd='podman-compose down'
 alias prl='podman run --rm -p 8080:8080'
-
-# testcontainers
-alias enable-test-containers='systemctl --user enable podman.socket --now; export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock; export TESTCONTAINERS_RYUK_DISABLED=true'
 
 # openshift
 alias op='oc get pods'
@@ -525,9 +519,6 @@ alias create-qr='jbang qrcode@xam.dk'
 qr() {
   jbang qrcode@xam.dk "$1" -i "/home/mstefank/GIT/xstefank/backups/profile/profile-50.jpg" -o "./qr-$(date '+%Y-%m-%d-%H:%M:%S-%3N').png"
 }
-
-# TEMP use docker on startup
-. unset-podman-host
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
