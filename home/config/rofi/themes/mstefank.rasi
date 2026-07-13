@@ -1,0 +1,103 @@
+* {
+    background-color: #000000;
+    text-color:       #00ff00;
+
+    bg:            #000000;
+    fg:            #00ff00;
+    border-col:    #00ff00;
+    selected-bg:   #00ff00;
+    selected-fg:   #000000;
+    urgent-fg:     #ff5555;
+    urgent-sel-bg: #ff5555;
+    active-fg:     #00cc00;
+    active-sel-bg: #00cc00;
+}
+
+window {
+    background-color: @bg;
+    border:           2px solid;
+    border-color:     @border-col;
+}
+
+mainbox {
+    border:  0;
+    padding: 5px;
+}
+
+inputbar {
+    children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+    spacing:    0;
+    text-color: @fg;
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em;
+    text-color: @fg;
+}
+
+entry {
+    spacing:    0;
+    text-color: @fg;
+}
+
+case-indicator {
+    spacing:    0;
+    text-color: @fg;
+}
+
+listview {
+    fixed-height: 0;
+    border:       2px 0px 0px solid;
+    border-color: @border-col;
+    spacing:      0px;
+    scrollbar:    true;
+    padding:      2px 0px 0px;
+}
+
+element {
+    border:  0;
+    padding: 2px;
+}
+
+element normal normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+element normal urgent {
+    background-color: transparent;
+    text-color:       @urgent-fg;
+}
+
+element normal active {
+    background-color: transparent;
+    text-color:       @active-fg;
+}
+
+element selected normal {
+    background-color: @selected-bg;
+    text-color:       @selected-fg;
+}
+
+element selected urgent {
+    background-color: @urgent-sel-bg;
+    text-color:       @selected-fg;
+}
+
+element selected active {
+    background-color: @active-sel-bg;
+    text-color:       @selected-fg;
+}
+
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-color: @border-col;
+    handle-width: 8px;
+    padding:      0;
+}
