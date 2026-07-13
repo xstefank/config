@@ -1,0 +1,11 @@
+include ./theme.conf
+map ctrl+shift+n new_os_window_with_cwd
+scrollback_lines 1000000
+enable_audio_bell no
+
+
+
+# BEGIN_KITTY_THEME
+# 3024 Day
+include current-theme.conf
+# END_KITTY_THEME
