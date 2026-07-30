@@ -72,6 +72,9 @@ source $ZSH/oh-my-zsh.sh
 . ~/.my-env
 . ~/.secret-env
 
+# npm
+export PATH=~/.npm-global/bin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -192,6 +195,9 @@ gde() {
   preview="git diff $@ --color=always -- {-1}"
   git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
+
+# lazygit
+alias lg=lazygit
 
 # mvn
 alias mi='mvn install'
