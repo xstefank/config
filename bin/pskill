@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Interactive process killer, keyboard-only (fzf: type to filter, TAB to
+# multi-select, ENTER to kill, ESC to cancel).
+#
+# usage: pskill          pick from `ps aux`, kill -9
+#        pskill -j       pick from `jps -lv` instead
+#        pskill -s TERM  use a different signal (default 9, like k9)
+
+set -euo pipefail
+
+source="ps"
+signal="9"
+
+while getopts "js:h" opt; do
+  case "$opt" in
+    j) source="jps" ;;
+    s) signal="$OPTARG" ;;
+    h|*) echo "usage: pskill [-j] [-s signal]"; exit 1 ;;
+  esac
+done
+
+if ! command -v fzf >/dev/null; then
+  echo "pskill: fzf is not installed (sudo dnf install fzf)" >&2
+  exit 1
+fi
+
+fzf_opts=(--multi --no-hscroll --header="TAB=select multiple  ENTER=kill -$signal  ESC=cancel")
+
+if [ "$source" = "jps" ]; then
+  raw=$(jps -lv | fzf "${fzf_opts[@]}")
+  pid_col=1
+else
+  raw=$(ps aux | fzf --header-lines=1 "${fzf_opts[@]}")
+  pid_col=2
+fi
+
+if [ -z "$raw" ]; then
+  echo "pskill: nothing selected"
+  exit 1
+fi
+
+pids=$(echo "$raw" | awk -v c="$pid_col" '{print $c}')
+
+echo "$raw"
+echo "killing (-$signal): $(echo "$pids" | tr '\n' ' ')"
+echo "$pids" | xargs kill -"$signal"
