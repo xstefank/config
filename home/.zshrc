@@ -86,6 +86,7 @@ export PATH=~/.npm-global/bin:$PATH
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -427,7 +428,7 @@ alias -s {zip,ZIP,war,WAR}="unzip -l"
 alias -s {jar,JAR}="java -jar"
 alias -s {gz,tar.gz}="tar -tf"
 alias -s {tgz,TGZ}="tar -tf"
-alias -s {yml,yaml,txt}="vim"
+alias -s {yml,yaml,txt}="nvim"
 
 unsetopt share_history
 setopt INC_APPEND_HISTORY
@@ -532,4 +533,8 @@ qr() {
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mstefank/.sdkman"
 [[ -s "/home/mstefank/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mstefank/.sdkman/bin/sdkman-init.sh"
+
+# re-assert jenv shims ahead of SDKMAN's java, since SDKMAN's init above
+# prepends its own candidate PATH and would otherwise shadow jenv
+export PATH="$HOME/.jenv/shims:$PATH"
 
