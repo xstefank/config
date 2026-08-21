@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+sed -i \
+  -e 's|<quarkus.platform.group-id>.*</quarkus.platform.group-id>|<quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>|' \
+  -e 's|<quarkus.platform.version>.*</quarkus.platform.version>|<quarkus.platform.version>999-SNAPSHOT</quarkus.platform.version>|' \
+  pom.xml

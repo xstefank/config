@@ -1,0 +1,42 @@
+#!/bin/bash
+set -e
+
+function check_if_java_installed {
+    command -v java > /dev/null 2>&1 || { echo >&2 "java is required to run this command... Aborting!"; exit 1; }
+}
+function usage {
+    echo "To update to the latest released version of bacon/pnc/da/pig, run:"
+    echo ""
+    echo "    bacon update"
+    echo ""
+    echo "To update to a specific released version of bacon/pnc/da/pig, run:"
+    echo ""
+    echo "    bacon update <version>"
+    echo ""
+    echo "To update to a snapshot version of bacon, run:"
+    echo ""
+    echo "    bacon update snapshot"
+    echo ""
+    echo "All update commands support an optional '--location <directory>' argument"
+}
+if [ "$1" == "update" ]; then
+    # Script runs the bacon_install.py to update itself
+    shift
+    if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+        usage
+    else
+        curl -fsSL https://raw.githubusercontent.com/project-ncl/bacon/refs/heads/main/bacon_install.py | python3 - "$@"
+    fi
+else
+    check_if_java_installed
+
+    if [ "$OSTYPE" = "cygwin" ]; then
+        java -jar `cygpath -w /home/mstefank/.pnc-bacon/bin/bacon.jar` pnc "$@"
+    else
+        java -jar /home/mstefank/.pnc-bacon/bin/bacon.jar pnc "$@"
+    fi
+fi
+
+if [ -z "$1" ]; then
+    usage
+fi
