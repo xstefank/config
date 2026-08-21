@@ -491,7 +491,10 @@ if [ -f '/home/mstefank/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mst
 if [ -f '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mstefank/apps/google-cloud-sdk/completion.zsh.inc'; fi
 
 # The next line enables shell command completion for quarkus CLI.
-source <(cat ~/completion)
+source ~/bin/quarkus_completion
+
+# The next line enables shell command completion for bacon CLI.
+source ~/bin/bacon_completion
 
 # Add Jbang to environment
 alias j!=jbang
