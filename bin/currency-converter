@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Currency conversion via frankfurter.app (free, no API key, ECB rates).
+# Usage: currency-converter <FROM> <AMOUNT> [TO]   (TO defaults to CZK)
+set -euo pipefail
+
+if [[ $# -lt 2 ]]; then
+    echo "Usage: currency-converter <FROM> <AMOUNT> [TO=CZK]" >&2
+    echo "Example: currency-converter EUR 70" >&2
+    exit 1
+fi
+
+from=$(tr '[:lower:]' '[:upper:]' <<<"$1")
+amount="$2"
+to=$(tr '[:lower:]' '[:upper:]' <<<"${3:-CZK}")
+
+response=$(curl -sL --fail "https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}")
+
+result=$(jq -r --arg to "$to" '.rates[$to]' <<<"$response")
+
+if [[ -z "$result" || "$result" == "null" ]]; then
+    echo "Error: could not convert. Response: $response" >&2
+    exit 1
+fi
+
+echo "${amount} ${from} = ${result} ${to}"
