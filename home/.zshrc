@@ -372,6 +372,9 @@ alias eg='exa -la --git'
 # xcp
 alias cp=xcp
 
+# currency-converter
+alias c=currency-converter
+
 # dnf
 alias di='sudo dnf install -y'
 
@@ -531,7 +534,7 @@ alias prospero-extras='java -jar /home/mstefank/GIT/xstefank/prospero-extras/tar
 # QR codes
 alias create-qr='jbang qrcode@xam.dk'
 qr() {
-  jbang qrcode@xam.dk "$1" -i "/home/mstefank/GIT/xstefank/backups/profile/profile-50.jpg" -o "./qr-$(date '+%Y-%m-%d-%H:%M:%S-%3N').png"
+  jbang qrcode@xam.dk "$1" -i "/home/mstefank/git/xstefank/backups/profile/profile-50.jpg" -o "./qr-$(date '+%Y-%m-%d-%H:%M:%S-%3N').png"
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
