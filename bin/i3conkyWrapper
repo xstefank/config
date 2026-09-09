@@ -1,14 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-readonly param=$1
+case "$1" in
+  ram)    output=$(conky -c "$HOME/.conky/conky-ram"    2>/dev/null) ;;
+  uptime) output=$(conky -c "$HOME/.conky/conky-uptime" 2>/dev/null) ;;
+  *)      exit 1 ;;
+esac
 
-if [[ "$param" == "ram" ]]; then
-  output=$(conky -c $HOME/.conky/conky-ram)
-fi 
-
-if [[ "$param" == "uptime" ]]; then
-  output=$(conky -c $HOME/.conky/conky-uptime)
-fi
-
-echo $output
-
+printf '%s\n' "$output"

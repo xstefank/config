@@ -1,19 +1,21 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-BT_INFO=$(echo "info" | bluetoothctl)
+info=$(timeout 2 bluetoothctl info 2>&1)
 
-if [[ "$BT_INFO" == *"No default controller"* ]]; then
-  echo "OFF"
-  exit 0
+case "$info" in
+  *"No default controller"*)                 echo "OFF"; exit 0 ;;
+  ""|*"DeviceSet (null)"*|*"not available"*) echo "N/A"; exit 0 ;;
+esac
+
+name=$(printf '%s\n' "$info" | awk -F': ' '/^[[:space:]]*Name: /{print $2; exit}' \
+       | LC_ALL=C tr -d '\000-\037\177')
+batt=$(printf '%s\n' "$info" | awk -F'[()]' '/Battery Percentage:/{print $2; exit}' \
+       | LC_ALL=C tr -d '\000-\037\177')
+
+[ -n "$name" ] || { echo "N/A"; exit 0; }
+
+if [ -n "$batt" ]; then
+  printf '%s (%s)\n' "$name" "$batt"
+else
+  printf '%s\n' "$name"
 fi
-
-if [[ "$BT_INFO" == *"DeviceSet (null)"* ]]; then
-  echo "N/A"
-  exit 0
-fi
- 
-readonly NAME=$(echo "$BT_INFO" | grep "Name:" | sed -e "s/^.*Name: //")
-readonly BATTERY=$(echo "$BT_INFO" | grep "Battery Percentage:" | sed 's/.*(\(.*\))/\1/')
-
-echo "$NAME ($BATTERY)"
-
