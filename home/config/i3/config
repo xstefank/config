@@ -210,6 +210,8 @@ bindsym $mod+Shift+b exec bluetoothctl connect AC:80:0A:6B:BB:A7
 # VPN
 bindsym $mod+Shift+v exec nmcli -f GENERAL.STATE con show Brno\ \(BRQ2\) | grep activated && nmcli connection down Brno\ \(BRQ2\) || nmcli connection up Brno\ \(BRQ2\)
 
+bindsym $mod+Mod1+Shift+v exec nmcli -f General.STATE con show IBM\ VPN | grep activated && nmcli connection down IBM\ VPN || nmcli connection up IBM\ VPN
+
 # create new workspace
 bindsym $mod+n exec i3nextEmptyWorkspace
 bindsym $mod+Shift+n exec i3newWorkspace
