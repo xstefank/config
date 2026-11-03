@@ -225,7 +225,7 @@ bindsym $mod+Shift+d exec --no-startup-id dunstctl set-paused toggle
 bindsym ctrl+comma exec --no-startup-id dunstctl close
 bindsym ctrl+shift+comma exec --no-startup-id dunstctl close-all
 bindsym ctrl+period exec --no-startup-id dunstctl history-pop
-bindsym ctrl+shift+period exec --no-startup-id dunstctl action
+bindsym $mod+period exec --no-startup-id dunstctl action
 
 # grammar corrections
 bindsym $mod+Mod1+u exec --no-startup-id ocz-for-bash
@@ -367,6 +367,9 @@ exec_always --no-startup-id /home/mstefank/bin/watch_downloaded_ics.sh
 
 # watch priority wifis
 exec_always --no-startup-id /home/mstefank/bin/wifi-priority-switch.sh
+
+# Screen lock
+exec --no-startup-id xscreensaver --no-splash
 
 # colors
 # class                 border  backgr. text    indicator child_border
