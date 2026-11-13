@@ -260,6 +260,7 @@ alias -g Gi='| grep -i'
 
 # clipcopy
 alias -g C='| tee /dev/tty | clipcopy'
+alias cc=clipcopy
 
 # quarkus
 qa() {
